@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="64aa6e46-520b-4922-a450-e65706abb0af" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../BMI_CALCULATOR/BMI_CALCULATOR.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BMI_javafx/.idea/BMI_javafx.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ElectionAPP/ElectionAPP.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ElectionAPP/src/packagefiles/Candidate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Element 1 - Programming_JavaFX/.idea/Element 1 - Programming_JavaFX.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ProgramStore/ProgramStore.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Programming - Practical Activity 1/AmericanFlag_JavFX.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Programming - Practical Activity 1/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Programming - Practical Activity 1/out/production/AmericanFlag_JavFX/.idea/src.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Programming - Practical Activity 1/out/production/AmericanFlag_JavFX/Programming - Practical Activity 1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Programming - Practical Activity 1/out/production/Programming - Practical Activity 1/.idea/src.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Programming - Practical Activity 1/out/production/Programming - Practical Activity 1/Programming - Practical Activity 1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Programming - Practical Activity 1/src/.idea/src.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Programming - Practical Activity 1/src/Programming - Practical Activity 1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TFV/TFV.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TFV/src/Two_sum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TestNomralJava/TestNomralJava.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TestNomralJava/src/yo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fsf/fsf.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ggdg/ggdg.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ggdg/src/gdfg.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javafx-sdk-11.0.2/lib/.idea/lib.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../other/Element 1 - Programming_FX/.idea/Element 1 - Programming_FX.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test111/test111.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../testgradle/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programming - Practical Activity 1/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programming - Practical Activity 1/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programming - Practical Activity 1/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programming - Practical Activity 1/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programming - Practical Activity 1/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programming - Practical Activity 1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programming - Practical Activity 1/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programming - Practical Activity 1/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programming - Practical Activity 1/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programming - Practical Activity 1/Programming - Practical Activity 1.iml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.1.2\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1llaybKKIU1tc74NlgQAI9OjjZY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="64aa6e46-520b-4922-a450-e65706abb0af" name="Default Changelist" comment="" />
+      <created>1608174418668</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608174418668</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1031" y="134" key="new project wizard" timestamp="1608174925098">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1031" y="134" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1608174925098" />
+    <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1608175002308">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608175002308" />
+  </component>
+</project>
