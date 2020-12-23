@@ -1,10 +1,10 @@
 plugins {
     id 'java'
     id 'application'
-    id org.openjfx.javafxplugin version()
+    id 'org.openjfx.javafxplugin' version '0.0.9'
 }
 
-group 'org.example'
+group 'org.uwl.cs'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -13,14 +13,12 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-}
-javafx {
-    version = "15.0.1"
-    modules = [ 'javafx.controls' ]
-}
-javafx {
-    version = "11.0.2"
-    modules = [ 'javafx.controls' ]
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.22'
 }
 
-mainClassName = 'org.example.Main'
+javafx {
+    modules = [ 'javafx.controls', 'javafx.fxml']
+    version = "11.0.2"
+}
+
+mainClassName = 'org.uwl.cs.Main'
