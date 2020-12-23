@@ -1,0 +1,191 @@
+/*
+CSS document
+JavaFX CSS has distinct difference with regular CSS. Scene Builder styles take precedence.
+*/
+
+/* button hover animation */
+.button:hover {
+	-fx-scale-x: 1.1;
+	-fx-scale-y: 1.1;
+	-fx-scale-z: 1.1;
+}
+/* removes background from textfield */
+.text-field {
+	-fx-border-color: #6F4242;
+	-fx-border-width: 0 0 1 0;
+	-fx-background-color: transparent;
+}
+/* styles for brown buttons */
+.brown-settings {
+	-fx-color-one: #6F4242;
+	-fx-background-color: -fx-color-one;
+	-fx-background-radius: 8, 7, 6;
+	-fx-background-insets: 0, 1, 2;
+	-fx-text-fill: white;
+	-fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+.brown-settings:hover {
+	-fx-color-one: #6f5542;
+	-fx-color-two: #981100;
+	-fx-color-three: #981100;
+}
+.brown-settings:armed {
+	-fx-color-one: #6f6242;
+	-fx-color-two: #235891;
+	-fx-color-three: #235891;
+}
+/* end of styles for brown buttons */
+
+/* styles for google button */
+.google-settings {
+	-fx-color-one: white;
+	-fx-background-color: -fx-color-one;
+	-fx-background-radius: 8, 7, 6;
+	-fx-background-insets: 0, 1, 2;
+	-fx-text-fill: black;
+	-fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+.google-settings:hover {
+	-fx-color-one: #e6e9fe;
+	-fx-color-two: #981100;
+	-fx-color-three: #981100;
+}
+.google-settings:armed {
+	-fx-color-one: #4285F4;
+	-fx-color-two: #235891;
+	-fx-color-three: #235891;
+}
+/* end of seetings for google button */
+
+/* styles for facebook button */
+.facebook-settings {
+	-fx-color-one: #3b5998;
+	-fx-background-color: -fx-color-one;
+	-fx-background-radius: 8, 7, 6;
+	-fx-background-insets: 0, 1, 2;
+	-fx-text-fill: white;
+	-fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+.facebook-settings:hover {
+	-fx-color-one: #5070b5;
+	-fx-color-two: #981100;
+	-fx-color-three: #981100;
+}
+.facebook-settings:armed {
+	-fx-color-one: #235891;
+	-fx-color-two: #235891;
+	-fx-color-three: #235891;
+}
+/* end of styles for facebook button */
+
+/* title-pane(basket) main menu page styles */
+.titled-pane>.title {
+	-fx-color-one: #6F4242;
+	-fx-background-color: -fx-color-one;
+	-fx-background-radius: 8, 7, 6;
+	-fx-background-insets: 0, 1, 2;
+	-fx-text-fill: white;
+	-fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+.titled-pane>.title:hover {
+	-fx-color-one: #6f5542;
+	-fx-color-two: #981100;
+	-fx-color-three: #981100;
+}
+.titled-pane>.title:armed {
+	-fx-color-one: #6f6242;
+	-fx-color-two: #235891;
+	-fx-color-three: #235891;
+}
+.titled-pane .title>.arrow-button {
+	visibility: hidden;
+}
+.menu-whitebackground {
+	-fx-stroke: #6F4242;
+	-fx-stroke-width: 0.3;
+	-fx-stroke-dash-array: 1 2 4 2;
+	-fx-stroke-dash-offset: 6;
+}
+/* style for choice box in the checkout screen */
+.choice-box-base {
+	-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+	-fx-background-insets: 0 0 -1 0, 0, 1, 2;
+	-fx-background-radius: 3px, 3px, 2px, 1px;
+	-fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em;
+	-fx-text-fill: -fx-text-base-color;
+	-fx-alignment: CENTER;
+	-fx-content-display: LEFT;
+}
+.choice-box-base>.list-cell {
+	-fx-alignment: center;
+}
+/* Background color of the whole context menu */
+.choice-box .context-menu {
+	-fx-background-color: #6F4242;
+}
+/* Focused item background color in the list */
+.choice-box .menu-item:focused {
+	-fx-background-color: #6f6242;
+}
+/* Text color of non-focused items in the list */
+.choice-box .menu-item>.label {
+	-fx-text-fill: white;
+}
+/* Text color of focused item in the list */
+.choice-box .menu-item:focused>.label {
+	-fx-text-fill: white;
+}
+.choice-box {
+	-fx-background-color: #6F4242;
+	-fx-mark-color: white; // arrow color
+}
+/* Selected item text color on the control itself */
+.choice-box>.label {
+	-fx-text-fill: white;
+}
+.check-box .box {
+	-fx-background-color: white;
+	-fx-border-color: #6F4242;
+	;
+	-fx-border-radius: 3px;
+}
+/* checkbox in checkout page */
+.check-box:selected .mark {
+	-fx-background-color: white;
+}
+.check-box:selected .box {
+	-fx-background-color: #6F4242;
+}
+
+/* reserved style for mainmenu title pane (basket)
+   to be removed in the future
+.titled-pane > .title {
+    -fx-body-color: #6F4242;
+    }
+.titled-pane > .title:armed:hover {
+    -fx-body-color: #CCCCCC;
+}
+
+.titled-pane > .title:hover {
+    -fx-body-color: #DDDDDD;
+}
+
+.brown-settings {
+	-fx-color-one: #6F4242;
+	-fx-background-color: -fx-color-one;
+	-fx-background-radius: 8, 7, 6;
+	-fx-background-insets: 0, 1, 2;
+	-fx-text-fill: white;
+	-fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+.brown-settings:hover {
+	-fx-color-one: #6f5542;
+	-fx-color-two: #981100;
+	-fx-color-three: #981100;
+}
+.brown-settings:armed {
+	-fx-color-one: #6f6242;
+	-fx-color-two: #235891;
+	-fx-color-three: #235891;
+}
+*/

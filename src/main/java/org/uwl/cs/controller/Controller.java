@@ -15,7 +15,7 @@ public  class Controller {
     public void press(ActionEvent event) throws Exception {
         label.setText(textfield.getText());
         ConnectionClass connectionClass = new ConnectionClass();
-        Connection connection = connectionClass.initializeDB();
+        Connection connection = connectionClass.connectDB();
         // the textfield will convert into sql
         String sql = "INSERT INTO USER VALUES('" + textfield.getText() + "')";
         Statement statement = connection.createStatement();

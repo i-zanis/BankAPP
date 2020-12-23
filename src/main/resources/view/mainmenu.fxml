@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PackageFiles.LogInPageController">
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f5f5dc;" BorderPane.alignment="CENTER">
+         <Rectangle arcHeight="5.0" arcWidth="5.0" height="600.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="335.0">
+            <fill>
+               <LinearGradient cycleMethod="REFLECT" endX="0.09999999999999998" endY="0.22857142857142856" startX="0.12857142857142856" startY="0.8476190476190476">
+                  <stops>
+                     <Stop color="#71a3a9" />
+                     <Stop color="#1e4531" offset="1.0" />
+                  </stops>
+               </LinearGradient>
+            </fill>
+         </Rectangle>
+         <Label fx:id="errorLabelLogIn" layoutX="48.0" layoutY="222.0" textFill="RED" />
+         <Button fx:id="signInButton" defaultButton="true" layoutX="32.0" layoutY="423.0" mnemonicParsing="false" onAction="#signSuccessful" prefHeight="32.0" prefWidth="253.0" style="-fx-background-color: #71a3a9; -fx-border-color: white;" styleClass="brown-settings" text="Sign in" textFill="WHITE">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Button>
+         <TextField id="transparentTextfield" fx:id="emailField" layoutX="32.0" layoutY="337.0" prefHeight="25.0" prefWidth="253.0" promptText="E-mail address" />
+         <PasswordField id="transparentTextfield" fx:id="passwordField" layoutX="32.0" layoutY="373.0" prefHeight="25.0" prefWidth="253.0" promptText="Password" />
+         <Button fx:id="registrationButton" layoutX="32.0" layoutY="472.0" mnemonicParsing="false" onAction="#loadRegistration" prefHeight="32.0" prefWidth="253.0" style="-fx-background-color: #71a3a9; -fx-border-color: white;" styleClass="brown-settings" text="Not a member?" textFill="WHITE">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Button>
+         <Circle fill="#71a3a9" layoutX="168.0" layoutY="174.0" radius="74.0" stroke="WHITE" strokeType="INSIDE" />
+         <Label layoutX="115.0" layoutY="142.0" text="Available Balance" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label layoutX="129.0" layoutY="162.0" text="119,255,56" textFill="WHITE">
+            <font>
+               <Font size="16.0" />
+            </font>
+         </Label>
+         <Circle fill="DODGERBLUE" layoutX="32.0" layoutY="31.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+         <Circle fill="#455b6e00" layoutX="48.0" layoutY="553.0" radius="29.0" stroke="WHITE" strokeType="INSIDE" />
+         <Label layoutX="28.0" layoutY="544.0" text="Transfer" textFill="WHITE" />
+         <Circle fill="#455b6e00" layoutX="285.0" layoutY="552.0" radius="29.0" stroke="WHITE" strokeType="INSIDE" />
+         <Label layoutX="272.0" layoutY="545.0" text="Loan" textFill="WHITE" />
+         <Circle fill="#455b6e00" layoutX="225.0" layoutY="552.0" radius="29.0" stroke="WHITE" strokeType="INSIDE" />
+         <Label layoutX="204.0" layoutY="544.0" text="Transfer" textFill="WHITE" />
+         <Circle fill="#455b6e00" layoutX="167.0" layoutY="552.0" radius="29.0" stroke="WHITE" strokeType="INSIDE" />
+         <Label layoutX="141.0" layoutY="544.0" text="Withdraw" textFill="WHITE" />
+         <Circle fill="#455b6e00" layoutX="106.0" layoutY="553.0" radius="29.0" stroke="WHITE" strokeType="INSIDE" />
+         <Label layoutX="85.0" layoutY="544.0" text="Top-up" textFill="WHITE" />
+         <Circle fill="DODGERBLUE" layoutX="310.0" layoutY="31.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+      </Pane>
+   </center>
+</BorderPane>
