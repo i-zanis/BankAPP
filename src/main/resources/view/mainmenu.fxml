@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PackageFiles.LogInPageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f5f5dc;" BorderPane.alignment="CENTER">
          <Rectangle arcHeight="5.0" arcWidth="5.0" height="600.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="335.0">
@@ -26,14 +26,14 @@
             </fill>
          </Rectangle>
          <Label fx:id="errorLabelLogIn" layoutX="48.0" layoutY="222.0" textFill="RED" />
-         <Button fx:id="signInButton" defaultButton="true" layoutX="32.0" layoutY="423.0" mnemonicParsing="false" onAction="#signSuccessful" prefHeight="32.0" prefWidth="253.0" style="-fx-background-color: #71a3a9; -fx-border-color: white;" styleClass="brown-settings" text="Sign in" textFill="WHITE">
+         <Button fx:id="signInButton" defaultButton="true" layoutX="32.0" layoutY="423.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="253.0" style="-fx-background-color: #71a3a9; -fx-border-color: white;" styleClass="brown-settings" text="Sign in" textFill="WHITE">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
          <TextField id="transparentTextfield" fx:id="emailField" layoutX="32.0" layoutY="337.0" prefHeight="25.0" prefWidth="253.0" promptText="E-mail address" />
          <PasswordField id="transparentTextfield" fx:id="passwordField" layoutX="32.0" layoutY="373.0" prefHeight="25.0" prefWidth="253.0" promptText="Password" />
-         <Button fx:id="registrationButton" layoutX="32.0" layoutY="472.0" mnemonicParsing="false" onAction="#loadRegistration" prefHeight="32.0" prefWidth="253.0" style="-fx-background-color: #71a3a9; -fx-border-color: white;" styleClass="brown-settings" text="Not a member?" textFill="WHITE">
+         <Button layoutX="32.0" layoutY="472.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="253.0" style="-fx-background-color: #71a3a9; -fx-border-color: white;" styleClass="brown-settings" text="Not a member?" textFill="WHITE">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>

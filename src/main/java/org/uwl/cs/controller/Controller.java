@@ -3,7 +3,7 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import org.uwl.cs.ConnectionClass;
+import org.uwl.cs.DBConnection;
 
 import java.sql.*;
 
@@ -11,7 +11,7 @@ public  class Controller {
     public TextField textfield;
     public Label label;
 
-
+/**
     public void press(ActionEvent event) throws Exception {
         label.setText(textfield.getText());
         ConnectionClass connectionClass = new ConnectionClass();
@@ -29,5 +29,6 @@ public  class Controller {
             label.setText(resultSet.getString(1));
         }
     }
+ */
 }
 

@@ -6,8 +6,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import static org.uwl.cs.FilePaths.LOGIN;
+import java.io.File;
+import java.net.URL;
+import java.util.Objects;
 
+import static org.uwl.cs.FilePaths.MAINMENU;
+
+/** This has been a very long endeavour. The greatest programming task I have ever taken to this day. Last year I swore
+ * that next year(this) I would do the same exercise with a database. Unfortunately I was not very competent with mySQL
+ * therefore I had to open up Introduction to Java and Algorithms by Daniel Liang to brush up and touch their premium
+ * online chapters. On top of this I decided to use a new technology "Gradle" for Dependency control and find naming
+ * conventions and hierarchy for folders(eg. module names, MVC format).
+ */
 public class Main extends Application {
 
     public static void main(String[] args) {
@@ -16,8 +26,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         // sets the initial FXML file to be loaded
-        Parent root = FXMLLoader.load(getClass().getResource(LOGIN));
-        // Create a scene and set the initial(root) FXML
+        Parent root = FXMLLoader.load(getClass().getResource(MAINMENU));
         Scene logInScene = new Scene(root);
         // Clear any previous CSS to avoid inconsistencies
         logInScene.getStylesheets().clear();

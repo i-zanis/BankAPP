@@ -1,12 +1,13 @@
 package org.uwl.cs.controller;
 
-import org.uwl.cs.ConnectionClass;
+import org.uwl.cs.DBConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class RegistrationController {
+    /**
     public void addAccount (){
         Connection connection = ConnectionClass.connectDB();
         ResultSet rs = null;
@@ -24,10 +25,12 @@ public class RegistrationController {
             JOptionPane.showMessageDialog(null, "Users Add succes");
             UpdateTable();
             search_user();
-            */
+
+
 
         } catch (Exception e) {
             // Dialog.show(null, e);
 
         }
+     */
 }

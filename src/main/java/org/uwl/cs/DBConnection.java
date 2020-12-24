@@ -1,12 +1,17 @@
 package org.uwl.cs;
 
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Dialog;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import static org.uwl.cs.AccountType.*;
 
 /**
  * This class helps the user connect to the database.
@@ -25,6 +30,8 @@ public class DBConnection {
         System.out.println("Connection to the Database successful.");
         try {
             connection = DriverManager.getConnection(url, user, password);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Dialog<String> dialog = new Dialog<>();
         } catch (SQLException e) {
             connection = null;
             System.out.println("Connection to the Database unsuccessful.");
@@ -51,4 +58,26 @@ public class DBConnection {
         Connection connection = connect();
         try {
             connection.setAutoCommit(false);
-         
+            //Add User
+            try (PreparedStatement addUser = connection.prepareStatement("INSERT INTO Users(FirstName, LastName, Email, Telephone, Password) VALUES(?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS)) {
+                addUser.setString(1, firstName);
+                addUser.setString(2, lastName);
+                addUser.setString(3, email);
+                addUser.setString(4, telephone);
+                addUser.setString(5, password);
+                addUser.executeUpdate();
+                ResultSet addUserResults = addUser.getGeneratedKeys();
+                if (addUserResults.next()) {
+                    userId = addUserResults.getInt(1);
+                }
+            }
+            // make new account
+            try (PreparedStatement addAccount = connection.prepareStatement("INSERT INTO Accounts(Type, Balance) VALUES(?,?)", Statement.RETURN_GENERATED_KEYS)) {
+                addAccount.setString(1, "Current");
+                addAccount.setDouble(2, 250.0);
+                addAccount.executeUpdate();
+                ResultSet addAccountResults = addAccount.getGeneratedKeys();
+                if (addAccountResults.next()) {
+                    accountId = addAccountResults.getInt(1);
+                }
+            }
