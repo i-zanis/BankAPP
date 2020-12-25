@@ -1,26 +1,93 @@
 package org.uwl.cs;
 
-import java.io.Serializable;
+public class Customer {
+    private String username;
+    private String password;
+    private String email;
+    private String fname;
+    private String mname;
+    private String lname;
+    private String phoneno;
+    private String dob;
+    private String gender;
+    private Float balance;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Carl
- */
-public class Customer implements Serializable{
-    private final String firstName;
-    private final String lastName;
-    private final String ssn;
-    private final Account account;
-
-    Customer(String firstName, String lastName, String ssn, Account account) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.ssn = ssn;
-        this.account = account;
+    //constructor
+    public Customer(String username,String password,String email) {
+        this.username=username;
+        this.password=password;
+        this.email=email;
     }
+
+    public Customer(String username,String fname,String mname,String lname,String phoneno,String email,String dob,String gender,Float balance) {
+        this.username=username;
+        this.fname=fname;
+        this.mname=mname;
+        this.lname=lname;
+        this.phoneno=phoneno;
+        this.email=email;
+        this.email=email;
+        this.dob=dob;
+        this.gender=gender;
+        this.balance=balance;
+    }
+    public Customer(String username, String password, String email, String fname, String mname, String lname,
+                    String phoneno, String dob, String gender) {
+        this(username,password,email);
+        this.fname = fname;
+        this.mname = mname;
+        this.lname = lname;
+        this.phoneno = phoneno;
+        this.dob = dob;
+        this.gender = gender;
+        this.balance=0f;
+    }
+
+    //getters
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getFname() {
+        return fname;
+    }
+
+    public String getMname() {
+        return mname;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public String getPhoneno() {
+        return phoneno;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public Float getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Float balance) {
+        this.balance=balance;
+    }
+
+
+
+}

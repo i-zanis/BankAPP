@@ -1,11 +1,5 @@
 package org.uwl.cs.controller;
 
-import org.uwl.cs.DBConnection;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
 public class RegistrationController {
     /**
     public void addAccount (){

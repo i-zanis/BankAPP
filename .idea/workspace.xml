@@ -23,9 +23,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76f6dc9c-09d8-4577-8976-110c5b38687f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/AccountType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/LoginPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/OptionMenu.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/OptionMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Savings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/SignIn.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/SignUpForm.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/SignUpForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Start screen.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/StartScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Success.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Test.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.bin" afterDir="false" />
@@ -35,17 +43,22 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/ConnectionClass.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/FilePaths.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/FilePaths.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sample/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/DBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/FilePaths.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/FilePaths.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/Account.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/AccountType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/DBConnection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/controller/RegistrationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/view/mainmenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/view/mainmenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Account.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/AccountType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/model/DBConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/controller/Controller.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/controller/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/mainmenu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/mainmenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/mainmenu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,29 +78,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="BankAPP" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="BankAPP" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="BankAPP" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="application" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="BankAPP" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -114,37 +105,40 @@
     </option>
   </component>
   <component name="ProjectId" id="1m2AEXVWj0XlIkW4Gzu589cvYZh" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../JavaFX-MySQL-Login" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Bank-Management-System" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="inlay.hints.JAVA" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources\css" />
-      <recent name="C:\Users\JEITI\BankAPP" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\java\org\uwl\cs" />
+      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources\view" />
+      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\java" />
+      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main" />
+      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.uwl.cs" />
       <recent name="org.uwl.cs.model" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources\view" />
-      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\java\org\uwl\cs" />
-      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\java" />
-      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main" />
-      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources\css" />
+      <recent name="C:\Users\JEITI\BankAPP" />
     </key>
   </component>
   <component name="RunManager" selected="Gradle.BankAPP [run]">
-    <configuration name="BankAPP [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BankAPP [check]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -155,7 +149,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="buildDependents" />
+            <option value="check" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -163,7 +157,7 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="BankAPP [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BankAPP [classes]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -174,7 +168,26 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="build" />
+            <option value="classes" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="BankAPP [javadoc]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="javadoc" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -187,7 +200,7 @@
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="--stacktrace" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -201,11 +214,32 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="BankAPP [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.BankAPP [run]" />
-        <item itemvalue="Gradle.BankAPP [build]" />
-        <item itemvalue="Gradle.BankAPP [buildDependents]" />
+        <item itemvalue="Gradle.BankAPP [test]" />
+        <item itemvalue="Gradle.BankAPP [check]" />
+        <item itemvalue="Gradle.BankAPP [classes]" />
+        <item itemvalue="Gradle.BankAPP [javadoc]" />
       </list>
     </recent_temporary>
   </component>
@@ -245,26 +279,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="703" y="219" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608782379433" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1608693539221">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1608846441095">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608693539221" />
-    <state width="1793" height="266" key="GridCell.Tab.0.bottom" timestamp="1608783775543">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608846441095" />
+    <state width="1877" height="340" key="GridCell.Tab.0.bottom" timestamp="1608800376976">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1793" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608783775543" />
-    <state width="1793" height="266" key="GridCell.Tab.0.center" timestamp="1608783775543">
+    <state width="1877" height="340" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608800376976" />
+    <state width="1877" height="340" key="GridCell.Tab.0.center" timestamp="1608800376976">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1793" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608783775543" />
-    <state width="1793" height="266" key="GridCell.Tab.0.left" timestamp="1608783775543">
+    <state width="1877" height="340" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608800376976" />
+    <state width="1877" height="340" key="GridCell.Tab.0.left" timestamp="1608800376976">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1793" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608783775543" />
-    <state width="1793" height="266" key="GridCell.Tab.0.right" timestamp="1608783775543">
+    <state width="1877" height="340" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608800376976" />
+    <state width="1877" height="340" key="GridCell.Tab.0.right" timestamp="1608800376976">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1793" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608783775543" />
+    <state width="1877" height="340" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608800376976" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1608829353314">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1608829353314" />
     <state x="736" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608783783984">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

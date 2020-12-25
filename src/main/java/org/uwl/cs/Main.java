@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Objects;
 
 import static org.uwl.cs.FilePaths.MAINMENU;
@@ -42,6 +44,9 @@ public class Main extends Application {
         primaryStage.show();
         // makes the window not resizable
         primaryStage.setResizable(false);
+
+
     }
+
 }
 
