@@ -8,8 +8,12 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 
-public class Database {
 
+/**
+ * Database class with methods to manipulate the information. There are some methods as deleteUser()/dropTable() for
+ * testing and future implementations.
+ */
+public class Database {
 
     public static Connection connect() throws Exception {
         String url = "jdbc:mysql://sql2.freemysqlhosting.net:3306/sql2383785";
@@ -72,6 +76,31 @@ public class Database {
         return result;
     }
 
+
+    public static Customer getCustomer(int id) {
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM account WHERE id=" + id + ";");
+            resultSet.next();
+            Customer customer = new Customer(
+                    Integer.toString(resultSet.getInt("id")),
+                    Integer.toString(resultSet.getInt("id")),
+                    resultSet.getString("last_name"),
+                    resultSet.getString("email"),
+                    resultSet.getString("password"),
+                    Double.parseDouble(String.valueOf(resultSet.getFloat("balance"))),
+                    resultSet.getString("phone"));
+            con.close();
+            statement.close();
+            return customer;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /*
     public static String[] get(int id) {
         try {
             Connection con = connect();
@@ -95,6 +124,7 @@ public class Database {
         }
         return null;
     }
+     */
 
     public static boolean updateBalance(int id, float balance) {
         try {
@@ -218,4 +248,109 @@ public class Database {
         }
     }
 
- 
+    public static void dropTable() {
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            statement.executeUpdate("DROP TABLE account;");
+            con.commit();
+            con.close();
+            statement.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteUser(int id) {
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            statement.executeUpdate("DELETE FROM account WHERE id=" + id + ";");
+            con.commit();
+            con.close();
+            statement.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteUser(String email) {
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            statement.executeUpdate("DELETE FROM account WHERE email='" + email + "';");
+            con.commit();
+            con.close();
+            statement.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void makeQuery(String query) {
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            statement.executeUpdate(query);
+            con.commit();
+            con.close();
+            statement.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+    }
+
+    public static boolean login(String email, String pwd) {
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            if (checkPassword(email, pwd)) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return false;
+    }
+
+
+    public static int existsID(String email, String pwd) {
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            String query = "SELECT * FROM account WHERE email='" + email + "' AND password='" + pwd + "';";
+            ResultSet resultSet = statement.executeQuery(query);
+
+            if (resultSet.next()) {
+                return resultSet.getInt("id");
+            }
+
+            return -1;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        //create("test","test", "test@test.com", "testing", "12312132");
+        //System.out.println(login("aaaaaaaasd", "asd"));
+                for (String[] obj : all()) {
+                    System.out.println("###################");
+                    for (String data : obj) {
+                System.out.println(data);
+            }
+        }
+        //makeQuery("ALTER TABLE account AUTO_INCREMENT=12368974");
+    }
+
+}

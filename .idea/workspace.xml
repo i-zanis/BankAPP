@@ -23,33 +23,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76f6dc9c-09d8-4577-8976-110c5b38687f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Transactions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Tests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_22.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/Customer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/Database.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/FilePaths.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/Transactions.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/controller/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/view/mainmenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/view/mainmenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/FilePaths.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/FilePaths.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/FilePaths.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Transactions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Transaction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/controller/RegistrationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/mainmenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/mainmenu.fxml" afterDir="false" />
     </list>
@@ -136,20 +133,20 @@
     <property name="settings.editor.selected.configurable" value="inlay.hints.JAVA" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources\css" />
+      <recent name="C:\Users\JEITI\BankAPP" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.uwl.cs" />
+      <recent name="org.uwl.cs.model" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\java\org\uwl\cs" />
       <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources\view" />
       <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\java" />
       <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main" />
       <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="org.uwl.cs" />
-      <recent name="org.uwl.cs.model" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources\css" />
-      <recent name="C:\Users\JEITI\BankAPP" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -239,11 +236,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.Tests" />
         <item itemvalue="Gradle.Tests.testLogin" />
         <item itemvalue="Gradle.BankAPP [run]" />
         <item itemvalue="Application.Database" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -279,46 +276,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="599" y="200" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608687497346" />
+    <state x="765" y="204" key="#com.intellij.ide.util.MemberChooser" timestamp="1609032710987">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="204" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1609032710987" />
     <state x="703" y="219" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1608782379433">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="703" y="219" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608782379433" />
+    <state x="743" y="389" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1609031530480">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="743" y="389" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1609031530480" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1608958878817">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608958878817" />
-    <state width="1877" height="75" key="GridCell.Tab.0.bottom" timestamp="1609026037740">
+    <state width="1877" height="116" key="GridCell.Tab.0.bottom" timestamp="1609056759833">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="75" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609026037740" />
-    <state width="1877" height="75" key="GridCell.Tab.0.center" timestamp="1609026037740">
+    <state width="1877" height="116" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609056759833" />
+    <state width="1877" height="116" key="GridCell.Tab.0.center" timestamp="1609056759833">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="75" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609026037740" />
-    <state width="1877" height="75" key="GridCell.Tab.0.left" timestamp="1609026037740">
+    <state width="1877" height="116" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609056759833" />
+    <state width="1877" height="116" key="GridCell.Tab.0.left" timestamp="1609056759833">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="75" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609026037740" />
-    <state width="1877" height="75" key="GridCell.Tab.0.right" timestamp="1609026037740">
+    <state width="1877" height="116" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609056759833" />
+    <state width="1877" height="116" key="GridCell.Tab.0.right" timestamp="1609056759833">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="75" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609026037740" />
-    <state width="1877" height="347" key="GridCell.Tab.1.bottom" timestamp="1609024191919">
+    <state width="1877" height="116" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609056759833" />
+    <state width="1877" height="346" key="GridCell.Tab.1.bottom" timestamp="1609056577797">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609024191919" />
-    <state width="1877" height="347" key="GridCell.Tab.1.center" timestamp="1609024191919">
+    <state width="1877" height="346" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609056577797" />
+    <state width="1877" height="346" key="GridCell.Tab.1.center" timestamp="1609056577797">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609024191919" />
-    <state width="1877" height="347" key="GridCell.Tab.1.left" timestamp="1609024191919">
+    <state width="1877" height="346" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609056577797" />
+    <state width="1877" height="346" key="GridCell.Tab.1.left" timestamp="1609056577797">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609024191919" />
-    <state width="1877" height="347" key="GridCell.Tab.1.right" timestamp="1609024191919">
+    <state width="1877" height="346" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609056577797" />
+    <state width="1877" height="346" key="GridCell.Tab.1.right" timestamp="1609056577797">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609024191919" />
+    <state width="1877" height="346" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609056577797" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1609016973620">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -335,9 +340,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="136" y="242" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608885164158" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1609017323522">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1609039909473">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1609017323522" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1609039909473" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/BankAPP$Main.ic" NAME="Main Coverage Results" MODIFIED="1609036506275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.uwl.cs.*</FILTER>
+    </SUITE>
   </component>
 </project>

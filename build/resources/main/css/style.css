@@ -16,19 +16,10 @@ fx-font-weight: bold;
 }
 /* removes background from textfield */
 .text-field {
-	-fx-border-color: #6F4242;
-	-fx-border-width: 0 0 1 0;
+	-fx-border-color: #2b5c50;
+	-fx-border-width: 2 2 2 2.2;
 	-fx-background-color: transparent;
 }
-
-
-
-
-
-
-
-
-
 
 .closebutton .button {
   -fx-background-color: white, white;
@@ -106,7 +97,7 @@ fx-font-weight: bold;
 	-fx-color-three: #981100;
 }
 .button:armed {
-	-fx-color-one: #6f6242;
+	-fx-color-one: #42bbaa;
 	-fx-color-two: #235891;
 	-fx-color-three: #235891;
 }
@@ -123,21 +114,15 @@ fx-font-weight: bold;
        -fx-padding: 0px;
 }
 
-.dialog-pane {
-	-fx-color-one: white;
-fx-font-weight: bold;
-	-fx-background-color: -fx-color-one;
-	-fx-background-radius: 8, 7, 6;
-	-fx-background-insets: 0, 1, 2;
--fx-effect: innershadow(gaussian, #42bbaa, 15, 0.1, 0, 0);
 
-}
-.dialog-pane .button:default{
+
+
+.button:default{
 	-fx-color-one: green;
-	-fx-background-radius: 75em;
-           -fx-min-width: 37px;
+	-fx-background-radius: 150em;
+           -fx-min-width: 70px;
           -fx-min-height: 37px;
-          -fx-max-width: 37px;
+          -fx-max-width: 70px;
           -fx-max-height: 37px;
 	-fx-background-color: -fx-color-one;
 	-fx-background-radius: 8, 7, 6;
@@ -147,9 +132,9 @@ fx-font-weight: bold;
 .dialog-pane .button:cancel{
 	-fx-color-one: red;
 fx-font-weight: bold;
-       -fx-min-width: 37px;
+       -fx-min-width: 40px;
           -fx-min-height: 37px;
-          -fx-max-width: 37px;
+          -fx-max-width: 40px;
           -fx-max-height: 37px;
 	-fx-background-color: -fx-color-one;
 	-fx-background-radius: 8, 7, 6;
@@ -157,8 +142,14 @@ fx-font-weight: bold;
 	-fx-text-transform: uppercase;
 }
 
-
-
+.dialog-pane {
+	-fx-color-one: white;
+fx-font-weight: bold;
+	-fx-background-color: -fx-color-one;
+	-fx-background-radius: 15, 15, 15;
+	-fx-background-insets: 0, 1, 2;
+-fx-effect: innershadow(gaussian, #42bbaa, 15, 0.1, 0, 0);
+}
 
 /* reserved style for mainmenu title pane (basket)
    to be removed in the future
