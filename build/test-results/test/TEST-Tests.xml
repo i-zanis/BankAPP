@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Tests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-26T23:14:53" hostname="DESKTOP-MTINQLQ" time="1.456">
+  <properties/>
+  <testcase name="LOGINtest" classname="Tests" time="1.456"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[java.sql.SQLException: Illegal operation on empty result set.
+]]></system-err>
+</testsuite>

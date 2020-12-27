@@ -1,6 +1,7 @@
 package org.uwl.cs.controller;
 
 public class RegistrationController {
+
     /**
     public void addAccount (){
         Connection connection = ConnectionClass.connectDB();

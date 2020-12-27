@@ -20,6 +20,7 @@ javafx {
     modules = [ 'javafx.controls', 'javafx.fxml']
     version = "11.0.2"
 }
+
 // helps to find the fxml file with Gradle
 sourceSets.main.resources {
     srcDirs = ["src/main/resources"];

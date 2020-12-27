@@ -4,6 +4,10 @@ JavaFX CSS has distinct difference with regular CSS. Scene Builder styles take p
 */
 
 
+.border-pane {
+fx-font-weight: bold;
+}
+
 /* button hover animation */
 .button:hover {
 	-fx-scale-x: 1.1;
@@ -20,7 +24,12 @@ JavaFX CSS has distinct difference with regular CSS. Scene Builder styles take p
 
 
 
-/*
+
+
+
+
+
+
 .closebutton .button {
   -fx-background-color: white, white;
   -fx-background-radius: 16.4, 15;
@@ -49,9 +58,9 @@ JavaFX CSS has distinct difference with regular CSS. Scene Builder styles take p
 }
 
 .closebutton:hover {
-  -fx-effect: innershadow(gaussian, green, 15, 0, 0, 0);
+  -fx-effect: innershadow(gaussian, #42bbaa, 15, 0.1, 0, 0);
 }
-*/
+
 .button {
  -fx-background-color: #2b5c50;
        -fx-background-radius: 120em;
@@ -62,9 +71,95 @@ JavaFX CSS has distinct difference with regular CSS. Scene Builder styles take p
     -fx-background-insets: 0px;
        -fx-padding: 0px;
 }
+
+
 .linear-grad- repeat1{
      -fx-background-color: linear-gradient(from 13px 38px to 52px 52px, reflect,  #d2691e, #ffa500 100%);
 }
+
+
+.button {
+ -fx-background-color: #2b5c50;
+       -fx-background-radius: 120em;
+       -fx-min-width: 75px;
+      -fx-min-height: 75px;
+      -fx-max-width: 75px;
+      -fx-max-height: 75px;
+    -fx-background-insets: 0px;
+       -fx-padding: 0px;
+}
+.button {
+	-fx-color-one: #2b5c50;
+	 -fx-background-radius: 120em;
+           -fx-min-width: 75px;
+          -fx-min-height: 75px;
+          -fx-max-width: 75px;
+          -fx-max-height: 75px;
+        -fx-background-insets: 0px;
+           -fx-padding: 0px;
+	-fx-background-color: -fx-color-one;
+	-fx-text-fill: white;
+	-fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+.button:hover {
+	-fx-color-two: #981100;
+	-fx-color-three: #981100;
+}
+.button:armed {
+	-fx-color-one: #6f6242;
+	-fx-color-two: #235891;
+	-fx-color-three: #235891;
+}
+
+
+.smallbutton {
+ -fx-background-color: #2b5c50;
+       -fx-background-radius: 45em;
+       -fx-min-width: 24px;
+      -fx-min-height: 24px;
+      -fx-max-width: 24px;
+      -fx-max-height: 24px;
+    -fx-background-insets: 0px;
+       -fx-padding: 0px;
+}
+
+.dialog-pane {
+	-fx-color-one: white;
+fx-font-weight: bold;
+	-fx-background-color: -fx-color-one;
+	-fx-background-radius: 8, 7, 6;
+	-fx-background-insets: 0, 1, 2;
+-fx-effect: innershadow(gaussian, #42bbaa, 15, 0.1, 0, 0);
+
+}
+.dialog-pane .button:default{
+	-fx-color-one: green;
+	-fx-background-radius: 75em;
+           -fx-min-width: 37px;
+          -fx-min-height: 37px;
+          -fx-max-width: 37px;
+          -fx-max-height: 37px;
+	-fx-background-color: -fx-color-one;
+	-fx-background-radius: 8, 7, 6;
+	-fx-background-insets: 0, 1, 2;
+}
+
+.dialog-pane .button:cancel{
+	-fx-color-one: red;
+fx-font-weight: bold;
+       -fx-min-width: 37px;
+          -fx-min-height: 37px;
+          -fx-max-width: 37px;
+          -fx-max-height: 37px;
+	-fx-background-color: -fx-color-one;
+	-fx-background-radius: 8, 7, 6;
+	-fx-background-insets: 0, 1, 2;
+	-fx-text-transform: uppercase;
+}
+
+
+
+
 /* reserved style for mainmenu title pane (basket)
    to be removed in the future
 .titled-pane > .title {
