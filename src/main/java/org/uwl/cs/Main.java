@@ -24,6 +24,7 @@ import static org.uwl.cs.Util.*;
  * I would like to thank the following websites for their free services.
  * Window/Task bar icon from DesignMantic.com
  * Icons/Images from FlatIcon.com
+ * Also aspiring future Computer Engineer AG (Agnijus Botyrius) for conducting software testing for the application.
  */
 public class Main extends Application {
 
