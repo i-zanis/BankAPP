@@ -1,19 +1,17 @@
 package org.uwl.cs;
 
-import com.mysql.cj.x.protobuf.MysqlxDatatypes;
-
 public class Customer {
-    String accountNumber = "";
-    String firstName = "";
-    String lastName = "";
-    String email = "";
-    String password = "";
-    Double balance = 0.0;
-    String phone = "";
+    int accountNumber;
+    String firstName;
+    String lastName;
+    String email;
+    String password;
+    float balance;
+    String phone;
 
 
     // Constructor method to save the data to reduce the calls to the database
-    public Customer(String accountNumber, String firstName, String lastName, String email, String password, Double balance, String phone) {
+    public Customer(int accountNumber, String firstName, String lastName, String email, String password, float balance, String phone) {
         this.accountNumber = accountNumber;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -24,7 +22,7 @@ public class Customer {
     }
 
     // ***** Accessor methods *****
-    public String getAccountNumber() {
+    public int getAccountNumber() {
         return accountNumber;
     }
 
@@ -44,7 +42,7 @@ public class Customer {
         return password;
     }
 
-    public Double getBalance() {
+    public float getBalance() {
         return balance;
     }
 
@@ -54,7 +52,7 @@ public class Customer {
     // ***** End of Accessor methods *****
 
     // ***** Mutator Methods *****
-    public void setAccountNumber(String accountNumber) {
+    public void setAccountNumber(int accountNumber) {
         this.accountNumber = accountNumber;
     }
 
@@ -74,7 +72,7 @@ public class Customer {
         this.password = password;
     }
 
-    public void setBalance(Double balance) {
+    public void setBalance(float balance) {
         this.balance = balance;
     }
 

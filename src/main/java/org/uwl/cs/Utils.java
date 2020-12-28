@@ -4,6 +4,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.prefs.Preferences;
 
 public class Utils {
@@ -20,6 +22,13 @@ public class Utils {
         return selectedImage;
     }
 
+
+
+    public static String getTime() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
+        System.out.println(LocalTime.now().format(dtf));
+        return LocalTime.now().format(dtf);
+    }
     // get initial directory
     /*private static File getInitialDirectoy() {
         Preferences preferences = Preferences.getPreferences();

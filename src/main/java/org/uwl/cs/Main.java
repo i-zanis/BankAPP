@@ -30,7 +30,9 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    public static Customer cust1 = getCustomer(2);
+
+
+    public static Customer currentCustomer;
     @Override
     public void start(Stage primaryStage) throws Exception {
         // sets the initial FXML file to be loaded
@@ -54,9 +56,10 @@ public class Main extends Application {
         // selectProfPhoto(primaryStage);
 
         Database.connect();
+        currentCustomer = getCustomer(2);
         //Database.updateAccount(2, 5.0);
        // System.out.println(cust1.getBalance());
-    //removes the window title bar from at the top
+        //removes the window title bar from at the top
         //primaryStage.initStyle(StageStyle.UNDECORATED);
     }
 

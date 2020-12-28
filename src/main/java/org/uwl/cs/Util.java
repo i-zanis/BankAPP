@@ -8,5 +8,6 @@ public class Util {
     public static String FAILED_AUTHENTICATION = "view/authenticationFailedPage.fxml";
     public static String CSS = "css/style.css";
     public static String WINDOW_ICON = "media/window_icon.png";
-    public static String EMPTY = "";
+    public static String EMPTY_STRING = "";
+    public static String LAST_UPDATE = "Last Update at ";
 }

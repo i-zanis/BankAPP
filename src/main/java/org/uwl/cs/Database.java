@@ -4,8 +4,6 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 
 
@@ -24,6 +22,7 @@ public class Database {
         con.setAutoCommit(false);
         return con;
     }
+
     public static boolean updateAccount(int accountId, Double newBalance) throws Exception {
         try {
             Connection con = connect();
@@ -44,15 +43,7 @@ public class Database {
      *
      * @return
      */
-    public static void updateScreenInformation() {
-        getTime();
-    }
 
-    public static String getTime() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
-        System.out.println(LocalTime.now().format(dtf));
-        return LocalTime.now().format(dtf);
-    }
 
     public static LinkedList<String[]> all() {
         LinkedList<String[]> result = new LinkedList<>();
@@ -84,12 +75,12 @@ public class Database {
             ResultSet resultSet = statement.executeQuery("SELECT * FROM account WHERE id=" + id + ";");
             resultSet.next();
             Customer customer = new Customer(
-                    Integer.toString(resultSet.getInt("id")),
-                    Integer.toString(resultSet.getInt("id")),
+                    resultSet.getInt("id"),
+                    resultSet.getString("first_name"),
                     resultSet.getString("last_name"),
                     resultSet.getString("email"),
                     resultSet.getString("password"),
-                    Double.parseDouble(String.valueOf(resultSet.getFloat("balance"))),
+                    Float.parseFloat(String.valueOf(resultSet.getFloat("balance"))),
                     resultSet.getString("phone"));
             con.close();
             statement.close();
@@ -198,11 +189,15 @@ public class Database {
             Statement statement = con.createStatement();
             String pwd = encryptPassword(password);
             ResultSet result = statement.executeQuery(
-                    "SELECT password FROM account WHERE email=" + "'" + email.strip() + "';");
-            result.next();
-            String current_pwd = result.getString("password");
-            result.close();
-            return current_pwd.equals(pwd);
+                    "SELECT password FROM account WHERE email=" + "'" + email.strip() + "';"
+            );
+            if (result.next()) {
+                String current_pwd = result.getString("password");
+                con.close();
+                statement.close();
+                return current_pwd.equals(pwd);
+            }
+            return false;
         } catch (Exception e) {
 
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
@@ -307,8 +302,6 @@ public class Database {
 
     public static boolean login(String email, String pwd) {
         try {
-            Connection con = connect();
-            Statement statement = con.createStatement();
             if (checkPassword(email, pwd)) {
                 return true;
             }
@@ -344,9 +337,9 @@ public class Database {
     public static void main(String[] args) {
         //create("test","test", "test@test.com", "testing", "12312132");
         //System.out.println(login("aaaaaaaasd", "asd"));
-                for (String[] obj : all()) {
-                    System.out.println("###################");
-                    for (String data : obj) {
+        for (String[] obj : all()) {
+            System.out.println("###################");
+            for (String data : obj) {
                 System.out.println(data);
             }
         }
