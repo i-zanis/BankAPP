@@ -33,14 +33,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/Transaction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/Util.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/controller/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/view/mainmenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/view/mainmenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/view/withdraw.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/mainmenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/mainmenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/withdraw.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,38 +284,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608958878817" />
-    <state width="550" height="912" key="GridCell.Tab.0.bottom" timestamp="1609126134751">
+    <state width="1220" height="195" key="GridCell.Tab.0.bottom" timestamp="1609133297438">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="550" height="912" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609126134751" />
-    <state width="550" height="912" key="GridCell.Tab.0.center" timestamp="1609126134751">
+    <state width="1220" height="195" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609133297438" />
+    <state width="1220" height="195" key="GridCell.Tab.0.center" timestamp="1609133297438">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="550" height="912" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609126134751" />
-    <state width="550" height="912" key="GridCell.Tab.0.left" timestamp="1609126134751">
+    <state width="1220" height="195" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609133297438" />
+    <state width="1220" height="195" key="GridCell.Tab.0.left" timestamp="1609133297438">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="550" height="912" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609126134751" />
-    <state width="550" height="912" key="GridCell.Tab.0.right" timestamp="1609126134751">
+    <state width="1220" height="195" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609133297438" />
+    <state width="1220" height="195" key="GridCell.Tab.0.right" timestamp="1609133297438">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="550" height="912" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609126134751" />
-    <state width="1877" height="248" key="GridCell.Tab.1.bottom" timestamp="1609121408328">
+    <state width="1220" height="195" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609133297438" />
+    <state width="1220" height="195" key="GridCell.Tab.1.bottom" timestamp="1609133297438">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="248" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609121408328" />
-    <state width="1877" height="248" key="GridCell.Tab.1.center" timestamp="1609121408328">
+    <state width="1220" height="195" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609133297438" />
+    <state width="1220" height="195" key="GridCell.Tab.1.center" timestamp="1609133297438">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="248" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609121408328" />
-    <state width="1877" height="248" key="GridCell.Tab.1.left" timestamp="1609121408328">
+    <state width="1220" height="195" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609133297438" />
+    <state width="1220" height="195" key="GridCell.Tab.1.left" timestamp="1609133297438">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="248" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609121408328" />
-    <state width="1877" height="248" key="GridCell.Tab.1.right" timestamp="1609121408328">
+    <state width="1220" height="195" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609133297438" />
+    <state width="1220" height="195" key="GridCell.Tab.1.right" timestamp="1609133297438">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="248" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609121408328" />
+    <state width="1220" height="195" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609133297438" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1609016973620">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -336,10 +336,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="136" y="242" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608885164158" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1609124523195">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1609130935985">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1609124523195" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1609130935985" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BankAPP$Main.ic" NAME="Main Coverage Results" MODIFIED="1609125967478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

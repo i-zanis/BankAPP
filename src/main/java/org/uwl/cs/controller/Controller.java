@@ -4,10 +4,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -18,6 +20,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static org.uwl.cs.Database.connect;
 import static org.uwl.cs.Main.currentCustomer;
 import static org.uwl.cs.Transaction.*;
 import static org.uwl.cs.Util.*;
@@ -25,7 +28,7 @@ import static org.uwl.cs.Util.WINDOW_ICON;
 import static org.uwl.cs.Utils.getTime;
 
 public class Controller implements Initializable {
-
+    public BorderPane appWindow;
     public DialogPane transferDialog;
     public TextField transferAccNameTf;
     public TextField transferAccNoTf;
@@ -42,8 +45,88 @@ public class Controller implements Initializable {
     public DialogPane interestDialog;
     public Label monthlyInterestLabel;
     public Label annualInterestLabel;
+    public TextField withdrawTf;
+    public Label withdrawErrorLabel;
+    public DialogPane loanDialog;
+    public TextField loanAmountTf;
+    public TextField loanYearsTf;
+    public Label loanAmountLabel;
+    public Label loanLabel;
+    public Label loanErrorLabel;
 
+    // ***** Loan Dialog methods *****
+    public void getLoanDialog(ActionEvent actionEvent) throws IOException {
+        loanDialog.setVisible(true);
+        // There is some strange behaviour in the scene of the dialog, you can see the hard edges which set to be round
+        // however when you close the dialog and reopen it they appear. Officially this is a limitation of JavaFX unless
+        // you hardcode a solution. It works at present therefore I will keep it.
+        loanDialog.getScene().setFill(Color.TRANSPARENT);
+        loanDialog.getScene().setFill(Color.DARKSALMON);
+    }
+    public void loanAccept(ActionEvent actionEvent) throws IOException {
+        loanDialog.getScene().setFill(Color.TRANSPARENT);
+        clearLabel(loanErrorLabel);
+        resetTextFieldColor(loanAmountTf, loanYearsTf);
+        if (isEmpty(loanAmountTf)) errorToLabel(loanAmountTf, loanErrorLabel, "Loan amount required");
+        else if (!isDigit(loanAmountTf)) errorToLabel(loanAmountTf, loanErrorLabel, "Invalid number");
 
+        else if (isEmpty(loanYearsTf)) errorToLabel(loanYearsTf, loanErrorLabel, "Years required");
+        else if (!isDigit(loanYearsTf)) errorToLabel(transferAccNoTf, loanErrorLabel, "Invalid number");
+        else {
+            try {
+                loanAmountLabel.setText(getMonthlyLoanRepayment(loanAmountTf.getText(), loanYearsTf.getText()));
+                updateScreenInformation();
+                    updateScreenInformation();
+                    loanDialog.setVisible(false);
+                    resetLabelsAndTextFields();
+                System.out.println("The new balance is : " + currentCustomer.getBalance());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public void loanDecline(ActionEvent actionEvent) throws IOException {
+        //loanDialog.getScene().setFill(Color.TRANSPARENT);
+        loanDialog.setVisible(false);
+        resetLabelsAndTextFields();
+    }
+
+    // ***** Withdraw Dialog methods *****
+    public void getWithdrawDialog(ActionEvent actionEvent) throws IOException {
+        withdrawDialog.setVisible(true);
+        // There is some strange behaviour in the scene of the dialog, you can see the hard edges which set to be round
+        // however when you close the dialog and reopen it they appear. Officially this is a limitation of JavaFX unless
+        // you hardcode a solution. It works at present therefore I will keep it.
+        withdrawDialog.getScene().setFill(Color.TRANSPARENT);
+        withdrawDialog.getScene().setFill(Color.DARKSALMON);
+    }
+    public void withdrawAccept(ActionEvent actionEvent) throws IOException {
+        withdrawDialog.getScene().setFill(Color.TRANSPARENT);
+        clearLabel(withdrawErrorLabel);
+        resetTextFieldColor(withdrawTf);
+        if (isEmpty(withdrawTf)) errorToLabel(withdrawTf, withdrawErrorLabel, "Amount required");
+        else if (!isDigit(withdrawTf)) errorToLabel(withdrawTf, withdrawErrorLabel, "Invalid number");
+        else {
+            try {
+                if (withdraw(withdrawTf.getText())) {
+                    updateScreenInformation();
+                    withdrawDialog.setVisible(false);
+                    resetLabelsAndTextFields();
+                }
+                else {
+                    errorToLabel(withdrawTf, withdrawErrorLabel, "Insufficient funds");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public void withdrawDecline(ActionEvent actionEvent) throws IOException {
+        //transferDialog.getScene().setFill(Color.TRANSPARENT);
+        withdrawDialog.setVisible(false);
+        resetLabelsAndTextFields();
+
+    }
     // ***** Interest Dialog methods *****
     public void getInterestDialog(ActionEvent actionEvent) throws IOException {
         interestDialog.setVisible(true);
@@ -106,7 +189,6 @@ public class Controller implements Initializable {
         //transferDialog.getScene().setFill(Color.TRANSPARENT);
         transferDialog.setVisible(false);
         resetLabelsAndTextFields();
-
     }
     // ***** Deposit Dialog Methods  *****
     public void getDepositDialog(ActionEvent actionEvent) throws IOException {
@@ -179,8 +261,20 @@ public class Controller implements Initializable {
         transferAccNoTf.setText(EMPTY_STRING);
         transferAmountTf.setText(EMPTY_STRING);
         depositTf.setText(EMPTY_STRING);
+        withdrawTf.setText(EMPTY_STRING);
+        loanAmountTf.setText(EMPTY_STRING);
+        loanYearsTf.setText(EMPTY_STRING);
+        // need to add newly implemented textfields
+        resetTextFieldColor(transferAccNameTf,transferAccNoTf,transferAmountTf,depositTf,withdrawTf,loanAmountTf,loanAmountTf);
+        clearAllDialogLabels();
+
     }
-    public void clearAllDialogLabels() {}
+    public void clearAllDialogLabels() {
+        transferErrorLabel.setText(EMPTY_STRING);
+        withdrawErrorLabel.setText(EMPTY_STRING);
+        depositErrorLabel.setText(EMPTY_STRING);
+        loanErrorLabel.setText(EMPTY_STRING);
+    }
     public static void resetTextFieldColor(TextField ... textFields) {
         for (TextField textField : textFields) {
             textField.setStyle("-fx-border-color: #2b5c50;");
@@ -191,6 +285,10 @@ public class Controller implements Initializable {
         accountLabel.setText(currentCustomer.getAccountNumber() + EMPTY_STRING); // converts to string
         balanceLabel.setText(POUND_SYMBOL + currentCustomer.getBalance());
         timeLabel.setText(LAST_UPDATE + getTime());
+    }
+    public void exitApplication() throws Exception {
+        connect().close();
+        appWindow.getScene().getWindow().hide();
     }
 
     @Override

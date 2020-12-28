@@ -62,6 +62,8 @@ public class Main extends Application {
        // System.out.println(cust1.getBalance());
         //removes the window title bar from at the top
         //primaryStage.initStyle(StageStyle.UNDECORATED);
+
+        // add UWL color in settings that also brings the logo in the middle "UWL theme"
     }
 
 

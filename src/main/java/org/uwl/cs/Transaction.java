@@ -39,4 +39,8 @@ public class Transaction {
         decimalFormat.applyPattern("00.0##");
         return POUND_SYMBOL + decimalFormat.format((currentCustomer.getBalance() * interestRate));
     }
+    public static String getMonthlyLoanRepayment(String amount, String years) {
+        return ((Float.parseFloat(amount) * interestRate) / (1 - Math.pow(1 + interestRate, -(Integer.parseInt(years)))))
+                + EMPTY_STRING;
+    }
 }
