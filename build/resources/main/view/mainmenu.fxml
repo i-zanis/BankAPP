@@ -251,7 +251,7 @@
                            <VBox alignment="TOP_RIGHT" layoutX="64.0" layoutY="57.0" prefHeight="116.0" prefWidth="174.0" spacing="10.0">
                               <TextField fx:id="transferAccNameTf" promptText="Recipient's Name" />
                               <TextField fx:id="transferAccNoTf" promptText="Recipient's Account No" />
-                              <TextField fx:id="transferAmountTf" promptText="Amount" />
+                              <TextField fx:id="transferAmountTf" promptText="0.00" />
                            </VBox>
                            <Label alignment="CENTER" layoutX="48.0" layoutY="8.0" prefHeight="42.0" prefWidth="206.0" text="Money Transfer" textFill="#107533" wrapText="true">
                               <font>
@@ -294,7 +294,7 @@
                                  <Font name="System Bold" size="12.0" />
                               </font>
                            </Button>
-                           <Button fx:id="depositNobButton" cancelButton="true" defaultButton="true" layoutX="172.0" layoutY="3.0" minHeight="39.0" minWidth="15.0" mnemonicParsing="false" onAction="#depositDecline" prefHeight="39.0" prefWidth="15.0" styleClass="ok-button" text="NO">
+                           <Button fx:id="depositNobButton" cancelButton="true" layoutX="172.0" layoutY="3.0" minHeight="39.0" minWidth="15.0" mnemonicParsing="false" onAction="#depositDecline" prefHeight="39.0" prefWidth="15.0" styleClass="ok-button" text="NO">
                               <font>
                                  <Font name="System Bold" size="12.0" />
                               </font>
@@ -305,7 +305,7 @@
                   <center>
                      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                         <children>
-                           <TextField fx:id="depositTf" layoutX="77.0" layoutY="61.0" promptText="Enter Amount" />
+                           <TextField fx:id="depositTf" layoutX="77.0" layoutY="61.0" promptText="0.00" />
                            <Label alignment="CENTER" layoutX="51.0" layoutY="8.0" prefHeight="42.0" prefWidth="206.0" text="Deposit" textFill="#107533" wrapText="true">
                               <font>
                                  <Font name="System Bold" size="24.0" />
@@ -346,7 +346,7 @@
                                  <Font name="System Bold" size="12.0" />
                               </font>
                            </Button>
-                           <Button fx:id="depositNobButton1" cancelButton="true" defaultButton="true" layoutX="172.0" layoutY="3.0" minHeight="39.0" minWidth="15.0" mnemonicParsing="false" onAction="#depositDecline" prefHeight="39.0" prefWidth="15.0" styleClass="ok-button" text="NO" visible="false">
+                           <Button fx:id="depositNobButton1" cancelButton="true" layoutX="172.0" layoutY="3.0" minHeight="39.0" minWidth="15.0" mnemonicParsing="false" onAction="#depositDecline" prefHeight="39.0" prefWidth="15.0" styleClass="ok-button" text="NO" visible="false">
                               <font>
                                  <Font name="System Bold" size="12.0" />
                               </font>
@@ -420,7 +420,7 @@
                                  <Font name="System Bold" size="12.0" />
                               </font>
                            </Button>
-                           <Button fx:id="withdrawDeclineBUtton" cancelButton="true" defaultButton="true" layoutX="172.0" layoutY="3.0" minHeight="39.0" minWidth="15.0" mnemonicParsing="false" onAction="#withdrawDecline" prefHeight="39.0" prefWidth="15.0" styleClass="ok-button" text="NO">
+                           <Button fx:id="withdrawDeclineBUtton" cancelButton="true" layoutX="172.0" layoutY="3.0" minHeight="39.0" minWidth="15.0" mnemonicParsing="false" onAction="#withdrawDecline" prefHeight="39.0" prefWidth="15.0" styleClass="ok-button" text="NO">
                               <font>
                                  <Font name="System Bold" size="12.0" />
                               </font>
@@ -431,7 +431,7 @@
                   <center>
                      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                         <children>
-                           <TextField fx:id="withdrawTf" layoutX="77.0" layoutY="61.0" promptText="Enter Amount" />
+                           <TextField fx:id="withdrawTf" layoutX="77.0" layoutY="61.0" promptText="0.00" />
                            <Label alignment="CENTER" layoutX="51.0" layoutY="8.0" prefHeight="42.0" prefWidth="206.0" text="Withdraw" textFill="#107533" wrapText="true">
                               <font>
                                  <Font name="System Bold" size="24.0" />

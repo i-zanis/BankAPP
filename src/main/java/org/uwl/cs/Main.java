@@ -27,6 +27,8 @@ import static org.uwl.cs.Util.*;
  * online chapters. On top of this I decided to use a new technology "Gradle" for Dependency control and find naming
  * conventions and hierarchy for folders(eg. module names, MVC format).
  *
+ * The circle in the middle changes color based on the current balance.
+ *
  * I would like to thank the following websites for their free services.
  * Window/Task bar icon from DesignMantic.com
  * Icons/Images from FlatIcon.com

@@ -72,7 +72,7 @@ public class Controller implements Initializable {
         // you hardcode a solution. It works at present therefore I will keep it.
         loanDialog.getScene().setFill(Color.TRANSPARENT);
         loanDialog.getScene().setFill(Color.DARKSALMON);
-        loanAmountTf.requestFocus();
+
     }
     public void loanAccept(ActionEvent actionEvent) throws IOException {
         loanDialog.getScene().setFill(Color.TRANSPARENT);
@@ -111,7 +111,7 @@ public class Controller implements Initializable {
         // you hardcode a solution. It works at present therefore I will keep it.
         withdrawDialog.getScene().setFill(Color.TRANSPARENT);
         withdrawDialog.getScene().setFill(Color.DARKSALMON);
-        withdrawTf.requestFocus();
+
     }
     public void withdrawAccept(ActionEvent actionEvent) throws IOException {
         withdrawDialog.getScene().setFill(Color.TRANSPARENT);
@@ -168,7 +168,7 @@ public class Controller implements Initializable {
         // you hardcode a solution. It works at present therefore I will keep it.
         transferDialog.getScene().setFill(Color.TRANSPARENT);
         transferDialog.getScene().setFill(Color.DARKSALMON);
-        transferAccNameTf.requestFocus();
+
     }
     public void transferAccept(ActionEvent actionEvent) throws IOException {
         transferDialog.getScene().setFill(Color.TRANSPARENT);
@@ -212,7 +212,7 @@ public class Controller implements Initializable {
         // you hardcode a solution. It works at present therefore I will keep it.
         depositDialogue.getScene().setFill(Color.TRANSPARENT);
         depositDialogue.getScene().setFill(Color.DARKSALMON);
-        depositTf.requestFocus();
+
     }
     public void depositAccept(ActionEvent actionEvent) throws IOException {
         depositDialogue.getScene().setFill(Color.TRANSPARENT);
