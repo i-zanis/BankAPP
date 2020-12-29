@@ -10,16 +10,17 @@ fx-font-weight: bold;
 
 /* button hover animation */
 .button:hover {
-	-fx-scale-x: 1.1;
-	-fx-scale-y: 1.1;
-	-fx-scale-z: 1.1;
-}
+	-fx-scale-x: 1.01;
+	-fx-scale-y: 1.01;
+	-fx-scale-z: 1.01;
+	}
 /* removes background from textfield */
 .text-field {
 	-fx-border-color: #2b5c50;
 	-fx-border-width: 2 2 2 2.2;
 	-fx-background-color: transparent;
 }
+
 
 .closebutton .button {
   -fx-background-color: white, white;
@@ -52,16 +53,6 @@ fx-font-weight: bold;
   -fx-effect: innershadow(gaussian, #42bbaa, 15, 0.1, 0, 0);
 }
 
-.button {
- -fx-background-color: #2b5c50;
-       -fx-background-radius: 120em;
-       -fx-min-width: 75px;
-      -fx-min-height: 75px;
-      -fx-max-width: 75px;
-      -fx-max-height: 75px;
-    -fx-background-insets: 0px;
-       -fx-padding: 0px;
-}
 
 
 .linear-grad- repeat1{
@@ -69,16 +60,6 @@ fx-font-weight: bold;
 }
 
 
-.button {
- -fx-background-color: #2b5c50;
-       -fx-background-radius: 120em;
-       -fx-min-width: 75px;
-      -fx-min-height: 75px;
-      -fx-max-width: 75px;
-      -fx-max-height: 75px;
-    -fx-background-insets: 0px;
-       -fx-padding: 0px;
-}
 .button {
 	-fx-color-one: #2b5c50;
 	 -fx-background-radius: 120em;
@@ -101,8 +82,6 @@ fx-font-weight: bold;
 	-fx-color-two: #235891;
 	-fx-color-three: #235891;
 }
-
-
 .smallbutton {
  -fx-background-color: #2b5c50;
        -fx-background-radius: 45em;
@@ -114,10 +93,7 @@ fx-font-weight: bold;
        -fx-padding: 0px;
 }
 
-
-
-
-.button:default{
+.dialog-pane .button:default{
 	-fx-color-one: green;
 	-fx-background-radius: 150em;
            -fx-min-width: 70px;
@@ -142,6 +118,17 @@ fx-font-weight: bold;
 	-fx-text-transform: uppercase;
 }
 
+.dialog-pane  .button:hover {
+	-fx-effect: innershadow(gaussian, white, 4, 0, 0, 0);
+}
+
+.dialog-pane .button:armed {
+	-fx-color-one: #42bbaa;
+	-fx-color-two: #235891;
+	-fx-color-three: #235891;
+}
+
+
 .dialog-pane {
 	-fx-color-one: white;
 fx-font-weight: bold;
@@ -149,6 +136,20 @@ fx-font-weight: bold;
 	-fx-background-radius: 15, 15, 15;
 	-fx-background-insets: 0, 1, 2;
 -fx-effect: innershadow(gaussian, #42bbaa, 15, 0.1, 0, 0);
+}
+.loginButton {
+	-fx-color-one:  #2b5c50;
+	-fx-background-radius: 150em;
+           -fx-min-width: 253px;
+          -fx-min-height: 50px;
+          -fx-max-width: 70px;
+          -fx-max-height: 37px;
+	-fx-background-color: -fx-color-one;
+	-fx-background-radius: 8, 7, 6;
+	-fx-background-insets: 0, 1, 2;
+}
+.loginButton .button:focused {
+  -fx-background-color: -fx-focus-color, white;
 }
 
 /* reserved style for mainmenu title pane (basket)

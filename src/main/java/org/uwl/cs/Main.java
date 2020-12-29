@@ -40,7 +40,7 @@ public class Main extends Application {
         launch(args);
     }
 
-
+    public static Stage primaryStage;
     public static Customer currentCustomer;
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -62,7 +62,7 @@ public class Main extends Application {
         primaryStage.show();
         // makes the window not resizable
         primaryStage.setResizable(false);
-        // selectProfPhoto(primaryStage);
+
 
         Database.connect();
         currentCustomer = getCustomer(2);
@@ -72,7 +72,7 @@ public class Main extends Application {
         //primaryStage.initStyle(StageStyle.UNDECORATED);
 
         // add UWL color in settings that also brings the logo in the middle "UWL theme"
-
+// you can do this by adding a different css method
      
         }
 

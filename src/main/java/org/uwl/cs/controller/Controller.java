@@ -15,6 +15,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -28,10 +29,12 @@ import java.util.ResourceBundle;
 
 import static org.uwl.cs.Database.connect;
 import static org.uwl.cs.Main.currentCustomer;
+import static org.uwl.cs.Main.primaryStage;
 import static org.uwl.cs.Transaction.*;
 import static org.uwl.cs.Util.*;
 import static org.uwl.cs.Util.WINDOW_ICON;
 import static org.uwl.cs.Utils.getTime;
+import static org.uwl.cs.Utils.selectProfileIcon;
 
 public class Controller implements Initializable {
     public BorderPane appWindow;
@@ -62,6 +65,12 @@ public class Controller implements Initializable {
     public Label monthlyPaymentLabel;
     public Circle midCircleRed;
     public Circle midCircleGreen;
+    public Button transferButton;
+    public Circle profileCircle1;
+    public Circle testCircle;
+    public Circle profileCircle2;
+    public Button profileButton1;
+    public Button profileButton2;
 
 
     // ***** Loan Dialog methods *****
@@ -101,6 +110,9 @@ public class Controller implements Initializable {
         loanDialog.setVisible(false);
         monthlyPaymentLabel.setVisible(false);
         resetLabelsAndTextFields();
+        // this has to be placed here because the Accept doesn't close the dialog after press therefore the amount has
+        // to be reset when you press decline and be empty on the next getLoanDialog()
+        loanAmountLabel.setText(EMPTY_STRING);
     }
 
     // ***** Withdraw Dialog methods *****
@@ -289,6 +301,7 @@ public class Controller implements Initializable {
         withdrawErrorLabel.setText(EMPTY_STRING);
         depositErrorLabel.setText(EMPTY_STRING);
         loanErrorLabel.setText(EMPTY_STRING);
+
     }
     public static void resetTextFieldColor(TextField ... textFields) {
         for (TextField textField : textFields) {
@@ -322,8 +335,14 @@ public class Controller implements Initializable {
         connect().close();
         appWindow.getScene().getWindow().hide();
     }
-
+    public void changeProfilePic() {
+        profileButton1.setVisible(false);
+        profileButton2.setVisible(true);
+        Image image = new Image(selectProfileIcon().toURI().toString());
+        profileCircle2.setFill(new ImagePattern(image));
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
     }
 }
