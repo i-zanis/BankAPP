@@ -11,4 +11,5 @@ public class Util {
     public static String EMPTY_STRING = "";
     public static String LAST_UPDATE = "Last Update at ";
     public static String POUND_SYMBOL = "\u00a3";
+    public static String NUMBER_FORMAT = "0.0#";
 }

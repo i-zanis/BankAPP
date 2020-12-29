@@ -1,5 +1,9 @@
 package org.uwl.cs.controller;
 
+import javafx.animation.Animation;
+import javafx.animation.Interpolator;
+import javafx.animation.Transition;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,9 +15,11 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import org.uwl.cs.Customer;
 
 import java.io.IOException;
@@ -53,6 +59,10 @@ public class Controller implements Initializable {
     public Label loanAmountLabel;
     public Label loanLabel;
     public Label loanErrorLabel;
+    public Label monthlyPaymentLabel;
+    public Circle midCircleRed;
+    public Circle midCircleGreen;
+
 
     // ***** Loan Dialog methods *****
     public void getLoanDialog(ActionEvent actionEvent) throws IOException {
@@ -62,6 +72,7 @@ public class Controller implements Initializable {
         // you hardcode a solution. It works at present therefore I will keep it.
         loanDialog.getScene().setFill(Color.TRANSPARENT);
         loanDialog.getScene().setFill(Color.DARKSALMON);
+        loanAmountTf.requestFocus();
     }
     public void loanAccept(ActionEvent actionEvent) throws IOException {
         loanDialog.getScene().setFill(Color.TRANSPARENT);
@@ -71,13 +82,13 @@ public class Controller implements Initializable {
         else if (!isDigit(loanAmountTf)) errorToLabel(loanAmountTf, loanErrorLabel, "Invalid number");
 
         else if (isEmpty(loanYearsTf)) errorToLabel(loanYearsTf, loanErrorLabel, "Years required");
-        else if (!isDigit(loanYearsTf)) errorToLabel(transferAccNoTf, loanErrorLabel, "Invalid number");
+        else if (!isDigit(loanYearsTf)) errorToLabel(loanYearsTf, loanErrorLabel, "Invalid number");
         else {
             try {
                 loanAmountLabel.setText(getMonthlyLoanRepayment(loanAmountTf.getText(), loanYearsTf.getText()));
                 updateScreenInformation();
+                monthlyPaymentLabel.setVisible(true);
                     updateScreenInformation();
-                    loanDialog.setVisible(false);
                     resetLabelsAndTextFields();
                 System.out.println("The new balance is : " + currentCustomer.getBalance());
             } catch (Exception e) {
@@ -88,6 +99,7 @@ public class Controller implements Initializable {
     public void loanDecline(ActionEvent actionEvent) throws IOException {
         //loanDialog.getScene().setFill(Color.TRANSPARENT);
         loanDialog.setVisible(false);
+        monthlyPaymentLabel.setVisible(false);
         resetLabelsAndTextFields();
     }
 
@@ -99,6 +111,7 @@ public class Controller implements Initializable {
         // you hardcode a solution. It works at present therefore I will keep it.
         withdrawDialog.getScene().setFill(Color.TRANSPARENT);
         withdrawDialog.getScene().setFill(Color.DARKSALMON);
+        withdrawTf.requestFocus();
     }
     public void withdrawAccept(ActionEvent actionEvent) throws IOException {
         withdrawDialog.getScene().setFill(Color.TRANSPARENT);
@@ -155,6 +168,7 @@ public class Controller implements Initializable {
         // you hardcode a solution. It works at present therefore I will keep it.
         transferDialog.getScene().setFill(Color.TRANSPARENT);
         transferDialog.getScene().setFill(Color.DARKSALMON);
+        transferAccNameTf.requestFocus();
     }
     public void transferAccept(ActionEvent actionEvent) throws IOException {
         transferDialog.getScene().setFill(Color.TRANSPARENT);
@@ -198,6 +212,7 @@ public class Controller implements Initializable {
         // you hardcode a solution. It works at present therefore I will keep it.
         depositDialogue.getScene().setFill(Color.TRANSPARENT);
         depositDialogue.getScene().setFill(Color.DARKSALMON);
+        depositTf.requestFocus();
     }
     public void depositAccept(ActionEvent actionEvent) throws IOException {
         depositDialogue.getScene().setFill(Color.TRANSPARENT);
@@ -246,7 +261,7 @@ public class Controller implements Initializable {
         return textField.getText().matches("[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z])$");
     }
     public static Boolean isDigit(TextField textField) {
-        return textField.getText().matches("[0-9]+");
+        return textField.getText().matches("^[-+]?[0-9]*\\.?[0-9]+$");
     }
     public static Boolean validateAccountNo(TextField textField) {
         return textField.getText().length() >= 8;
@@ -283,10 +298,27 @@ public class Controller implements Initializable {
     public void updateScreenInformation() {
         nameLabel.setText(currentCustomer.getFirstName() + EMPTY_STRING + currentCustomer.getLastName());
         accountLabel.setText(currentCustomer.getAccountNumber() + EMPTY_STRING); // converts to string
-        balanceLabel.setText(POUND_SYMBOL + currentCustomer.getBalance());
+        balanceLabel.setText(getUpdatedBalance());
         timeLabel.setText(LAST_UPDATE + getTime());
+        updateMidCircleColor();
+
     }
-    public void exitApplication() throws Exception {
+
+    public void updateMidCircleColor() {
+        if (currentCustomer.getBalance() > 1000.0) {
+           midCircleGreen.setVisible(true);
+            midCircleRed.setVisible(false);
+        }
+        else if (currentCustomer.getBalance() <= 100.0) {
+            midCircleGreen.setVisible(false);
+            midCircleRed.setVisible(true);
+        }
+        else {
+            midCircleGreen.setVisible(false);
+            midCircleRed.setVisible(false);
+        }
+    }
+        public void exitApplication() throws Exception {
         connect().close();
         appWindow.getScene().getWindow().hide();
     }

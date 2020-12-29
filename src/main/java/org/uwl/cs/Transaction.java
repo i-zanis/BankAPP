@@ -6,11 +6,12 @@ import java.util.Locale;
 
 import static org.uwl.cs.Database.updateBalance;
 import static org.uwl.cs.Main.currentCustomer;
-import static org.uwl.cs.Util.EMPTY_STRING;
-import static org.uwl.cs.Util.POUND_SYMBOL;
+import static org.uwl.cs.Util.*;
 
 public class Transaction {
     static float interestRate = 3.4f;
+    static NumberFormat numberFormat = NumberFormat.getInstance(Locale.UK);
+    static DecimalFormat decimalFormat = (DecimalFormat)numberFormat;
     /**
      * withdraw method
      * @param amount
@@ -27,20 +28,23 @@ public class Transaction {
         updateBalance(currentCustomer.getAccountNumber(),currentCustomer.getBalance());
         return true;
     }
+    public static String getUpdatedBalance() {
+        decimalFormat.applyPattern(NUMBER_FORMAT);
+        return POUND_SYMBOL + decimalFormat.format((currentCustomer.getBalance()));
+    }
     public static String getMonthlyInterest() {
-        NumberFormat numberFormat = NumberFormat.getInstance(Locale.UK);
-        DecimalFormat decimalFormat = (DecimalFormat)numberFormat;
-        decimalFormat.applyPattern("00.0##");
-        return POUND_SYMBOL + decimalFormat.format((currentCustomer.getBalance() * interestRate/12));
+        decimalFormat.applyPattern(NUMBER_FORMAT);
+        return POUND_SYMBOL + decimalFormat.format((currentCustomer.getBalance() * interestRate/100/12));
     }
     public static String getAnnualInterest() {
-        NumberFormat numberFormat = NumberFormat.getInstance(Locale.UK);
-        DecimalFormat decimalFormat = (DecimalFormat)numberFormat;
-        decimalFormat.applyPattern("00.0##");
-        return POUND_SYMBOL + decimalFormat.format((currentCustomer.getBalance() * interestRate));
+        decimalFormat.applyPattern(NUMBER_FORMAT);
+        return POUND_SYMBOL + decimalFormat.format((currentCustomer.getBalance() * interestRate/100));
     }
     public static String getMonthlyLoanRepayment(String amount, String years) {
-        return ((Float.parseFloat(amount) * interestRate) / (1 - Math.pow(1 + interestRate, -(Integer.parseInt(years)))))
-                + EMPTY_STRING;
+        decimalFormat.applyPattern(NUMBER_FORMAT);
+        int time = Integer.parseInt(years) * 12;
+        float rate =( interestRate/100)/12;
+        return POUND_SYMBOL + decimalFormat.format(((Float.parseFloat(amount) * rate) / (1 - Math.pow(1 + rate,
+                (-time)))));
     }
 }
