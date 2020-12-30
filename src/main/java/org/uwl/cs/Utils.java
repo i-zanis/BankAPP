@@ -1,7 +1,13 @@
 package org.uwl.cs;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.beans.property.DoubleProperty;
+import javafx.scene.Node;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.time.LocalTime;
@@ -31,17 +37,13 @@ public class Utils {
         System.out.println(LocalTime.now().format(dtf));
         return LocalTime.now().format(dtf);
     }
-    // get initial directory
-    /*private static File getInitialDirectoy() {
-        Preferences preferences = Preferences.getPreferences();
-        File initPath = new File(preferences.getInitialPathFileChooser());
-        if(!initPath.exists()) {
-            preferences.setInitialPathFileChooser(System.getProperty("user.home"));
-            Preferences.writePreferencesToFile(preferences);
-            initPath = new File(preferences.getInitialPathFileChooser());
-        }
-        return initPath;
+    public static void fadeIn(Node node) {
+        DoubleProperty opacity = node.opacityProperty();
+        Timeline fadeIn = new Timeline(
+                new KeyFrame(Duration.ZERO, new KeyValue(opacity, 0.0)),
+                new KeyFrame(new Duration(900), new KeyValue(opacity, 1.0))
+        );
+        fadeIn.play();
     }
-    */
 
 }

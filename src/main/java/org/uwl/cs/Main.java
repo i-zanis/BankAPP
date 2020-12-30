@@ -1,9 +1,8 @@
 package org.uwl.cs;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.application.Application;
+import javafx.beans.property.DoubleProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -20,6 +19,7 @@ import java.io.FileInputStream;
 import static java.lang.StrictMath.random;
 import static org.uwl.cs.Database.getCustomer;
 import static org.uwl.cs.Util.*;
+import static org.uwl.cs.Utils.fadeIn;
 
 /** This has been a very long endeavour. The greatest programming task I have ever taken to this day. Last year I swore
  * that next year(this) I would do the same exercise with a database. Unfortunately I was not very competent with mySQL
@@ -41,11 +41,13 @@ public class Main extends Application {
     }
 
     public static Stage primaryStage;
+    public static Parent root;
+
     public static Customer currentCustomer;
     @Override
     public void start(Stage primaryStage) throws Exception {
         // sets the initial FXML file to be loaded
-        Parent root = FXMLLoader.load(getClass().getResource(MAINMENU));
+        root = FXMLLoader.load(getClass().getResource(MAINMENU));
         Scene logInScene = new Scene(root);
         // Clear any previous CSS to avoid inconsistencies
         logInScene.getStylesheets().clear();
@@ -63,19 +65,18 @@ public class Main extends Application {
         // makes the window not resizable
         primaryStage.setResizable(false);
 
-
         Database.connect();
         currentCustomer = getCustomer(2);
         //Database.updateAccount(2, 5.0);
-       // System.out.println(cust1.getBalance());
+        // System.out.println(cust1.getBalance());
         //removes the window title bar from at the top
         //primaryStage.initStyle(StageStyle.UNDECORATED);
 
         // add UWL color in settings that also brings the logo in the middle "UWL theme"
 // you can do this by adding a different css method
-     
-        }
 
+
+    }
 
 
     /**

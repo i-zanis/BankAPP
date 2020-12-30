@@ -1,8 +1,7 @@
 package org.uwl.cs.controller;
 
-import javafx.animation.Animation;
-import javafx.animation.Interpolator;
-import javafx.animation.Transition;
+import javafx.animation.*;
+import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +21,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import org.uwl.cs.Customer;
+import org.uwl.cs.Main;
 
 import java.io.IOException;
 import java.net.URL;
@@ -72,15 +72,17 @@ public class Controller implements Initializable {
     public Button profileButton1;
     public Button profileButton2;
 
-
     // ***** Loan Dialog methods *****
     public void getLoanDialog(ActionEvent actionEvent) throws IOException {
         loanDialog.setVisible(true);
+        loanDialog.getScene().setFill(Color.TRANSPARENT);
+        loanDialog.getScene().setFill(Color.DARKSALMON);
+
+
         // There is some strange behaviour in the scene of the dialog, you can see the hard edges which set to be round
         // however when you close the dialog and reopen it they appear. Officially this is a limitation of JavaFX unless
         // you hardcode a solution. It works at present therefore I will keep it.
-        loanDialog.getScene().setFill(Color.TRANSPARENT);
-        loanDialog.getScene().setFill(Color.DARKSALMON);
+
 
     }
     public void loanAccept(ActionEvent actionEvent) throws IOException {
@@ -343,6 +345,5 @@ public class Controller implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 }

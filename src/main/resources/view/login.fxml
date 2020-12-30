@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="appWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uwl.cs.controller.Controller">
+<BorderPane fx:id="appWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uwl.cs.controller.LoginController">
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -28,23 +28,19 @@
                </image>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2b5c5053" height="113.0" layoutX="-2.0" layoutY="-1.0" stroke="#ffffff00" strokeType="INSIDE" strokeWidth="0.0" width="342.0" />
-            <Polyline layoutX="58.0" layoutY="500.0" points="-58.0, -40.0, 288.0, 66.0, -58.0, 66.0, -58.0, -40.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0">
-               <fill>
-                  <LinearGradient endX="1.0" endY="0.9714285714285715" startX="1.0" startY="0.7714285714285715">
-                     <stops>
-                        <Stop color="#104035" />
-                        <Stop color="#2b5b4fdb" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </fill>
-            </Polyline>
             <VBox alignment="CENTER" layoutX="41.0" layoutY="149.0" prefHeight="268.0" prefWidth="200.0" spacing="22.0">
                <children>
-                  <TextField id="transparentTextfield" fx:id="emailTf" minHeight="-Infinity" prefHeight="50.0" prefWidth="253.0" promptText="E-mail address" />
-                  <PasswordField id="transparentTextfield" fx:id="passwordTf" minHeight="-Infinity" prefHeight="50.0" prefWidth="253.0" promptText="Password" />
+                  <TextField id="transparentTextfield" fx:id="emailTf" minHeight="-Infinity" prefHeight="50.0" prefWidth="253.0" promptText="E-mail address">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <PasswordField id="transparentTextfield" fx:id="passwordTf" minHeight="-Infinity" prefHeight="50.0" prefWidth="253.0" promptText="Password">
+                     <font>
+                        <Font size="18.0" />
+                     </font></PasswordField>
                   <Button defaultButton="true" maxWidth="143.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="143.0" styleClass="loginButton" text="Log in" />
                   <Button maxWidth="259.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="259.0" styleClass="loginButton" text="Register" />
-                  <Hyperlink text="Forgot password?" textFill="#2b5b4f">
+                  <Hyperlink fx:id="forgotPasswordHyperlink" onAction="#getBrowser" text="Forgot password?" textFill="#2b5b4f">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -59,13 +55,24 @@
                   <DropShadow />
                </effect>
             </Label>
+            <Polyline layoutX="40.0" layoutY="507.0" points="-58.0, -40.0, 322.0, 53.0, -76.0, 170.0, -58.0, -40.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0">
+               <fill>
+                  <LinearGradient cycleMethod="REFLECT" endX="0.09999999999999999" endY="0.780952380952381" startX="0.5952380952380952" startY="0.7904761904761904">
+                     <stops>
+                        <Stop color="#104035" />
+                        <Stop color="#2b594edb" offset="0.47766323024054985" />
+                        <Stop color="#2b594e" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Polyline>
          </children>
       </Pane>
    </center>
    <top>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="34.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="346.0" BorderPane.alignment="CENTER">
          <fill>
-            <LinearGradient endX="0.12857142857142856" endY="0.0761904761904762" startX="0.1952380952380952" startY="1.0">
+            <LinearGradient cycleMethod="REFLECT" endX="0.06190476190476191" endY="0.2571428571428571" startX="0.6285714285714286" startY="0.9571428571428572">
                <stops>
                   <Stop color="#104035" />
                   <Stop color="#5d867b" offset="1.0" />
