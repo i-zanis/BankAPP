@@ -63,18 +63,16 @@ public class LoginController implements Initializable {
         emailTf.setText(EMPTY_STRING);
         passwordTf.setText(EMPTY_STRING);
     }
-
     public void loginToApp(ActionEvent event) throws Exception {
         clearLabel(loginErrorLabel);
-
         resetTextFieldColor(emailTf, passwordTf);
         if (isEmpty(emailTf)) errorToLabel(emailTf, loginErrorLabel, "Email is required");
         else if (isEmpty(passwordTf)) errorToLabel(passwordTf, loginErrorLabel, "Password is required");
         else if (login(emailTf.getText(), passwordTf.getText())) {
             try {
                 currentCustomer = getCustomerByEmail(emailTf.getText());
-                Parent mainMenuView = FXMLLoader.load(getClass().getResource(MAINMENU));
-                Scene mainMenuScene = new Scene(mainMenuView);
+                Parent mainmenu = FXMLLoader.load(getClass().getResource(MAINMENU));
+                Scene mainMenuScene = new Scene(mainmenu);
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 mainMenuScene.getStylesheets().add(CSS);
                 window.setScene(mainMenuScene);

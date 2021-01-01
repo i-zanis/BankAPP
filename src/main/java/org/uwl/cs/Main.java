@@ -47,33 +47,12 @@ public class Main extends Application {
 
         Database.connect();
 
-        //Database.updateAccount(2, 5.0);
-        // System.out.println(cust1.getBalance());
         //removes the window title bar from at the top
         //primaryStage.initStyle(StageStyle.UNDECORATED);
 
         // add UWL color in settings that also brings the logo in the middle "UWL theme"
-// you can do this by adding a different css method
+        // you can do this by adding a different css method
 
 
     }
-
-
-    /**
-     * Opens up a new window to find an image of choice
-     *
-     * @param stage The stage of the Scene
-     * @return
-     */
-    public void selectProfPhoto(Stage stage) throws Exception {
-        FileChooser fileChooser = new FileChooser();
-        FileChooser.ExtensionFilter extFilterImages = new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg");
-        fileChooser.getExtensionFilters().addAll(extFilterImages);
-        fileChooser.setTitle("Select a profile photo");
-        File selectedImage = fileChooser.showOpenDialog(stage);
-        Image image = new Image(new FileInputStream(selectedImage));
-        stage.getIcons().clear();
-        stage.getIcons().add(image);
-    }
-
 }

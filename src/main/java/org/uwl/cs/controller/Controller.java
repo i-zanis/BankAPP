@@ -1,7 +1,11 @@
 package org.uwl.cs.controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
@@ -11,6 +15,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -59,11 +64,6 @@ public class Controller implements Initializable {
     public Button profileButton2;
     public String modifiedAccNum = "";
 
-    // ****** TextField Methods ******
-    public static Boolean isEmpty(TextField textField) {
-        return textField.getText().equals(EMPTY_STRING);
-    }
-
     public static void highlightRed(TextField textfield) {
         textfield.setStyle("-fx-border-color: red;");
         textfield.requestFocus();
@@ -98,6 +98,11 @@ public class Controller implements Initializable {
         for (TextField textField : textFields) {
             textField.setStyle("-fx-border-color: #2b5c50;");
         }
+    }
+
+    // ****** TextField & Label Methods ******
+    public static Boolean isEmpty(TextField textField) {
+        return textField.getText().equals(EMPTY_STRING);
     }
 
     // ***** Loan Dialog methods *****
@@ -179,7 +184,6 @@ public class Controller implements Initializable {
         //transferDialog.getScene().setFill(Color.TRANSPARENT);
         withdrawDialog.setVisible(false);
         resetLabelsAndTextFields();
-
     }
 
     // ***** Interest Dialog methods *****
@@ -193,13 +197,11 @@ public class Controller implements Initializable {
         monthlyInterestLabel.setText(getMonthlyInterest());
         annualInterestLabel.setText(getAnnualInterest());
         updateScreenInformation();
-
     }
 
     public void closeInterestDialog(ActionEvent actionEvent) throws IOException {
         interestDialog.setVisible(false);
         resetLabelsAndTextFields();
-
     }
 
     // ***** Transfer Dialog methods *****
@@ -210,7 +212,6 @@ public class Controller implements Initializable {
         // you hardcode a solution. It works at present therefore I will keep it.
         transferDialog.getScene().setFill(Color.TRANSPARENT);
         transferDialog.getScene().setFill(Color.DARKSALMON);
-
     }
 
     public void transferAccept(ActionEvent actionEvent) throws IOException {
@@ -344,10 +345,22 @@ public class Controller implements Initializable {
         }
     }
 
-    public void exitApplication() throws Exception {
+    public  void exitApplication(ActionEvent event) throws Exception {
         connect().close();
-        appWindow.getScene().getWindow().hide();
+        System.out.println("You have been disconnected from the database.");
+        try {
+            Parent mainMenuView = FXMLLoader.load(Controller.class.getResource(LOGIN));
+            Scene mainMenuScene = new Scene(mainMenuView);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            mainMenuScene.getStylesheets().add(CSS);
+            window.setScene(mainMenuScene);
+            window.show();
+        } catch (Exception e) {
+            System.out.println("Error occurred while opening the Login.");
+            e.printStackTrace();
+        }
     }
+
 
     public void changeProfilePic() {
         profileButton1.setVisible(false);
