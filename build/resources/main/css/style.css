@@ -20,6 +20,11 @@ fx-font-weight: bold;
 	-fx-border-width: 2 2 2 2.2;
 	-fx-background-color: transparent;
 }
+.text-field:focused {
+	-fx-border-color: #42bbaa;
+	-fx-border-width: 2 2 2 2.2;
+	-fx-background-color: transparent;
+}
 
 
 .closebutton .button {
@@ -150,36 +155,7 @@ fx-font-weight: bold;
 .loginButton .button:focused {
   -fx-background-color: -fx-focus-color, white;
 }
-
-/* reserved style for mainmenu title pane (basket)
-   to be removed in the future
-.titled-pane > .title {
-    -fx-body-color: #6F4242;
-    }
-.titled-pane > .title:armed:hover {
-    -fx-body-color: #CCCCCC;
+.loginButton:hover {
+  -fx-effect: innershadow(gaussian, #42bbaa, 15, 0.1, 0, 0);
 }
 
-.titled-pane > .title:hover {
-    -fx-body-color: #DDDDDD;
-}
-
-.brown-settings {
-	-fx-color-one: #6F4242;
-	-fx-background-color: -fx-color-one;
-	-fx-background-radius: 8, 7, 6;
-	-fx-background-insets: 0, 1, 2;
-	-fx-text-fill: white;
-	-fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
-}
-.brown-settings:hover {
-	-fx-color-one: #6f5542;
-	-fx-color-two: #981100;
-	-fx-color-three: #981100;
-}
-.brown-settings:armed {
-	-fx-color-one: #6f6242;
-	-fx-color-two: #235891;
-	-fx-color-three: #235891;
-}
-*/

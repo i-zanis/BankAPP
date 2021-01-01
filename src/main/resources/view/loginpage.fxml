@@ -1,72 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.SVGPath?>
-<?import javafx.scene.text.Font?>
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PackageFiles.LogInPageController">
-   <top>
-      <ToolBar accessibleRole="PARENT" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #6F4242;" stylesheets="@../CSS/style.css" BorderPane.alignment="CENTER">
-         <items>
-            <Label textFill="WHITE" />
-         </items>
-      </ToolBar>
-   </top>
-   <center>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f5f5dc;" BorderPane.alignment="CENTER">
-         <ImageView fitHeight="77.0" fitWidth="179.0" layoutX="78.0" layoutY="136.0" opacity="0.32">
-            <image>
-               <Image url="@../Media/dragonpic.png" />
-            </image>
-         </ImageView>
-         <Label alignment="CENTER" layoutX="47.0" layoutY="140.0" prefHeight="66.0" prefWidth="241.0" text="Shenlong" textAlignment="CENTER" textFill="#6f4242">
-            <font>
-               <Font name="Constantia" size="45.0" />
-            </font>
-         </Label>
-         <Label fx:id="errorLabelLogIn" layoutX="48.0" layoutY="222.0" textFill="RED" />
-         <Button fx:id="signInButton" defaultButton="true" layoutX="41.0" layoutY="302.0" mnemonicParsing="false" onAction="#signSuccessful" prefHeight="32.0" prefWidth="253.0" styleClass="brown-settings" text="Sign in" textFill="WHITE">
-            <font>
-               <Font name="System Bold" size="12.0" />
-            </font>
-         </Button>
-         <TextField id="transparentTextfield" fx:id="emailField" layoutX="41.0" layoutY="234.0" prefHeight="25.0" prefWidth="253.0" promptText="E-mail address" />
-         <PasswordField id="transparentTextfield" fx:id="passwordField" layoutX="41.0" layoutY="268.0" prefHeight="25.0" prefWidth="253.0" promptText="Password" />
-         <Button fx:id="googleButton" layoutX="41.0" layoutY="399.0" mnemonicParsing="false" onAction="#loadGoogleFacebook" prefHeight="32.0" prefWidth="253.0" styleClass="google-settings" text="Continue with Google" textFill="RED">
-            <font>
-               <Font name="System Bold" size="12.0" />
-            </font>
-         </Button>
-         <Button fx:id="facebookButton" layoutX="41.0" layoutY="439.0" mnemonicParsing="false" onAction="#loadGoogleFacebook" prefHeight="32.0" prefWidth="253.0" styleClass="facebook-settings" text="Continue with Facebook" textFill="WHITE">
-            <font>
-               <Font name="System Bold" size="12.0" />
-            </font>
-         </Button>
-         <Label layoutX="52.0" layoutY="472.0" prefHeight="78.0" prefWidth="231.0" text="By continuing you agree to our Terms of Service. Shenlong Ltd. does not use your data to for marketing or experience enhancing purposes. For more info visit our website." textAlignment="CENTER" wrapText="true">
-            <font>
-               <Font size="10.0" />
-            </font>
-         </Label>
-         <ImageView fitHeight="119.0" fitWidth="335.0">
-            <image>
-               <Image url="@../Media/bannerPic.jpg" />
-            </image>
-         </ImageView>
-         <Button fx:id="registrationButton" layoutX="41.0" layoutY="359.0" mnemonicParsing="false" onAction="#loadRegistration" prefHeight="32.0" prefWidth="253.0" styleClass="brown-settings" text="Not a member?" textFill="WHITE">
-            <font>
-               <Font name="System Bold" size="12.0" />
-            </font>
-         </Button>
-         <SVGPath content="M 7.5 1.5 C 4.1875 1.5 1.5 4.1875 1.5 7.5 C 1.5 10.8125 4.1875 13.5 7.5 13.5 C 12.507812 13.5 13.632812 8.851562 13.164062 6.5 L 7.5 6.5 L 7.5 8.5 L 11.367188 8.5 C 10.925781 10.222656 9.363281 11.5 7.5 11.5 C 5.289062 11.5 3.5 9.710938 3.5 7.5 C 3.5 5.289062 5.289062 3.5 7.5 3.5 C 8.503906 3.5 9.417969 3.871094 10.121094 4.484375 L 11.542969 3.0625 C 10.476562 2.09375 9.058594 1.5 7.5 1.5 Z M 7.5 1.5 M 7.5 1.5 C 4.1875 1.5 1.5 4.1875 1.5 7.5 C 1.5 10.8125 4.1875 13.5 7.5 13.5 C 12.507812 13.5 13.632812 8.851562 13.164062 6.5 L 7.5 6.5 L 7.5 8.5 L 11.367188 8.5 C 10.925781 10.222656 9.363281 11.5 7.5 11.5 C 5.289062 11.5 3.5 9.710938 3.5 7.5 C 3.5 5.289062 5.289062 3.5 7.5 3.5 C 8.503906 3.5 9.417969 3.871094 10.121094 4.484375 L 11.542969 3.0625 C 10.476562 2.09375 9.058594 1.5 7.5 1.5 Z M 7.5 1.5 " layoutX="62.0" layoutY="407.0" stroke="BLACK" />
-         <SVGPath content="M 7.5 0 C 3.359375 0 0 3.359375 0 7.5 C 0 11.261719 2.769531 14.363281 6.378906 14.90625 L 6.378906 9.488281 L 4.523438 9.488281 L 4.523438 7.515625 L 6.378906 7.515625 L 6.378906 6.203125 C 6.378906 4.03125 7.4375 3.078125 9.242188 3.078125 C 10.105469 3.078125 10.5625 3.144531 10.78125 3.171875 L 10.78125 4.894531 L 9.546875 4.894531 C 8.78125 4.894531 8.515625 5.621094 8.515625 6.4375 L 8.515625 7.515625 L 10.761719 7.515625 L 10.457031 9.488281 L 8.515625 9.488281 L 8.515625 14.921875 C 12.175781 14.425781 15 11.296875 15 7.5 C 15 3.359375 11.640625 0 7.5 0 Z M 7.5 0 " fill="WHITE" layoutX="62.0" layoutY="447.0" />
-      </Pane>
-   </center>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1"
+            fx:controller="PackageFiles.LogInPageController">
+    <top>
+        <ToolBar accessibleRole="PARENT" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #6F4242;"
+                 stylesheets="@../CSS/style.css" BorderPane.alignment="CENTER">
+            <items>
+                <Label textFill="WHITE"/>
+            </items>
+        </ToolBar>
+    </top>
+    <center>
+        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f5f5dc;" BorderPane.alignment="CENTER">
+            <ImageView fitHeight="77.0" fitWidth="179.0" layoutX="78.0" layoutY="136.0" opacity="0.32">
+                <image>
+                    <Image url="@../Media/dragonpic.png"/>
+                </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="47.0" layoutY="140.0" prefHeight="66.0" prefWidth="241.0" text="Shenlong"
+                   textAlignment="CENTER" textFill="#6f4242">
+                <font>
+                    <Font name="Constantia" size="45.0"/>
+                </font>
+            </Label>
+            <Label fx:id="errorLabelLogIn" layoutX="48.0" layoutY="222.0" textFill="RED"/>
+            <Button fx:id="signInButton" defaultButton="true" layoutX="41.0" layoutY="302.0" mnemonicParsing="false"
+                    onAction="#signSuccessful" prefHeight="32.0" prefWidth="253.0" styleClass="brown-settings"
+                    text="Sign in" textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="12.0"/>
+                </font>
+            </Button>
+            <TextField id="transparentTextfield" fx:id="emailField" layoutX="41.0" layoutY="234.0" prefHeight="25.0"
+                       prefWidth="253.0" promptText="E-mail address"/>
+            <PasswordField id="transparentTextfield" fx:id="passwordField" layoutX="41.0" layoutY="268.0"
+                           prefHeight="25.0" prefWidth="253.0" promptText="Password"/>
+            <Button fx:id="googleButton" layoutX="41.0" layoutY="399.0" mnemonicParsing="false"
+                    onAction="#loadGoogleFacebook" prefHeight="32.0" prefWidth="253.0" styleClass="google-settings"
+                    text="Continue with Google" textFill="RED">
+                <font>
+                    <Font name="System Bold" size="12.0"/>
+                </font>
+            </Button>
+            <Button fx:id="facebookButton" layoutX="41.0" layoutY="439.0" mnemonicParsing="false"
+                    onAction="#loadGoogleFacebook" prefHeight="32.0" prefWidth="253.0" styleClass="facebook-settings"
+                    text="Continue with Facebook" textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="12.0"/>
+                </font>
+            </Button>
+            <Label layoutX="52.0" layoutY="472.0" prefHeight="78.0" prefWidth="231.0"
+                   text="By continuing you agree to our Terms of Service. Shenlong Ltd. does not use your data to for marketing or experience enhancing purposes. For more info visit our website."
+                   textAlignment="CENTER" wrapText="true">
+                <font>
+                    <Font size="10.0"/>
+                </font>
+            </Label>
+            <ImageView fitHeight="119.0" fitWidth="335.0">
+                <image>
+                    <Image url="@../Media/bannerPic.jpg"/>
+                </image>
+            </ImageView>
+            <Button fx:id="registrationButton" layoutX="41.0" layoutY="359.0" mnemonicParsing="false"
+                    onAction="#loadRegistration" prefHeight="32.0" prefWidth="253.0" styleClass="brown-settings"
+                    text="Not a member?" textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="12.0"/>
+                </font>
+            </Button>
+            <SVGPath
+                    content="M 7.5 1.5 C 4.1875 1.5 1.5 4.1875 1.5 7.5 C 1.5 10.8125 4.1875 13.5 7.5 13.5 C 12.507812 13.5 13.632812 8.851562 13.164062 6.5 L 7.5 6.5 L 7.5 8.5 L 11.367188 8.5 C 10.925781 10.222656 9.363281 11.5 7.5 11.5 C 5.289062 11.5 3.5 9.710938 3.5 7.5 C 3.5 5.289062 5.289062 3.5 7.5 3.5 C 8.503906 3.5 9.417969 3.871094 10.121094 4.484375 L 11.542969 3.0625 C 10.476562 2.09375 9.058594 1.5 7.5 1.5 Z M 7.5 1.5 M 7.5 1.5 C 4.1875 1.5 1.5 4.1875 1.5 7.5 C 1.5 10.8125 4.1875 13.5 7.5 13.5 C 12.507812 13.5 13.632812 8.851562 13.164062 6.5 L 7.5 6.5 L 7.5 8.5 L 11.367188 8.5 C 10.925781 10.222656 9.363281 11.5 7.5 11.5 C 5.289062 11.5 3.5 9.710938 3.5 7.5 C 3.5 5.289062 5.289062 3.5 7.5 3.5 C 8.503906 3.5 9.417969 3.871094 10.121094 4.484375 L 11.542969 3.0625 C 10.476562 2.09375 9.058594 1.5 7.5 1.5 Z M 7.5 1.5 "
+                    layoutX="62.0" layoutY="407.0" stroke="BLACK"/>
+            <SVGPath
+                    content="M 7.5 0 C 3.359375 0 0 3.359375 0 7.5 C 0 11.261719 2.769531 14.363281 6.378906 14.90625 L 6.378906 9.488281 L 4.523438 9.488281 L 4.523438 7.515625 L 6.378906 7.515625 L 6.378906 6.203125 C 6.378906 4.03125 7.4375 3.078125 9.242188 3.078125 C 10.105469 3.078125 10.5625 3.144531 10.78125 3.171875 L 10.78125 4.894531 L 9.546875 4.894531 C 8.78125 4.894531 8.515625 5.621094 8.515625 6.4375 L 8.515625 7.515625 L 10.761719 7.515625 L 10.457031 9.488281 L 8.515625 9.488281 L 8.515625 14.921875 C 12.175781 14.425781 15 11.296875 15 7.5 C 15 3.359375 11.640625 0 7.5 0 Z M 7.5 0 "
+                    fill="WHITE" layoutX="62.0" layoutY="447.0"/>
+        </Pane>
+    </center>
 </BorderPane>

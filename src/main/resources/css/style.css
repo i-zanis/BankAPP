@@ -20,6 +20,11 @@ fx-font-weight: bold;
 	-fx-border-width: 2 2 2 2.2;
 	-fx-background-color: transparent;
 }
+.text-field:focused {
+	-fx-border-color: #42bbaa;
+	-fx-border-width: 2 2 2 2.2;
+	-fx-background-color: transparent;
+}
 
 
 .closebutton .button {

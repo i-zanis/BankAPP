@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Tests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-27T23:39:07" hostname="DESKTOP-MTINQLQ" time="1.04">
+<testsuite name="Tests" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-12-31T20:31:50" hostname="DESKTOP-MTINQLQ" time="2.807">
   <properties/>
-  <testcase name="testLogin" classname="Tests" time="1.04"/>
-  <system-out><![CDATA[[jeigay, gmail.com]
-]]></system-out>
+  <testcase name="testGetCreateUser" classname="Tests" time="1.377"/>
+  <testcase name="testLogin" classname="Tests" time="1.43"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

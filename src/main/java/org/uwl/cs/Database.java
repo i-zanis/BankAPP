@@ -1,9 +1,11 @@
 package org.uwl.cs;
 
+import javax.swing.*;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
+import java.util.Arrays;
 import java.util.LinkedList;
 
 
@@ -14,9 +16,9 @@ import java.util.LinkedList;
 public class Database {
 
     public static Connection connect() throws Exception {
-        String url = "jdbc:mysql://sql2.freemysqlhosting.net:3306/sql2383785";
-        String user = "sql2383785";
-        String pwd = "aS2%cM4*";
+        String url = "jdbc:mysql://byfcpp9vrgzbrtqotooc-mysql.services.clever-cloud.com:3306/byfcpp9vrgzbrtqotooc";
+        String user = "uupoc6dwtojsvpfm";
+        String pwd = "ZglEpADBDMfdw7g28KLu";
         Connection con = null;
         con = DriverManager.getConnection(url, user, pwd);
         con.setAutoCommit(false);
@@ -67,15 +69,37 @@ public class Database {
         return result;
     }
 
-
-    public static Customer getCustomer(int id) {
+    public static Customer getCustomerByEmail(String email) {
         try {
             Connection con = connect();
             Statement statement = con.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM account WHERE id=" + id + ";");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM account WHERE email=" + "'" + email + "'" + ";");
             resultSet.next();
             Customer customer = new Customer(
-                    resultSet.getInt("id"),
+                    resultSet.getInt("id") + "",
+                    resultSet.getString("first_name"),
+                    resultSet.getString("last_name"),
+                    resultSet.getString("email"),
+                    resultSet.getString("password"),
+                    Float.parseFloat(String.valueOf(resultSet.getFloat("balance"))),
+                    resultSet.getString("phone"));
+            con.close();
+            statement.close();
+            return customer;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static Customer getCustomerById(String id) {
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM account WHERE id=" + Integer.parseInt(id) + ";");
+            resultSet.next();
+            Customer customer = new Customer(
+                    resultSet.getInt("id") + "",
                     resultSet.getString("first_name"),
                     resultSet.getString("last_name"),
                     resultSet.getString("email"),
@@ -117,7 +141,7 @@ public class Database {
     }
      */
 
-    public static boolean updateBalance(int id, float balance) {
+    public static boolean updateBalance(String id, float balance) {
         try {
             Connection con = connect();
             Statement statement = con.createStatement();
@@ -144,7 +168,7 @@ public class Database {
         return false;
     }
 
-    public static boolean create(String fName, String lName, String email, String pwd, String phone) {
+    public static boolean getOrCreateUser(String fName, String lName, String email, String pwd, String phone) {
         try {
             Connection con = connect();
             Statement statement = con.createStatement();
@@ -161,9 +185,8 @@ public class Database {
             return true;
 
         } catch (Exception e) {
-            e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     public static String encryptPassword(String password) {
@@ -219,6 +242,7 @@ public class Database {
             e.printStackTrace();
         }
     }
+
 
     public static void init() {
         try {
@@ -318,7 +342,8 @@ public class Database {
         try {
             Connection con = connect();
             Statement statement = con.createStatement();
-            String query = "SELECT * FROM account WHERE email='" + email + "' AND password='" + pwd + "';";
+
+            String query = "SELECT * FROM account WHERE email='" + email + "' AND password='" + encryptPassword(pwd) + "';";
             ResultSet resultSet = statement.executeQuery(query);
 
             if (resultSet.next()) {
@@ -335,15 +360,9 @@ public class Database {
     }
 
     public static void main(String[] args) {
-        //create("test","test", "test@test.com", "testing", "12312132");
-        //System.out.println(login("aaaaaaaasd", "asd"));
-        for (String[] obj : all()) {
-            System.out.println("###################");
-            for (String data : obj) {
-                System.out.println(data);
-            }
-        }
-        //makeQuery("ALTER TABLE account AUTO_INCREMENT=12368974");
-    }
 
+        for (String[] a : all()) {
+            System.out.println(Arrays.toString(a));
+        }
+    }
 }

@@ -1,53 +1,40 @@
 package org.uwl.cs.controller;
 
-import javafx.animation.*;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.DialogPane;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import javafx.stage.Screen;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.util.Duration;
-import org.uwl.cs.Customer;
-import org.uwl.cs.Main;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static org.uwl.cs.Constant.*;
 import static org.uwl.cs.Database.connect;
 import static org.uwl.cs.Main.currentCustomer;
-import static org.uwl.cs.Main.primaryStage;
 import static org.uwl.cs.Transaction.*;
-import static org.uwl.cs.Util.*;
-import static org.uwl.cs.Util.WINDOW_ICON;
-import static org.uwl.cs.Utils.getTime;
-import static org.uwl.cs.Utils.selectProfileIcon;
+import static org.uwl.cs.Utillity.getTime;
+import static org.uwl.cs.Utillity.selectProfileIcon;
 
 public class Controller implements Initializable {
     public BorderPane appWindow;
     public DialogPane transferDialog;
-    public TextField transferAccNameTf;
     public TextField transferAccNoTf;
     public TextField transferAmountTf;
+    public TextField transferAccNameTf;
     public Label transferErrorLabel;
     public DialogPane withdrawDialog;
-    public  Label timeLabel;
-    public  Label nameLabel;
-    public  Label accountLabel;
-    public  Label balanceLabel;
+    public Label timeLabel;
+    public Label nameLabel;
+    public Label accountLabel;
+    public Label balanceLabel;
     public DialogPane depositDialogue;
     public TextField depositTf;
     public Label depositErrorLabel;
@@ -67,24 +54,62 @@ public class Controller implements Initializable {
     public Circle midCircleGreen;
     public Button transferButton;
     public Circle profileCircle1;
-    public Circle testCircle;
     public Circle profileCircle2;
     public Button profileButton1;
     public Button profileButton2;
+    public String modifiedAccNum = "";
+
+    // ****** TextField Methods ******
+    public static Boolean isEmpty(TextField textField) {
+        return textField.getText().equals(EMPTY_STRING);
+    }
+
+    public static void highlightRed(TextField textfield) {
+        textfield.setStyle("-fx-border-color: red;");
+        textfield.requestFocus();
+        textfield.setText(EMPTY_STRING);
+    }
+
+    public static void errorToLabel(TextField textfield, Label label, String string) {
+        textfield.setStyle("-fx-border-color: red;");
+        textfield.requestFocus();
+        textfield.setText(EMPTY_STRING);
+        label.setText(string);
+    }
+
+    public static Boolean isLetter(TextField textField) {
+        return textField.getText().matches("[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z])$");
+    }
+
+    public static Boolean isDigit(TextField textField) {
+        return textField.getText().matches("^[-+]?[0-9]*\\.?[0-9]+$");
+    }
+
+    public static Boolean validateAccountNo(TextField textField) {
+        return textField.getText().length() >= 8;
+    }
+
+    // clears the label
+    public static void clearLabel(Label label) {
+        label.setText(EMPTY_STRING);
+    }
+
+    public static void resetTextFieldColor(TextField... textFields) {
+        for (TextField textField : textFields) {
+            textField.setStyle("-fx-border-color: #2b5c50;");
+        }
+    }
 
     // ***** Loan Dialog methods *****
     public void getLoanDialog(ActionEvent actionEvent) throws IOException {
         loanDialog.setVisible(true);
-        loanDialog.getScene().setFill(Color.TRANSPARENT);
-        loanDialog.getScene().setFill(Color.DARKSALMON);
-
-
         // There is some strange behaviour in the scene of the dialog, you can see the hard edges which set to be round
         // however when you close the dialog and reopen it they appear. Officially this is a limitation of JavaFX unless
         // you hardcode a solution. It works at present therefore I will keep it.
-
-
+        loanDialog.getScene().setFill(Color.TRANSPARENT);
+        loanDialog.getScene().setFill(Color.DARKSALMON);
     }
+
     public void loanAccept(ActionEvent actionEvent) throws IOException {
         loanDialog.getScene().setFill(Color.TRANSPARENT);
         clearLabel(loanErrorLabel);
@@ -99,14 +124,15 @@ public class Controller implements Initializable {
                 loanAmountLabel.setText(getMonthlyLoanRepayment(loanAmountTf.getText(), loanYearsTf.getText()));
                 updateScreenInformation();
                 monthlyPaymentLabel.setVisible(true);
-                    updateScreenInformation();
-                    resetLabelsAndTextFields();
+                updateScreenInformation();
+                resetLabelsAndTextFields();
                 System.out.println("The new balance is : " + currentCustomer.getBalance());
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
+
     public void loanDecline(ActionEvent actionEvent) throws IOException {
         //loanDialog.getScene().setFill(Color.TRANSPARENT);
         loanDialog.setVisible(false);
@@ -127,6 +153,7 @@ public class Controller implements Initializable {
         withdrawDialog.getScene().setFill(Color.DARKSALMON);
 
     }
+
     public void withdrawAccept(ActionEvent actionEvent) throws IOException {
         withdrawDialog.getScene().setFill(Color.TRANSPARENT);
         clearLabel(withdrawErrorLabel);
@@ -139,8 +166,7 @@ public class Controller implements Initializable {
                     updateScreenInformation();
                     withdrawDialog.setVisible(false);
                     resetLabelsAndTextFields();
-                }
-                else {
+                } else {
                     errorToLabel(withdrawTf, withdrawErrorLabel, "Insufficient funds");
                 }
             } catch (Exception e) {
@@ -148,12 +174,14 @@ public class Controller implements Initializable {
             }
         }
     }
+
     public void withdrawDecline(ActionEvent actionEvent) throws IOException {
         //transferDialog.getScene().setFill(Color.TRANSPARENT);
         withdrawDialog.setVisible(false);
         resetLabelsAndTextFields();
 
     }
+
     // ***** Interest Dialog methods *****
     public void getInterestDialog(ActionEvent actionEvent) throws IOException {
         interestDialog.setVisible(true);
@@ -167,12 +195,12 @@ public class Controller implements Initializable {
         updateScreenInformation();
 
     }
+
     public void closeInterestDialog(ActionEvent actionEvent) throws IOException {
         interestDialog.setVisible(false);
         resetLabelsAndTextFields();
 
     }
-
 
     // ***** Transfer Dialog methods *****
     public void getTransferDialog(ActionEvent actionEvent) throws IOException {
@@ -184,18 +212,22 @@ public class Controller implements Initializable {
         transferDialog.getScene().setFill(Color.DARKSALMON);
 
     }
+
     public void transferAccept(ActionEvent actionEvent) throws IOException {
         transferDialog.getScene().setFill(Color.TRANSPARENT);
         clearLabel(transferErrorLabel);
         resetTextFieldColor(transferAccNameTf, transferAccNoTf, transferAmountTf);
         if (isEmpty(transferAccNameTf)) errorToLabel(transferAccNameTf, transferErrorLabel, "Account Name required");
-        else if (!isLetter(transferAccNameTf)) errorToLabel(transferAccNameTf, transferErrorLabel, "Invalid Account Name");
+        else if (!isLetter(transferAccNameTf))
+            errorToLabel(transferAccNameTf, transferErrorLabel, "Invalid Account Name");
 
         else if (isEmpty(transferAccNoTf)) errorToLabel(transferAccNoTf, transferErrorLabel, "Account Number required");
         else if (!isDigit(transferAccNoTf)) errorToLabel(transferAccNoTf, transferErrorLabel, "Invalid Account No");
-        else if (!validateAccountNo(transferAccNoTf)) errorToLabel(transferAccNoTf, transferErrorLabel, "Number too short");
+        else if (!validateAccountNo(transferAccNoTf))
+            errorToLabel(transferAccNoTf, transferErrorLabel, "Number too short");
 
-        else if (isEmpty(transferAmountTf)) errorToLabel(transferAmountTf, transferErrorLabel, "Transfer Amount required");
+        else if (isEmpty(transferAmountTf))
+            errorToLabel(transferAmountTf, transferErrorLabel, "Transfer Amount required");
         else if (!isDigit(transferAmountTf)) errorToLabel(transferAmountTf, transferErrorLabel, "Enter an amount");
         else {
             try {
@@ -203,9 +235,8 @@ public class Controller implements Initializable {
                     updateScreenInformation();
                     transferDialog.setVisible(false);
                     resetLabelsAndTextFields();
-                }
-                else {
-                    errorToLabel(transferAmountTf,transferErrorLabel,"Insufficient funds");
+                } else {
+                    errorToLabel(transferAmountTf, transferErrorLabel, "Insufficient funds");
                 }
                 System.out.println("The new balance is : " + currentCustomer.getBalance());
             } catch (Exception e) {
@@ -213,11 +244,13 @@ public class Controller implements Initializable {
             }
         }
     }
+
     public void transferDecline(ActionEvent actionEvent) throws IOException {
         //transferDialog.getScene().setFill(Color.TRANSPARENT);
         transferDialog.setVisible(false);
         resetLabelsAndTextFields();
     }
+
     // ***** Deposit Dialog Methods  *****
     public void getDepositDialog(ActionEvent actionEvent) throws IOException {
         depositDialogue.setVisible(true);
@@ -228,6 +261,7 @@ public class Controller implements Initializable {
         depositDialogue.getScene().setFill(Color.DARKSALMON);
 
     }
+
     public void depositAccept(ActionEvent actionEvent) throws IOException {
         depositDialogue.getScene().setFill(Color.TRANSPARENT);
         clearLabel(depositErrorLabel);
@@ -248,6 +282,7 @@ public class Controller implements Initializable {
             }
         }
     }
+
     public void depositDecline(ActionEvent actionEvent) throws IOException {
         //transferDialog.getScene().setFill(Color.TRANSPARENT);
         depositDialogue.setVisible(false);
@@ -255,37 +290,8 @@ public class Controller implements Initializable {
 
     }
 
-
-    // ****** TextField Methods ******
-    public static Boolean isEmpty(TextField textField) {
-        return textField.getText().equals(EMPTY_STRING);
-    }
-    public static void highlightRed(TextField textfield) {
-        textfield.setStyle("-fx-border-color: red;");
-        textfield.requestFocus();
-        textfield.setText(EMPTY_STRING);
-    }
-    public static void errorToLabel(TextField textfield, Label label, String string) {
-        textfield.setStyle("-fx-border-color: red;");
-        textfield.requestFocus();
-        textfield.setText(EMPTY_STRING);
-        label.setText(string);
-    }
-    public static Boolean isLetter(TextField textField) {
-        return textField.getText().matches("[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z])$");
-    }
-    public static Boolean isDigit(TextField textField) {
-        return textField.getText().matches("^[-+]?[0-9]*\\.?[0-9]+$");
-    }
-    public static Boolean validateAccountNo(TextField textField) {
-        return textField.getText().length() >= 8;
-    }
-    // clears the label
-    public static void clearLabel(Label label) {
-        label.setText(EMPTY_STRING);
-    }
     // clears Labels and TextFields, used when pressing NO/YES on dialog to be ready for use when they open again
-    public  void resetLabelsAndTextFields() {
+    public void resetLabelsAndTextFields() {
         transferAccNameTf.setText(EMPTY_STRING);
         transferAccNoTf.setText(EMPTY_STRING);
         transferAmountTf.setText(EMPTY_STRING);
@@ -294,10 +300,10 @@ public class Controller implements Initializable {
         loanAmountTf.setText(EMPTY_STRING);
         loanYearsTf.setText(EMPTY_STRING);
         // need to add newly implemented textfields
-        resetTextFieldColor(transferAccNameTf,transferAccNoTf,transferAmountTf,depositTf,withdrawTf,loanAmountTf,loanAmountTf);
+        resetTextFieldColor(transferAccNameTf, transferAccNoTf, transferAmountTf, depositTf, withdrawTf, loanAmountTf, loanAmountTf);
         clearAllDialogLabels();
-
     }
+
     public void clearAllDialogLabels() {
         transferErrorLabel.setText(EMPTY_STRING);
         withdrawErrorLabel.setText(EMPTY_STRING);
@@ -305,45 +311,53 @@ public class Controller implements Initializable {
         loanErrorLabel.setText(EMPTY_STRING);
 
     }
-    public static void resetTextFieldColor(TextField ... textFields) {
-        for (TextField textField : textFields) {
-            textField.setStyle("-fx-border-color: #2b5c50;");
-        }
-    }
+
     public void updateScreenInformation() {
-        nameLabel.setText(currentCustomer.getFirstName() + EMPTY_STRING + currentCustomer.getLastName());
-        accountLabel.setText(currentCustomer.getAccountNumber() + EMPTY_STRING); // converts to string
+        nameLabel.setText(currentCustomer.getFirstName() + SPACE + currentCustomer.getLastName());
+        accountLabel.setText(adjustAccountNumber()); // converts to string
         balanceLabel.setText(getUpdatedBalance());
         timeLabel.setText(LAST_UPDATE + getTime());
         updateMidCircleColor();
+    }
 
+    public String adjustAccountNumber() {
+        if (modifiedAccNum.isEmpty())
+            // EMPTY_STRING to avoid addition of the first digits
+            modifiedAccNum = currentCustomer.getAccountNumber().charAt(0) + EMPTY_STRING
+                    + currentCustomer.getAccountNumber().charAt(1) + EMPTY_STRING +
+                    currentCustomer.getAccountNumber().charAt(2) + HYPHEN + currentCustomer.getAccountNumber().charAt(3) +
+                    currentCustomer.getAccountNumber().charAt(4) + currentCustomer.getAccountNumber().charAt(5) + HYPHEN
+                    + currentCustomer.getAccountNumber().charAt(6) + currentCustomer.getAccountNumber().charAt(7);
+        return modifiedAccNum;
     }
 
     public void updateMidCircleColor() {
         if (currentCustomer.getBalance() > 1000.0) {
-           midCircleGreen.setVisible(true);
+            midCircleGreen.setVisible(true);
             midCircleRed.setVisible(false);
-        }
-        else if (currentCustomer.getBalance() <= 100.0) {
+        } else if (currentCustomer.getBalance() <= 100.0) {
             midCircleGreen.setVisible(false);
             midCircleRed.setVisible(true);
-        }
-        else {
+        } else {
             midCircleGreen.setVisible(false);
             midCircleRed.setVisible(false);
         }
     }
-        public void exitApplication() throws Exception {
+
+    public void exitApplication() throws Exception {
         connect().close();
         appWindow.getScene().getWindow().hide();
     }
+
     public void changeProfilePic() {
         profileButton1.setVisible(false);
         profileButton2.setVisible(true);
         Image image = new Image(selectProfileIcon().toURI().toString());
         profileCircle2.setFill(new ImagePattern(image));
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        updateScreenInformation();
     }
 }

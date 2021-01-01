@@ -1,53 +1,33 @@
 package org.uwl.cs;
 
-import javafx.animation.*;
 import javafx.application.Application;
-import javafx.beans.property.DoubleProperty;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.util.Duration;
 
 import java.io.File;
 import java.io.FileInputStream;
 
-import static java.lang.StrictMath.random;
-import static org.uwl.cs.Database.getCustomer;
-import static org.uwl.cs.Util.*;
-import static org.uwl.cs.Utils.fadeIn;
+import static org.uwl.cs.Constant.*;
 
-/** This has been a very long endeavour. The greatest programming task I have ever taken to this day. Last year I swore
- * that next year(this) I would do the same exercise with a database. Unfortunately I was not very competent with mySQL
- * therefore I had to open up Introduction to Java and Algorithms by Daniel Liang to brush up and touch their premium
- * online chapters. On top of this I decided to use a new technology "Gradle" for Dependency control and find naming
- * conventions and hierarchy for folders(eg. module names, MVC format).
- *
- * The circle in the middle changes color based on the current balance.
- *
- * I would like to thank the following websites for their free services.
- * Window/Task bar icon from DesignMantic.com
- * Icons/Images from FlatIcon.com
- * Also aspiring future Computer Engineer AG (Agnijus Botyrius) for conducting software testing for the application.
- */
+
 public class Main extends Application {
+
+    public static Stage primaryStage;
+    public static Parent root;
+    public static Customer currentCustomer;
 
     public static void main(String[] args) {
         launch(args);
     }
 
-    public static Stage primaryStage;
-    public static Parent root;
-
-    public static Customer currentCustomer;
     @Override
     public void start(Stage primaryStage) throws Exception {
         // sets the initial FXML file to be loaded
-        root = FXMLLoader.load(getClass().getResource(MAINMENU));
+        root = FXMLLoader.load(getClass().getResource(LOGIN));
         Scene logInScene = new Scene(root);
         // Clear any previous CSS to avoid inconsistencies
         logInScene.getStylesheets().clear();
@@ -66,7 +46,7 @@ public class Main extends Application {
         primaryStage.setResizable(false);
 
         Database.connect();
-        currentCustomer = getCustomer(2);
+
         //Database.updateAccount(2, 5.0);
         // System.out.println(cust1.getBalance());
         //removes the window title bar from at the top
@@ -96,4 +76,4 @@ public class Main extends Application {
         stage.getIcons().add(image);
     }
 
-    }
+}

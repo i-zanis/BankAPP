@@ -6,24 +6,22 @@ import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
 import javafx.scene.Node;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.File;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.prefs.Preferences;
 
 import static org.uwl.cs.Main.primaryStage;
 
-public class Utils {
+public class Utillity {
 
 
     public static File selectProfileIcon() {
         FileChooser fileChooser = new FileChooser();
         FileChooser.ExtensionFilter extFilterImages = new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg");
         fileChooser.getExtensionFilters().addAll(extFilterImages);
-       // fileChooser.setInitialDirectory(getInitialDirectoy());
+        // fileChooser.setInitialDirectory(getInitialDirectoy());
         fileChooser.setTitle("Select an image");
 
         File selectedImage = fileChooser.showOpenDialog(primaryStage);
@@ -31,12 +29,12 @@ public class Utils {
     }
 
 
-
     public static String getTime() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
         System.out.println(LocalTime.now().format(dtf));
         return LocalTime.now().format(dtf);
     }
+
     public static void fadeIn(Node node) {
         DoubleProperty opacity = node.opacityProperty();
         Timeline fadeIn = new Timeline(
