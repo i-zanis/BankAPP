@@ -21,28 +21,28 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static org.uwl.cs.model.Constant.*;
-import static org.uwl.cs.model.Database.getCustomerByEmail;
-import static org.uwl.cs.model.Database.login;
 import static org.uwl.cs.Main.currentCustomer;
 import static org.uwl.cs.controller.Controller.*;
+import static org.uwl.cs.model.Constant.*;
+import static org.uwl.cs.model.Database.*;
 
 public class LoginController implements Initializable {
 
     public BorderPane appWindow;
     public Pane loginPane;
-    public Pane registrationPane;
-    public TextField nameRegistrationField;
-    public TextField surnameRegistrationField;
-    public TextField emailRegistrationField1;
-    public TextField emailRegistrationField2;
-    public TextField mobileRegistrationField;
-    public PasswordField passwordFieldRegistration1;
-    public PasswordField passwordFieldRegistration2;
-    public Button registrationButton;
     public TextField emailTf;
     public PasswordField passwordTf;
     public Label loginErrorLabel;
+    public Pane registrationPane;
+    public TextField registrationNameTf;
+    public TextField registrationLastNameTf;
+    public TextField registrationEmailTf1;
+    public TextField registrationEmailTf2;
+    public TextField registrationMobileTf;
+    public PasswordField registrationPasswordTf1;
+    public PasswordField registrationPasswordTf2;
+    public Button registrationButton;
+    public Button cancelButton;
     public Label registrationErrorLabel;
 
     @Override
@@ -51,12 +51,16 @@ public class LoginController implements Initializable {
     }
 
 
-    public void cancelRegistration(ActionEvent event) {
+    public void getLogin() {
         registrationPane.setVisible(false);
+        registrationPane.setDisable(true);
+        loginPane.setDisable(false);
     }
 
-    public void getRegistration(ActionEvent event) {
+    public void getRegistration() {
         registrationPane.setVisible(true);
+        registrationPane.setDisable(false);
+        loginPane.setDisable(true);
     }
 
     public void resetLoginLabelsAndFields(ActionEvent event) {
@@ -87,11 +91,70 @@ public class LoginController implements Initializable {
             errorToLabel(emailTf, loginErrorLabel, "Invalid email or password");
             System.out.println("Authentication failed - bad credentials");
         }
-
     }
 
-    public void register(ActionEvent event) {
+    public void register(ActionEvent event) throws Exception {
+        clearLabel(registrationErrorLabel);
+        resetTextFieldColor(registrationNameTf, registrationLastNameTf, registrationEmailTf1,
+                registrationEmailTf2,
+                registrationMobileTf, registrationPasswordTf1, registrationPasswordTf2);
+        try {
+            // name check
+            if (isEmpty(registrationNameTf))
+                errorToLabel(registrationNameTf, registrationErrorLabel, "Name required");
+            else if (!isLetter(registrationNameTf))
+                errorToLabel(registrationNameTf, registrationErrorLabel, "Invalid name");
+            else if (isEmpty(registrationLastNameTf))
+                errorToLabel(registrationLastNameTf, registrationErrorLabel, "Last name required");
+            else if (!isLetter(registrationLastNameTf))
+                errorToLabel(registrationLastNameTf, registrationErrorLabel, "Invalid last name");
+                // email check
+            else if (isEmpty(registrationEmailTf1))
+                errorToLabel(registrationEmailTf1, registrationErrorLabel, "Email required");
+            else if (!validateEmail(registrationEmailTf1.getText()))
+                errorToLabel(registrationEmailTf1, registrationErrorLabel, "Invalid email");
+            else if (isEmpty(registrationEmailTf2))
+                errorToLabel(registrationEmailTf2, registrationErrorLabel, "Confirm email");
+            else if (!registrationEmailTf1.getText().equals(registrationEmailTf2.getText())) {
+                errorToLabel(registrationEmailTf2, registrationErrorLabel, "Email does not match");
+            }
+            // mobile
+            else if (isEmpty(registrationMobileTf))
+                errorToLabel(registrationMobileTf, registrationErrorLabel, "Mobile number required");
+            else if (!validatePhoneNumber(registrationMobileTf.getText()))
+                errorToLabel(registrationMobileTf, registrationErrorLabel, "Invalid mobile number");
+                // password
+            else if (isEmpty(registrationPasswordTf1))
+                errorToLabel(registrationPasswordTf1, registrationErrorLabel, "Password required");
+            else if (registrationPasswordTf1.getText().length() < 8)
+                errorToLabel(registrationPasswordTf1, registrationErrorLabel, "Weak password");
+            else if (!validatePassword(registrationPasswordTf1.getText())) {
+                errorToLabel(registrationPasswordTf1, registrationErrorLabel, "Invalid password");
+                registrationPasswordTf2.setText(EMPTY_STRING);
+
+            } else if (isEmpty(registrationPasswordTf2))
+                errorToLabel(registrationPasswordTf2, registrationErrorLabel, "Confirm password");
+            else if (!registrationPasswordTf1.getText().equals(registrationPasswordTf2.getText()))
+                errorToLabel(registrationPasswordTf1, registrationErrorLabel, "Password does not match");
+                // account exists
+            else if (existsEmail(registrationEmailTf1.getText())) {
+                errorToLabel(registrationEmailTf1, registrationErrorLabel, "Email already registered");
+                registrationEmailTf2.setText(EMPTY_STRING);
+            }
+            // user creation
+            else if (getOrCreateUser(registrationNameTf.getText(),
+                    registrationLastNameTf.getText(),
+                    registrationEmailTf1.getText(),
+                    registrationPasswordTf1.getText(),
+                    registrationMobileTf.getText()))
+                    getLogin();
+            else registrationErrorLabel.setText("Unexpected error");
+        } catch (Exception e) {
+            System.err.println("Error occurred on registration.");
+            e.printStackTrace();
+        }
     }
+
 
     public void getBrowser(ActionEvent actionEvent) throws IOException, URISyntaxException {
         if (Desktop.isDesktopSupported()) {

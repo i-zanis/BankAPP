@@ -6,6 +6,8 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 /**
@@ -204,6 +206,27 @@ public class Database {
         }
     }
 
+    public static boolean validateEmail(String email) {
+        String rePattern = "^\\w+@(\\w+.[a-zA-Z]+|\\w+.[a-zA-Z]+.[a-zA-Z]+)$";
+        Pattern pattern = Pattern.compile(rePattern, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(email.strip());
+        return matcher.find();
+    }
+
+    public static boolean validatePhoneNumber(String phoneNumber) {
+        String rePattern = "^\\+(?:[0-9] ?){6,14}[0-9]$";
+        Pattern pattern = Pattern.compile(rePattern, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(phoneNumber.strip());
+        return matcher.find();
+    }
+
+    // Minimum eight characters, at least one letter and one number
+    public static boolean validatePassword(String password) {
+        String rePattern = "^(?=.*[a-z])(?=.*[A-Z]).{8,}$";
+        Pattern pattern = Pattern.compile(rePattern);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.find();
+    }
 
     public static Boolean checkPassword(String email, String password) throws SQLException {
         try {
@@ -221,9 +244,8 @@ public class Database {
             }
             return false;
         } catch (Exception e) {
+            e.printStackTrace();
 
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            // System.exit(0);
         }
         return false;
     }
@@ -356,6 +378,25 @@ public class Database {
 
         }
         return -1;
+    }
+
+
+    public static Boolean existsEmail(String email) {
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            String query = "SELECT * FROM account WHERE email='" + email + "';";
+            ResultSet resultSet = statement.executeQuery(query);
+            if (resultSet.next()) {
+                resultSet.getString("email");
+                System.err.println("The email provided already exists.");
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public static void main(String[] args) {

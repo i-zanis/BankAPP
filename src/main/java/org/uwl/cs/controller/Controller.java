@@ -97,6 +97,7 @@ public class Controller implements Initializable {
     public static void resetTextFieldColor(TextField... textFields) {
         for (TextField textField : textFields) {
             textField.setStyle("-fx-border-color: #2b5c50;");
+            textField.setStyle("-fx-focus-color: transparent;");
         }
     }
 

@@ -45,6 +45,8 @@ public class Main extends Application {
 
         Database.connect();
 
+        // make the account start with 200 pounds
+
         //removes the window title bar from at the top
         //primaryStage.initStyle(StageStyle.UNDECORATED);
 
