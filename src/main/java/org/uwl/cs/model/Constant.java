@@ -1,4 +1,4 @@
-package org.uwl.cs;
+package org.uwl.cs.model;
 
 public class Constant {
     public static String MAINMENU = "/view/mainmenu.fxml";

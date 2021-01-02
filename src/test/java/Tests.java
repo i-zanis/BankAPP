@@ -3,7 +3,7 @@ import org.junit.Test;
 
 import java.util.HashMap;
 
-import static org.uwl.cs.Database.*;
+import static org.uwl.cs.model.Database.*;
 
 public class Tests {
 

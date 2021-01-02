@@ -1,4 +1,4 @@
-package org.uwl.cs;
+package org.uwl.cs.model;
 
 public class Customer {
     String accountNumber;

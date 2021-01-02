@@ -5,13 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.uwl.cs.model.Customer;
+import org.uwl.cs.model.Database;
 
-import java.io.File;
-import java.io.FileInputStream;
-
-import static org.uwl.cs.Constant.*;
+import static org.uwl.cs.model.Constant.*;
 
 
 public class Main extends Application {

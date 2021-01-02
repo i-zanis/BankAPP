@@ -1,12 +1,12 @@
-package org.uwl.cs;
+package org.uwl.cs.model;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-import static org.uwl.cs.Constant.NUMBER_FORMAT;
-import static org.uwl.cs.Constant.POUND_SYMBOL;
-import static org.uwl.cs.Database.updateBalance;
+import static org.uwl.cs.model.Constant.NUMBER_FORMAT;
+import static org.uwl.cs.model.Constant.POUND_SYMBOL;
+import static org.uwl.cs.model.Database.updateBalance;
 import static org.uwl.cs.Main.currentCustomer;
 
 public class Transaction {

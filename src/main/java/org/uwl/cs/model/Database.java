@@ -1,6 +1,5 @@
-package org.uwl.cs;
+package org.uwl.cs.model;
 
-import javax.swing.*;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

@@ -1,4 +1,4 @@
-package org.uwl.cs;
+package org.uwl.cs.model;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -14,7 +14,7 @@ import java.time.format.DateTimeFormatter;
 
 import static org.uwl.cs.Main.primaryStage;
 
-public class Utillity {
+public class Utility {
 
 
     public static File selectProfileIcon() {

@@ -21,9 +21,9 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static org.uwl.cs.Constant.*;
-import static org.uwl.cs.Database.getCustomerByEmail;
-import static org.uwl.cs.Database.login;
+import static org.uwl.cs.model.Constant.*;
+import static org.uwl.cs.model.Database.getCustomerByEmail;
+import static org.uwl.cs.model.Database.login;
 import static org.uwl.cs.Main.currentCustomer;
 import static org.uwl.cs.controller.Controller.*;
 
@@ -63,6 +63,7 @@ public class LoginController implements Initializable {
         emailTf.setText(EMPTY_STRING);
         passwordTf.setText(EMPTY_STRING);
     }
+
     public void loginToApp(ActionEvent event) throws Exception {
         clearLabel(loginErrorLabel);
         resetTextFieldColor(emailTf, passwordTf);

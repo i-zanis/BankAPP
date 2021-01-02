@@ -21,12 +21,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static org.uwl.cs.Constant.*;
-import static org.uwl.cs.Database.connect;
+import static org.uwl.cs.model.Constant.*;
+import static org.uwl.cs.model.Database.connect;
 import static org.uwl.cs.Main.currentCustomer;
-import static org.uwl.cs.Transaction.*;
-import static org.uwl.cs.Utillity.getTime;
-import static org.uwl.cs.Utillity.selectProfileIcon;
+import static org.uwl.cs.model.Transaction.*;
+import static org.uwl.cs.model.Utility.getTime;
+import static org.uwl.cs.model.Utility.selectProfileIcon;
 
 public class Controller implements Initializable {
     public BorderPane appWindow;
@@ -349,11 +349,11 @@ public class Controller implements Initializable {
         connect().close();
         System.out.println("You have been disconnected from the database.");
         try {
-            Parent mainMenuView = FXMLLoader.load(Controller.class.getResource(LOGIN));
-            Scene mainMenuScene = new Scene(mainMenuView);
+            Parent root = FXMLLoader.load(Controller.class.getResource(LOGIN));
+            Scene logInScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            mainMenuScene.getStylesheets().add(CSS);
-            window.setScene(mainMenuScene);
+            logInScene.getStylesheets().add(CSS);
+            window.setScene(logInScene);
             window.show();
         } catch (Exception e) {
             System.out.println("Error occurred while opening the Login.");
