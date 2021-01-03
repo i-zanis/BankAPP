@@ -21,12 +21,10 @@ public class Customer {
         this.phone = phone;
     }
 
-    // ***** Accessor methods *****
     public String getAccountNumber() {
         return accountNumber;
     }
 
-    // ***** Mutator Methods *****
     public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
@@ -50,7 +48,6 @@ public class Customer {
     public String getEmail() {
         return email;
     }
-    // ***** End of Accessor methods *****
 
     public void setEmail(String email) {
         this.email = email;
@@ -79,7 +76,7 @@ public class Customer {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-    // ***** End of Mutator methods *****
+
 }
 
 

@@ -64,8 +64,8 @@ public class LoginController implements Initializable {
     }
 
     public void resetLoginLabelsAndFields(ActionEvent event) {
-        emailTf.setText(EMPTY_STRING);
-        passwordTf.setText(EMPTY_STRING);
+        emailTf.clear();
+        passwordTf.clear();
     }
 
     public void loginToApp(ActionEvent event) throws Exception {
@@ -87,7 +87,7 @@ public class LoginController implements Initializable {
                 e.printStackTrace();
             }
         } else {
-            passwordTf.setText(EMPTY_STRING);
+            passwordTf.clear();
             errorToLabel(emailTf, loginErrorLabel, "Invalid email or password");
             System.out.println("Authentication failed - bad credentials");
         }
@@ -130,7 +130,7 @@ public class LoginController implements Initializable {
                 errorToLabel(registrationPasswordTf1, registrationErrorLabel, "Weak password");
             else if (!validatePassword(registrationPasswordTf1.getText())) {
                 errorToLabel(registrationPasswordTf1, registrationErrorLabel, "Invalid password");
-                registrationPasswordTf2.setText(EMPTY_STRING);
+                registrationPasswordTf2.clear();
 
             } else if (isEmpty(registrationPasswordTf2))
                 errorToLabel(registrationPasswordTf2, registrationErrorLabel, "Confirm password");
@@ -139,7 +139,7 @@ public class LoginController implements Initializable {
                 // account exists
             else if (existsEmail(registrationEmailTf1.getText())) {
                 errorToLabel(registrationEmailTf1, registrationErrorLabel, "Email already registered");
-                registrationEmailTf2.setText(EMPTY_STRING);
+                registrationEmailTf2.clear();
             }
             // user creation
             else if (getOrCreateUser(registrationNameTf.getText(),

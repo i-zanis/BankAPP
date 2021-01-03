@@ -1,79 +1,353 @@
 package org.uwl.cs.controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DialogPane;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
+import static org.uwl.cs.Main.currentCustomer;
 import static org.uwl.cs.model.Constant.*;
 import static org.uwl.cs.model.Database.connect;
-import static org.uwl.cs.Main.currentCustomer;
 import static org.uwl.cs.model.Transaction.*;
-import static org.uwl.cs.model.Utility.getTime;
-import static org.uwl.cs.model.Utility.selectProfileIcon;
+import static org.uwl.cs.model.Utility.*;
 
 public class Controller implements Initializable {
-    public BorderPane appWindow;
-    public DialogPane transferDialog;
-    public TextField transferAccNoTf;
-    public TextField transferAmountTf;
-    public TextField transferAccNameTf;
-    public Label transferErrorLabel;
-    public DialogPane withdrawDialog;
-    public Label timeLabel;
-    public Label nameLabel;
-    public Label accountLabel;
-    public Label balanceLabel;
-    public DialogPane depositDialogue;
-    public TextField depositTf;
-    public Label depositErrorLabel;
-    public DialogPane interestDialog;
-    public Label monthlyInterestLabel;
-    public Label annualInterestLabel;
-    public TextField withdrawTf;
-    public Label withdrawErrorLabel;
-    public DialogPane loanDialog;
-    public TextField loanAmountTf;
-    public TextField loanYearsTf;
-    public Label loanAmountLabel;
-    public Label loanLabel;
-    public Label loanErrorLabel;
-    public Label monthlyPaymentLabel;
-    public Circle midCircleRed;
-    public Circle midCircleGreen;
-    public Button transferButton;
-    public Circle profileCircle1;
-    public Circle profileCircle2;
-    public Button profileButton1;
-    public Button profileButton2;
+    public static ArrayList<Label[]> labelList = new ArrayList<>();
+    public static ArrayList<String[]> transactionHistoryList = new ArrayList<>();
     public String modifiedAccNum = "";
+    @FXML
+    private BorderPane appWindow;
 
-    public static void highlightRed(TextField textfield) {
-        textfield.setStyle("-fx-border-color: red;");
-        textfield.requestFocus();
-        textfield.setText(EMPTY_STRING);
-    }
+    @FXML
+    private Circle profileCircle1;
 
+    @FXML
+    private Circle midCircleRed;
+
+    @FXML
+    private Circle midCircleGreen;
+
+    @FXML
+    private Button transferButton;
+
+    @FXML
+    private Button withdrawButton;
+
+    @FXML
+    private SVGPath depositButton;
+
+    @FXML
+    private Button profileButton2;
+
+    @FXML
+    private Circle profileCircle2;
+
+    @FXML
+    private Button profileButton1;
+
+    @FXML
+    private Label balanceLabel;
+
+    @FXML
+    private Label timeLabel;
+
+    @FXML
+    private Label nameLabel;
+
+    @FXML
+    private Label accountLabel;
+
+    @FXML
+    private DialogPane transferDialog;
+
+    @FXML
+    private Button transferAcceptButton;
+
+    @FXML
+    private Button transferNoButton;
+
+    @FXML
+    private TextField transferAccNameTf;
+
+    @FXML
+    private TextField transferAccNoTf;
+
+    @FXML
+    private TextField transferAmountTf;
+
+    @FXML
+    private Label transferErrorLabel;
+
+    @FXML
+    private DialogPane depositDialogue;
+
+    @FXML
+    private Button depositAcceptButton;
+
+    @FXML
+    private Button depositNobButton;
+
+    @FXML
+    private TextField depositTf;
+
+    @FXML
+    private Label depositErrorLabel;
+
+    @FXML
+    private DialogPane interestDialog;
+
+    @FXML
+    private Button interestButtonOk;
+
+    @FXML
+    private Button depositNobButton1;
+
+    @FXML
+    private Label monthlyInterestLabel;
+
+    @FXML
+    private Label annualInterestLabel;
+
+    @FXML
+    private DialogPane withdrawDialog;
+
+    @FXML
+    private Button withdrawAcceptButton;
+
+    @FXML
+    private Button withdrawDeclineBUtton;
+
+    @FXML
+    private TextField withdrawTf;
+
+    @FXML
+    private Label withdrawErrorLabel;
+
+    @FXML
+    private DialogPane loanDialog;
+
+    @FXML
+    private Button loanAcceptButton;
+
+    @FXML
+    private Button loanNoButton;
+
+    @FXML
+    private TextField loanAmountTf;
+
+    @FXML
+    private TextField loanYearsTf;
+
+    @FXML
+    private Label loanLabel;
+
+    @FXML
+    private Label loanAmountLabel;
+
+    @FXML
+    private Label loanErrorLabel;
+
+    @FXML
+    private Label monthlyPaymentLabel;
+
+    @FXML
+    private DialogPane transactionDialog;
+
+    @FXML
+    private Label transactionDate;
+
+    @FXML
+    private Label transactionTime;
+
+    @FXML
+    private Label transactionType;
+
+    @FXML
+    private Label transactionAmount;
+
+    @FXML
+    private Separator transactionSeparator;
+
+    @FXML
+    private Label transactionDate1;
+
+    @FXML
+    private Label transactionTime1;
+
+    @FXML
+    private Label transactionType1;
+
+    @FXML
+    private Label transactionAmount1;
+
+    @FXML
+    private Separator transactionSeparator1;
+
+    @FXML
+    private Label transactionDate2;
+
+    @FXML
+    private Label transactionTime2;
+
+    @FXML
+    private Label transactionType2;
+
+    @FXML
+    private Label transactionAmount2;
+
+    @FXML
+    private Separator transactionSeparator2;
+
+    @FXML
+    private Label transactionDate3;
+
+    @FXML
+    private Label transactionTime3;
+
+    @FXML
+    private Label transactionType3;
+
+    @FXML
+    private Label transactionAmount3;
+
+    @FXML
+    private Separator transactionSeparator3;
+
+    @FXML
+    private Label transactionDate4;
+
+    @FXML
+    private Label transactionTime4;
+
+    @FXML
+    private Label transactionType4;
+
+    @FXML
+    private Label transactionAmount4;
+
+    @FXML
+    private Separator transactionSeparator4;
+
+    @FXML
+    private Label transactionDate5;
+
+    @FXML
+    private Label transactionTime5;
+
+    @FXML
+    private Label transactionType5;
+
+    @FXML
+    private Label transactionAmount5;
+
+    @FXML
+    private Separator transactionSeparator5;
+
+    @FXML
+    private Label transactionDate6;
+
+    @FXML
+    private Label transactionTime6;
+
+    @FXML
+    private Label transactionType6;
+
+    @FXML
+    private Label transactionAmount6;
+
+    @FXML
+    private Separator transactionSeparator6;
+
+    @FXML
+    private Label transactionDate7;
+
+    @FXML
+    private Label transactionTime7;
+
+    @FXML
+    private Label transactionType7;
+
+    @FXML
+    private Label transactionAmount7;
+
+    @FXML
+    private Separator transactionSeparator7;
+
+    @FXML
+    private Label transactionDate8;
+
+    @FXML
+    private Label transactionTime8;
+
+    @FXML
+    private Label transactionType8;
+
+    @FXML
+    private Label transactionAmount8;
+
+    @FXML
+    private Separator transactionSeparator8;
+
+    @FXML
+    private Label transactionDate9;
+
+    @FXML
+    private Label transactionTime9;
+
+    @FXML
+    private Label transactionType9;
+
+    @FXML
+    private Label transactionAmount9;
+
+    @FXML
+    private Separator transactionSeparator9;
+
+    @FXML
+    private Label transactionDate10;
+
+    @FXML
+    private Label transactionTime10;
+
+    @FXML
+    private Label transactionType10;
+
+    @FXML
+    private Label transactionAmount10;
+
+    @FXML
+    private Separator transactionSeparator10;
+
+    @FXML
+    private Button transactionOkButton;
+
+
+
+
+
+    // ****** TextField & Label Methods ******
     public static void errorToLabel(TextField textfield, Label label, String string) {
         textfield.setStyle("-fx-border-color: red;");
         textfield.requestFocus();
-        textfield.setText(EMPTY_STRING);
+        textfield.clear();
         label.setText(string);
     }
 
@@ -101,10 +375,34 @@ public class Controller implements Initializable {
         }
     }
 
-    // ****** TextField & Label Methods ******
     public static Boolean isEmpty(TextField textField) {
         return textField.getText().equals(EMPTY_STRING);
     }
+    // ***** Transaction Dialog methods *****
+    public void getTransactionDialog(ActionEvent actionEvent) throws IOException {
+        transactionDialog.setVisible(true);
+        // There is some strange behaviour in the scene of the dialog, you can see the hard edges which set to be round
+        // however when you close the dialog and reopen it they appear. Officially this is a limitation of JavaFX unless
+        // you hardcode a solution. It works at present therefore I will keep it.
+        transactionDialog.getScene().setFill(Color.TRANSPARENT);
+        transactionDialog.getScene().setFill(Color.DARKSALMON);
+        int transactionIndex = transactionHistoryList.size() - 1;
+        for (int i = 0; i < labelList.size() && transactionIndex >= 0; i++) {
+            for (int j = 0; j < 4; j++) {
+                labelList.get(i)[j].setText(transactionHistoryList.get(transactionIndex)[j]);
+              // System.out.println(transactionHistoryList.get(transactionIndex)[j]);
+            }
+            transactionIndex--;
+
+        }
+        updateScreenInformation();
+    }
+
+    public void closeTransactionDialog(ActionEvent actionEvent) throws IOException {
+        transactionDialog.setVisible(false);
+        resetLabelsAndTextFields();
+    }
+
 
     // ***** Loan Dialog methods *****
     public void getLoanDialog(ActionEvent actionEvent) throws IOException {
@@ -132,7 +430,6 @@ public class Controller implements Initializable {
                 monthlyPaymentLabel.setVisible(true);
                 updateScreenInformation();
                 resetLabelsAndTextFields();
-                System.out.println("The new balance is : " + currentCustomer.getBalance());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -226,7 +523,7 @@ public class Controller implements Initializable {
         else if (isEmpty(transferAccNoTf)) errorToLabel(transferAccNoTf, transferErrorLabel, "Account Number required");
         else if (!isDigit(transferAccNoTf)) errorToLabel(transferAccNoTf, transferErrorLabel, "Invalid Account No");
         else if (!validateAccountNo(transferAccNoTf))
-            errorToLabel(transferAccNoTf, transferErrorLabel, "Number too short");
+            errorToLabel(transferAccNoTf, transferErrorLabel, "8 digits required");
 
         else if (isEmpty(transferAmountTf))
             errorToLabel(transferAmountTf, transferErrorLabel, "Transfer Amount required");
@@ -235,6 +532,10 @@ public class Controller implements Initializable {
             try {
                 if (withdraw(transferAmountTf.getText())) {
                     updateScreenInformation();
+                    transactionHistoryList.add(new String[]{ getDate(),getTime(),"Money Transfer", transferAmountTf.getText()});
+for (int i = 0; i < transactionHistoryList.size(); i++) {
+    System.out.println("Widthdraw" + transactionHistoryList.get(i)[3]);
+}
                     transferDialog.setVisible(false);
                     resetLabelsAndTextFields();
                 } else {
@@ -276,7 +577,6 @@ public class Controller implements Initializable {
                     updateScreenInformation();
                     depositDialogue.setVisible(false);
                     resetLabelsAndTextFields();
-                    System.out.println("The new balance is : " + currentCustomer.getBalance());
                 }
 
             } catch (Exception e) {
@@ -294,13 +594,13 @@ public class Controller implements Initializable {
 
     // clears Labels and TextFields, used when pressing NO/YES on dialog to be ready for use when they open again
     public void resetLabelsAndTextFields() {
-        transferAccNameTf.setText(EMPTY_STRING);
-        transferAccNoTf.setText(EMPTY_STRING);
-        transferAmountTf.setText(EMPTY_STRING);
-        depositTf.setText(EMPTY_STRING);
-        withdrawTf.setText(EMPTY_STRING);
-        loanAmountTf.setText(EMPTY_STRING);
-        loanYearsTf.setText(EMPTY_STRING);
+        transferAccNameTf.clear();
+        transferAccNoTf.clear();
+        transferAmountTf.clear();
+        depositTf.clear();
+        withdrawTf.clear();
+        loanAmountTf.clear();
+        loanYearsTf.clear();
         // need to add newly implemented textfields
         resetTextFieldColor(transferAccNameTf, transferAccNoTf, transferAmountTf, depositTf, withdrawTf, loanAmountTf, loanAmountTf);
         clearAllDialogLabels();
@@ -346,7 +646,7 @@ public class Controller implements Initializable {
         }
     }
 
-    public  void exitApplication(ActionEvent event) throws Exception {
+    public void exitApplication(ActionEvent event) throws Exception {
         connect().close();
         System.out.println("You have been disconnected from the database.");
         try {
@@ -357,7 +657,7 @@ public class Controller implements Initializable {
             window.setScene(logInScene);
             window.show();
         } catch (Exception e) {
-            System.out.println("Error occurred while opening the Login.");
+            System.err.println("Error occurred while opening the Login.");
             e.printStackTrace();
         }
     }
@@ -373,5 +673,62 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         updateScreenInformation();
+        for (int i = 0; i < 11; i++) {
+            labelList.add(new Label[4]);
+        }
+        labelList.get(0)[0] = (transactionDate);
+        labelList.get(0)[1] = (transactionTime);
+        labelList.get(0)[2] = (transactionType);
+        labelList.get(0)[3] = (transactionAmount);
+
+        labelList.get(1)[0] = (transactionDate1);
+        labelList.get(1)[1] = (transactionTime1);
+        labelList.get(1)[2] = (transactionType1);
+        labelList.get(1)[3] = (transactionAmount1);
+
+        labelList.get(2)[0] = (transactionDate2);
+        labelList.get(2)[1] = (transactionTime2);
+        labelList.get(2)[2] = (transactionType2);
+        labelList.get(2)[3] = (transactionAmount2);
+
+        labelList.get(3)[0] = (transactionDate3);
+        labelList.get(3)[1] = (transactionTime3);
+        labelList.get(3)[2] = (transactionType3);
+        labelList.get(3)[3] = (transactionAmount3);
+
+        labelList.get(4)[0] = (transactionDate4);
+        labelList.get(4)[1] = (transactionTime4);
+        labelList.get(4)[2] = (transactionType4);
+        labelList.get(4)[3] = (transactionAmount4);
+
+        labelList.get(5)[0] = (transactionDate5);
+        labelList.get(5)[1] = (transactionTime5);
+        labelList.get(5)[2] = (transactionType5);
+        labelList.get(5)[3] = (transactionAmount5);
+
+        labelList.get(6)[0] = (transactionDate6);
+        labelList.get(6)[1] = (transactionTime6);
+        labelList.get(6)[2] = (transactionType6);
+        labelList.get(6)[3] = (transactionAmount6);
+
+        labelList.get(7)[0] = (transactionDate7);
+        labelList.get(7)[1] = (transactionTime7);
+        labelList.get(7)[2] = (transactionType7);
+        labelList.get(7)[3] = (transactionAmount7);
+
+        labelList.get(8)[0] = (transactionDate8);
+        labelList.get(8)[1] = (transactionTime8);
+        labelList.get(8)[2] = (transactionType8);
+        labelList.get(8)[3] = (transactionAmount8);
+
+        labelList.get(9)[0] = (transactionDate9);
+        labelList.get(9)[1] = (transactionTime9);
+        labelList.get(9)[2] = (transactionType9);
+        labelList.get(9)[3] = (transactionAmount9);
+
+        labelList.get(10)[0] = (transactionDate10);
+        labelList.get(10)[1] = (transactionTime10);
+        labelList.get(10)[2] = (transactionType10);
+        labelList.get(10)[3] = (transactionAmount10);
     }
 }

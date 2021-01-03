@@ -9,6 +9,7 @@ import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
@@ -21,18 +22,19 @@ public class Utility {
         FileChooser fileChooser = new FileChooser();
         FileChooser.ExtensionFilter extFilterImages = new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg");
         fileChooser.getExtensionFilters().addAll(extFilterImages);
-        // fileChooser.setInitialDirectory(getInitialDirectoy());
         fileChooser.setTitle("Select an image");
-
-        File selectedImage = fileChooser.showOpenDialog(primaryStage);
-        return selectedImage;
+        return fileChooser.showOpenDialog(primaryStage);
     }
 
 
     public static String getTime() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
-        System.out.println(LocalTime.now().format(dtf));
         return LocalTime.now().format(dtf);
+    }
+
+    public static String getDate() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+        return LocalDate.now().format(dtf);
     }
 
     public static void fadeIn(Node node) {
