@@ -76,8 +76,8 @@ public class LoginController implements Initializable {
         else if (login(emailTf.getText(), passwordTf.getText())) {
             try {
                 currentCustomer = getCustomerByEmail(emailTf.getText());
-                Parent mainmenu = FXMLLoader.load(getClass().getResource(MAINMENU));
-                Scene mainMenuScene = new Scene(mainmenu);
+                Parent mainMenu = FXMLLoader.load(getClass().getResource(MAINMENU));
+                Scene mainMenuScene = new Scene(mainMenu);
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 mainMenuScene.getStylesheets().add(CSS);
                 window.setScene(mainMenuScene);
@@ -111,19 +111,21 @@ public class LoginController implements Initializable {
                 // email check
             else if (isEmpty(registrationEmailTf1))
                 errorToLabel(registrationEmailTf1, registrationErrorLabel, "Email required");
-            else if (!validateEmail(registrationEmailTf1.getText()))
+            else if (!validateEmail(registrationEmailTf1.getText())) {
                 errorToLabel(registrationEmailTf1, registrationErrorLabel, "Invalid email");
+                registrationEmailTf2.setText(EMPTY_STRING);
+            }
             else if (isEmpty(registrationEmailTf2))
                 errorToLabel(registrationEmailTf2, registrationErrorLabel, "Confirm email");
             else if (!registrationEmailTf1.getText().equals(registrationEmailTf2.getText())) {
                 errorToLabel(registrationEmailTf2, registrationErrorLabel, "Email does not match");
             }
-            // mobile
+            // mobile check
             else if (isEmpty(registrationMobileTf))
                 errorToLabel(registrationMobileTf, registrationErrorLabel, "Mobile number required");
             else if (!validatePhoneNumber(registrationMobileTf.getText()))
                 errorToLabel(registrationMobileTf, registrationErrorLabel, "Invalid mobile number");
-                // password
+                // password check
             else if (isEmpty(registrationPasswordTf1))
                 errorToLabel(registrationPasswordTf1, registrationErrorLabel, "Password required");
             else if (registrationPasswordTf1.getText().length() < 8)
@@ -135,7 +137,7 @@ public class LoginController implements Initializable {
             } else if (isEmpty(registrationPasswordTf2))
                 errorToLabel(registrationPasswordTf2, registrationErrorLabel, "Confirm password");
             else if (!registrationPasswordTf1.getText().equals(registrationPasswordTf2.getText()))
-                errorToLabel(registrationPasswordTf1, registrationErrorLabel, "Password does not match");
+                errorToLabel(registrationPasswordTf2, registrationErrorLabel, "Password does not match");
                 // account exists
             else if (existsEmail(registrationEmailTf1.getText())) {
                 errorToLabel(registrationEmailTf1, registrationErrorLabel, "Email already registered");
@@ -146,8 +148,11 @@ public class LoginController implements Initializable {
                     registrationLastNameTf.getText(),
                     registrationEmailTf1.getText(),
                     registrationPasswordTf1.getText(),
-                    registrationMobileTf.getText()))
-                    getLogin();
+                    registrationMobileTf.getText())) {
+                getLogin();
+                addRegistrationBonus(registrationEmailTf1.getText(), 100);
+
+            }
             else registrationErrorLabel.setText("Unexpected error");
         } catch (Exception e) {
             System.err.println("Error occurred on registration.");

@@ -71,8 +71,8 @@
                                         <Font size="14.0" />
                                     </font>
                                 </Label>
-                                <Button fx:id="loginButton1" defaultButton="true" maxWidth="143.0" mnemonicParsing="false" onAction="#loginToApp" prefHeight="37.0" prefWidth="143.0" styleClass="loginButton" text="Log in" />
-                                <Button maxWidth="259.0" mnemonicParsing="false" onAction="#getRegistration" prefHeight="75.0" prefWidth="259.0" styleClass="loginButton" text="Register" />
+                                <Button fx:id="loginButton1" defaultButton="true" maxWidth="143.0" mnemonicParsing="false" onAction="#loginToApp" prefHeight="37.0" prefWidth="143.0" styleClass="loginButton" text="Log in" textFill="WHITE" />
+                                <Button maxWidth="259.0" mnemonicParsing="false" onAction="#getRegistration" prefHeight="75.0" prefWidth="259.0" styleClass="loginButton" text="Register" textFill="WHITE" />
                                 <Hyperlink fx:id="forgotPasswordHyperlink1" onAction="#getBrowser" text="Forgot password?" textFill="#2b5b4f">
                                     <font>
                                         <Font name="System Bold" size="12.0" />

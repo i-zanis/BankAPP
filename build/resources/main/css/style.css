@@ -9,11 +9,7 @@ fx-font-weight: bold;
 }
 
 /* button hover animation */
-.button:hover {
-	-fx-scale-x: 1.01;
-	-fx-scale-y: 1.01;
-	-fx-scale-z: 1.01;
-	}
+
 /* removes background from textfield */
 .text-field {
 	-fx-border-color: #2b5c50;
@@ -26,7 +22,7 @@ fx-font-weight: bold;
 	-fx-background-color: transparent;
 }
 
-
+/*
 .closebutton .button {
   -fx-background-color: white, white;
   -fx-background-radius: 16.4, 15;
@@ -36,6 +32,21 @@ fx-font-weight: bold;
   -fx-border-color: dimgrey;
   -fx-padding: 0;
   -fx-font-size: 0;
+}
+*/
+
+.closebutton {
+	-fx-color-one: #2b5c50;
+	 -fx-background-radius: 125em;
+           -fx-min-width: 75px;
+          -fx-min-height: 75px;
+          -fx-max-width: 75px;
+          -fx-max-height: 75px;
+        -fx-background-insets: 0px;
+           -fx-padding: 0px;
+	-fx-background-color: -fx-color-one;
+	-fx-text-fill: white;
+	-fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
 }
 
 .closebutton .button:focused {
@@ -55,6 +66,9 @@ fx-font-weight: bold;
 }
 
 .closebutton:hover {
+	-fx-scale-x: 1.2;
+	-fx-scale-y: 1.2;
+	-fx-scale-z: 1.2;
   -fx-effect: innershadow(gaussian, #42bbaa, 15, 0.1, 0, 0);
 }
 
@@ -64,19 +78,7 @@ fx-font-weight: bold;
      -fx-background-color: linear-gradient(from 13px 38px to 52px 52px, reflect,  #d2691e, #ffa500 100%);
 }
 
-.button {
-	-fx-color-one: #2b5c50;
-	 -fx-background-radius: 120em;
-           -fx-min-width: 75px;
-          -fx-min-height: 75px;
-          -fx-max-width: 75px;
-          -fx-max-height: 75px;
-        -fx-background-insets: 0px;
-           -fx-padding: 0px;
-	-fx-background-color: -fx-color-one;
-	-fx-text-fill: white;
-	-fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
-}
+
 .button:hover {
 	-fx-color-two: #981100;
 	-fx-color-three: #981100;
@@ -86,9 +88,12 @@ fx-font-weight: bold;
 	-fx-color-two: #235891;
 	-fx-color-three: #235891;
 }
+
+
+
 .smallbutton {
  -fx-background-color: #2b5c50;
-       -fx-background-radius: 45em;
+       -fx-background-radius: 1em;
        -fx-min-width: 24px;
       -fx-min-height: 24px;
       -fx-max-width: 24px;
@@ -96,8 +101,16 @@ fx-font-weight: bold;
     -fx-background-insets: 0px;
        -fx-padding: 0px;
 }
+.smallbutton .button:focused {
+  -fx-background-color: -fx-focus-color, white;
+}
+
+.smallbutton:hover {
+  -fx-effect: innershadow(gaussian, #42bbaa, 10, 0.1, 0, 0);
+}
 
 .dialog-pane .button:default{
+-fx-text-fill: white;
 	-fx-color-one: green;
 	-fx-background-radius: 150em;
            -fx-min-width: 70px;
@@ -110,6 +123,7 @@ fx-font-weight: bold;
 }
 
 .dialog-pane .button:cancel{
+-fx-text-fill: white;
 	-fx-color-one: red;
 fx-font-weight: bold;
        -fx-min-width: 40px;
@@ -121,6 +135,21 @@ fx-font-weight: bold;
 	-fx-background-insets: 0, 1, 2;
 	-fx-text-transform: uppercase;
 }
+
+#backButton {
+-fx-text-fill: white;
+	-fx-color-one: red;
+fx-font-weight: bold;
+       -fx-min-width: 20px;
+          -fx-min-height: 37px;
+          -fx-max-width: 50px;
+          -fx-max-height: 37px;
+	-fx-background-color: -fx-color-one;
+	-fx-background-radius: 8, 7, 6;
+	-fx-background-insets: 0, 1, 2;
+	-fx-text-transform: uppercase;
+}
+
 
 .dialog-pane  .button:hover {
 	-fx-effect: innershadow(gaussian, white, 4, 0, 0, 0);
@@ -151,11 +180,17 @@ fx-font-weight: bold;
 	-fx-background-color: -fx-color-one;
 	-fx-background-radius: 8, 7, 6;
 	-fx-background-insets: 0, 1, 2;
+	/** this made the button flash if you placed the pointer close to it
+-fx-effect: dropshadow( three-pass-box, rgba(-1, -1, -1, -0.6), 1, 0.0, 0, 1);
+*/
 }
+
 .loginButton .button:focused {
   -fx-background-color: -fx-focus-color, white;
 }
 .loginButton:hover {
   -fx-effect: innershadow(gaussian, #42bbaa, 15, 0.1, 0, 0);
 }
+
+
 

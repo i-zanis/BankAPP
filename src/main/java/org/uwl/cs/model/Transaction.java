@@ -4,10 +4,11 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+import static org.uwl.cs.Main.currentCustomer;
 import static org.uwl.cs.model.Constant.NUMBER_FORMAT;
 import static org.uwl.cs.model.Constant.POUND_SYMBOL;
+import static org.uwl.cs.model.Database.getCustomerByEmail;
 import static org.uwl.cs.model.Database.updateBalance;
-import static org.uwl.cs.Main.currentCustomer;
 
 public class Transaction {
     static float interestRate = 3.4f;
@@ -21,16 +22,19 @@ public class Transaction {
      * @return
      */
     public static Boolean withdraw(String amount) {
-        if (Double.parseDouble(amount) > currentCustomer.getBalance()) return false;
-        currentCustomer.setBalance(currentCustomer.getBalance() - Float.parseFloat(amount));
-        updateBalance(currentCustomer.getAccountNumber(), currentCustomer.getBalance());
-        return true;
+        boolean status = updateBalance(currentCustomer.getAccountNumber(), - Float.parseFloat(amount));
+        if (status) {
+            currentCustomer.setBalance(currentCustomer.getBalance() - Float.parseFloat(amount));
+        }
+        return status;
     }
 
     public static boolean deposit(String amount) {
-        currentCustomer.setBalance(currentCustomer.getBalance() + Float.parseFloat(amount));
-        updateBalance(currentCustomer.getAccountNumber(), currentCustomer.getBalance());
-        return true;
+        boolean status = updateBalance(currentCustomer.getAccountNumber(), Float.parseFloat(amount));
+        if (status) {
+            currentCustomer.setBalance(currentCustomer.getBalance() + Float.parseFloat(amount));
+        }
+        return status;
     }
 
     public static String getUpdatedBalance() {

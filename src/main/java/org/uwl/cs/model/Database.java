@@ -93,6 +93,25 @@ public class Database {
         }
     }
 
+    public static void addRegistrationBonus(String email, float balance) {
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT balance FROM account WHERE email='" + email + "';");
+            resultSet.next();
+            float oldBalance = resultSet.getFloat(1);
+            float newBalance = oldBalance + balance;
+            statement.executeUpdate("UPDATE account SET balance=" + newBalance + " WHERE email='" + email + "';");
+            con.commit();
+            con.close();
+            statement.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public static Customer getCustomerById(String id) {
         try {
             Connection con = connect();
@@ -143,6 +162,7 @@ public class Database {
      */
 
     public static boolean updateBalance(String id, float balance) {
+        boolean status = false;
         try {
             Connection con = connect();
             Statement statement = con.createStatement();
@@ -150,11 +170,12 @@ public class Database {
             resultSet.next();
             float oldBalance = resultSet.getFloat(1);
             if (balance == 0) {
-                return false;
-            } else if (balance < 0 || ((oldBalance - balance) < 0)) {
-                return false;
+                status = false;
+            } else if (balance < 0) {
+                status = !(oldBalance + balance < 0);
+            }
 
-            } else {
+            if (status || balance > 0) {
                 float newBalance = oldBalance + balance;
                 statement.executeUpdate("UPDATE account SET balance=" + newBalance + " WHERE id=" + id + ";");
                 con.commit();
@@ -162,12 +183,14 @@ public class Database {
                 statement.close();
                 return true;
             }
+            return false;
 
         } catch (Exception e) {
             e.printStackTrace();
+            return status;
         }
-        return false;
     }
+
 
     public static boolean getOrCreateUser(String fName, String lName, String email, String pwd, String phone) {
         try {
@@ -242,6 +265,9 @@ public class Database {
                 statement.close();
                 return current_pwd.equals(pwd);
             }
+            con.close();
+            statement.close();
+            result.close();
             return false;
         } catch (Exception e) {
             e.printStackTrace();
@@ -400,7 +426,7 @@ public class Database {
     }
 
     public static void main(String[] args) {
-
+        //getOrCreateUser("sea", "chan", "test@test.com", "testing", "123456789");
         for (String[] a : all()) {
             System.out.println(Arrays.toString(a));
         }

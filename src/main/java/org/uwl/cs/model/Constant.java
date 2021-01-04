@@ -11,4 +11,6 @@ public class Constant {
     public static String LAST_UPDATE = "Last Update at ";
     public static String POUND_SYMBOL = "\u00a3";
     public static String NUMBER_FORMAT = "0.0#";
+    public static String SIGN_MINUS = "-";
+    public static String SIGN_PLUS = "+";
 }
