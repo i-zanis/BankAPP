@@ -338,6 +338,7 @@ public class Controller implements Initializable {
     public Button transactionOkButton;
     public TextField transferAccFirstNameTf;
     public TextField transferAccLastNameTf;
+    public DialogPane settingsDialog;
 
 
     // ****** TextField & Label Methods ******
@@ -407,7 +408,23 @@ public class Controller implements Initializable {
     public static Boolean isEmpty(TextField textField) {
         return textField.getText().equals(EMPTY_STRING);
     }
+    // ***** Settings Dialog methods *****
 
+
+    public void getSettingsDialog(ActionEvent actionEvent) throws IOException {
+        settingsDialog.setVisible(true);
+        // There is some strange behaviour in the scene of the dialog, you can see the hard edges which set to be round
+        // however when you close the dialog and reopen it they appear. Officially this is a limitation of JavaFX unless
+        // you hardcode a solution. It works at present therefore I will keep it.
+        settingsDialog.getScene().setFill(Color.TRANSPARENT);
+        settingsDialog.getScene().setFill(Color.DARKSALMON);
+        displayTransactionHistory();
+        updateScreenInformation();
+    }
+    public void closeSettingsDialog(ActionEvent actionEvent) throws IOException {
+        settingsDialog.setVisible(false);
+        resetLabelsAndTextFields();
+    }
     // ***** Transaction Dialog methods *****
     public void getTransactionDialog(ActionEvent actionEvent) throws IOException {
         transactionDialog.setVisible(true);
@@ -702,8 +719,17 @@ public class Controller implements Initializable {
     public void changeProfilePic() {
         profileButton1.setVisible(false);
         profileButton2.setVisible(true);
-        Image image = new Image(selectProfileIcon().toURI().toString());
-        profileCircle2.setFill(new ImagePattern(image));
+        try {
+            Image image = new Image(selectProfileIcon().toURI().toString());
+            profileCircle2.setFill(new ImagePattern(image));
+        }
+        // if no image is selected then an exception will occur and the button will be empty without the SVG
+        // therefore we change the visibility of the button on top to normal
+        catch (Exception e) {
+            profileButton1.setVisible(true);
+            profileButton2.setVisible(false);
+        }
+
     }
 
     @Override

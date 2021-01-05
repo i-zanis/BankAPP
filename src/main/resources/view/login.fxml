@@ -142,3 +142,5 @@
         </Rectangle>
     </bottom>
 </BorderPane>
+
+<!-- ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="33.0" text="ToggleButton" -->
