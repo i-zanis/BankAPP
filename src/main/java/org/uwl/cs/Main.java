@@ -50,7 +50,7 @@ public class Main extends Application {
 
         //removes the window title bar from at the top
         //primaryStage.initStyle(StageStyle.UNDECORATED);
-
+// need to make customer balance update
         // add UWL color in settings that also brings the logo in the middle "UWL theme"
         // you can do this by adding a different css method
 // withdraw and transfer color will be red with plus and minus

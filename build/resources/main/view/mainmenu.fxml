@@ -274,7 +274,7 @@
                     <Tooltip text="Log out" />
                 </tooltip>
             </Button>
-            <DialogPane fx:id="transferDialog" layoutX="6.0" layoutY="242.0" prefHeight="275.0" prefWidth="323.0" visible="false">
+            <DialogPane fx:id="transferDialog" layoutX="6.0" layoutY="242.0" prefHeight="317.0" prefWidth="323.0" visible="false">
                 <padding>
                     <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                 </padding>
@@ -282,7 +282,7 @@
                     <Insets />
                 </opaqueInsets>
                 <content>
-                    <BorderPane prefHeight="321.0" prefWidth="321.0">
+                    <BorderPane prefHeight="251.0" prefWidth="321.0">
                         <bottom>
                             <Pane prefHeight="42.0" prefWidth="301.0" BorderPane.alignment="CENTER">
                                 <children>
@@ -300,11 +300,12 @@
                             </Pane>
                         </bottom>
                         <center>
-                            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                            <Pane prefHeight="217.0" prefWidth="301.0" BorderPane.alignment="CENTER">
                                 <children>
                                     <VBox alignment="TOP_RIGHT" layoutX="64.0" layoutY="57.0" prefHeight="116.0" prefWidth="174.0" spacing="10.0">
-                                        <TextField fx:id="transferAccNameTf" promptText="Recipient's Name" text="tertet" />
-                                        <TextField fx:id="transferAccNoTf" promptText="Recipient's Account No" text="52552525525525" />
+                                        <TextField fx:id="transferAccFirstNameTf" promptText="First Name" />
+                              <TextField fx:id="transferAccLastNameTf" promptText="Last Name" />
+                                        <TextField fx:id="transferAccNoTf" promptText="Account No" />
                                         <TextField fx:id="transferAmountTf" promptText="0.00" />
                                     </VBox>
                                     <Label alignment="CENTER" layoutX="48.0" layoutY="8.0" prefHeight="42.0" prefWidth="206.0" text="Money Transfer" textFill="#107533" wrapText="true">
@@ -320,7 +321,7 @@
                                             </Lighting>
                                         </effect>
                                     </Label>
-                                    <Label fx:id="transferErrorLabel" alignment="CENTER" layoutX="68.0" layoutY="168.0" prefHeight="20.0" prefWidth="162.0" textFill="RED">
+                                    <Label fx:id="transferErrorLabel" alignment="CENTER" layoutX="69.0" layoutY="205.0" prefHeight="20.0" prefWidth="162.0" textFill="RED">
                                         <font>
                                             <Font size="14.0" />
                                         </font>
@@ -421,12 +422,12 @@
                                     </VBox>
                                     <VBox layoutX="165.0" layoutY="-68.0" prefHeight="70.0" prefWidth="123.0">
                                         <children>
-                                            <Label fx:id="monthlyInterestLabel" prefHeight="42.0" prefWidth="206.0" wrapText="true">
+                                            <Label fx:id="monthlyInterestLabel" alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="206.0" wrapText="true">
                                                 <font>
                                                     <Font name="System Bold" size="17.0" />
                                                 </font>
                                             </Label>
-                                            <Label fx:id="annualInterestLabel" prefHeight="42.0" prefWidth="206.0" wrapText="true">
+                                            <Label fx:id="annualInterestLabel" alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="206.0" wrapText="true">
                                                 <font>
                                                     <Font name="System Bold" size="17.0" />
                                                 </font>
@@ -539,8 +540,8 @@
                                 <children>
                                     <VBox alignment="TOP_RIGHT" layoutX="64.0" layoutY="57.0" prefHeight="70.0" prefWidth="174.0" spacing="10.0">
                                         <children>
-                                            <TextField fx:id="loanAmountTf" promptText="Loan 0.00" />
-                                            <TextField fx:id="loanYearsTf" promptText="Number of years" />
+                                            <TextField fx:id="loanAmountTf" promptText="0.00" />
+                                            <TextField fx:id="loanYearsTf" promptText="Number of Years" />
                                         </children>
                                     </VBox>
                                     <Label fx:id="loanLabel" alignment="CENTER" layoutX="48.0" layoutY="8.0" prefHeight="42.0" prefWidth="206.0" text="Loan Calculator" textFill="#107533" wrapText="true">

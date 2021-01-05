@@ -25,7 +25,28 @@ public class Database {
         con.setAutoCommit(false);
         return con;
     }
-
+    public static Customer getCustomerById(String id) {
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM account WHERE id=" + Integer.parseInt(id) + ";");
+            resultSet.next();
+            Customer customer = new Customer(
+                    resultSet.getInt("id") + "",
+                    resultSet.getString("first_name"),
+                    resultSet.getString("last_name"),
+                    resultSet.getString("email"),
+                    resultSet.getString("password"),
+                    Float.parseFloat(String.valueOf(resultSet.getFloat("balance"))),
+                    resultSet.getString("phone"));
+            con.close();
+            statement.close();
+            return customer;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
     public static boolean updateAccount(int accountId, Double newBalance) throws Exception {
         try {
             Connection con = connect();
@@ -74,7 +95,7 @@ public class Database {
         try {
             Connection con = connect();
             Statement statement = con.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM account WHERE email=" + "'" + email + "'" + ";");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM account WHERE email='" +email + "';");
             resultSet.next();
             Customer customer = new Customer(
                     resultSet.getInt("id") + "",
@@ -92,6 +113,7 @@ public class Database {
             return null;
         }
     }
+
 
     public static void addRegistrationBonus(String email, float balance) {
         try {
@@ -112,28 +134,7 @@ public class Database {
     }
 
 
-    public static Customer getCustomerById(String id) {
-        try {
-            Connection con = connect();
-            Statement statement = con.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM account WHERE id=" + Integer.parseInt(id) + ";");
-            resultSet.next();
-            Customer customer = new Customer(
-                    resultSet.getInt("id") + "",
-                    resultSet.getString("first_name"),
-                    resultSet.getString("last_name"),
-                    resultSet.getString("email"),
-                    resultSet.getString("password"),
-                    Float.parseFloat(String.valueOf(resultSet.getFloat("balance"))),
-                    resultSet.getString("phone"));
-            con.close();
-            statement.close();
-            return customer;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+
 
     /*
     public static String[] get(int id) {
@@ -190,6 +191,28 @@ public class Database {
             return status;
         }
     }
+
+    public static boolean updateOtherCustomerBalance(String firstName, String lastName, String accountNumber, float balance){
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery(    "SELECT balance FROM account WHERE first_name='" + firstName + "' AND last_name='" + lastName  +  "' AND id='" + accountNumber + "';");
+            resultSet.next();
+            float oldBalance = resultSet.getFloat(1);
+                float newBalance = oldBalance + balance;
+                statement.executeUpdate("UPDATE account SET balance='" + newBalance + "' WHERE first_name='" + firstName + "' AND last_name='" + lastName  +  "' AND id='" + accountNumber + "';");
+                con.commit();
+                con.close();
+                statement.close();
+                return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
 
 
     public static boolean getOrCreateUser(String fName, String lName, String email, String pwd, String phone) {
@@ -425,8 +448,30 @@ public class Database {
         return false;
     }
 
+    public static Boolean existsCustomer(String firstName, String lastName, String accountNumber) {
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            String query = "SELECT * FROM account WHERE first_name='" + firstName + "' AND  last_name='" + lastName + "' AND id='" +                    accountNumber + "';";
+            ResultSet resultSet = statement.executeQuery(query);
+            if (resultSet.next()) {
+                resultSet.getString("first_name");
+                resultSet.getString("last_name");
+                resultSet.getString("id");
+                System.err.println("The customer exists.");
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.err.println("The customer doesn't exist.");
+        return false;
+    }
+
     public static void main(String[] args) {
         //getOrCreateUser("sea", "chan", "test@test.com", "testing", "123456789");
+        //updateOtherCustomerBalance("sea", "chan", "12365495", 50);
+        //existsCustomer("sea", "chan",  "12365495");
         for (String[] a : all()) {
             System.out.println(Arrays.toString(a));
         }

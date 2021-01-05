@@ -7,8 +7,7 @@ import java.util.Locale;
 import static org.uwl.cs.Main.currentCustomer;
 import static org.uwl.cs.model.Constant.NUMBER_FORMAT;
 import static org.uwl.cs.model.Constant.POUND_SYMBOL;
-import static org.uwl.cs.model.Database.getCustomerByEmail;
-import static org.uwl.cs.model.Database.updateBalance;
+import static org.uwl.cs.model.Database.*;
 
 public class Transaction {
     static float interestRate = 3.4f;
@@ -36,6 +35,17 @@ public class Transaction {
         }
         return status;
     }
+
+
+    public static Boolean transfer(String firstName, String lastName, String accountNumber, String amount) {
+        boolean status = updateBalance(currentCustomer.getAccountNumber(), - Float.parseFloat(amount));
+        if (status) {
+            updateOtherCustomerBalance(firstName, lastName, accountNumber, Float.parseFloat(amount));
+            currentCustomer.setBalance(currentCustomer.getBalance() - Float.parseFloat(amount));
+        }
+        return status;
+    }
+
 
     public static String getUpdatedBalance() {
         decimalFormat.applyPattern(NUMBER_FORMAT);

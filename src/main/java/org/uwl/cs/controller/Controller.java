@@ -23,6 +23,7 @@ import java.util.ResourceBundle;
 import static org.uwl.cs.Main.currentCustomer;
 import static org.uwl.cs.model.Constant.*;
 import static org.uwl.cs.model.Database.connect;
+import static org.uwl.cs.model.Database.existsCustomer;
 import static org.uwl.cs.model.Transaction.*;
 import static org.uwl.cs.model.Utility.*;
 
@@ -335,6 +336,8 @@ public class Controller implements Initializable {
 
 
     public Button transactionOkButton;
+    public TextField transferAccFirstNameTf;
+    public TextField transferAccLastNameTf;
 
 
     // ****** TextField & Label Methods ******
@@ -351,7 +354,7 @@ public class Controller implements Initializable {
                 labelList.get(i)[j].setText(transactionHistoryList.get(transactionIndex)[j]);
                 if (j == 3) {
                     if (transactionHistoryList.get(transactionIndex)[2].equals("Withdrawal") ||
-                            transactionHistoryList.get(transactionIndex)[2].equals("Money Transfer")) {
+                            transactionHistoryList.get(transactionIndex)[2].contains("Transfer:")) {
                         labelList.get(i)[j].setTextFill(Color.RED);
                         labelList.get(i)[j].setText(SIGN_MINUS + labelList.get(i)[j].getText());
                     }
@@ -376,7 +379,7 @@ public class Controller implements Initializable {
     }
 
     public static Boolean isLetter(TextField textField) {
-        return textField.getText().matches("[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z])$");
+        return textField.getText().matches("^[a-zA-Z\\s]+");
     }
 
     public static Boolean isDigit(TextField textField) {
@@ -388,8 +391,10 @@ public class Controller implements Initializable {
     }
 
     // clears the label
-    public static void clearLabel(Label label) {
-        label.setText(EMPTY_STRING);
+    public static void clearLabel(Label... labels) {
+        for (Label label: labels) {
+            label.setText(EMPTY_STRING);
+        }
     }
 
     public static void resetTextFieldColor(TextField... textFields) {
@@ -480,8 +485,8 @@ public class Controller implements Initializable {
         resetTextFieldColor(withdrawTf);
         if (isEmpty(withdrawTf)) errorToLabel(withdrawTf, withdrawErrorLabel, "Amount required");
         else if (!isDigit(withdrawTf)) errorToLabel(withdrawTf, withdrawErrorLabel, "Invalid number");
-        else if ((Float.parseFloat(withdrawTf.getText()) < 0))
-            errorToLabel(withdrawTf, withdrawErrorLabel, "Negative amount");
+        else if ((Float.parseFloat(withdrawTf.getText()) <= 0))
+            errorToLabel(withdrawTf, withdrawErrorLabel, "Invalid amount");
         else {
             try {
                 if (withdraw(withdrawTf.getText())) {
@@ -534,28 +539,36 @@ public class Controller implements Initializable {
     public void transferAccept(ActionEvent actionEvent) throws IOException {
         transferDialog.getScene().setFill(Color.TRANSPARENT);
         clearLabel(transferErrorLabel);
-        resetTextFieldColor(transferAccNameTf, transferAccNoTf, transferAmountTf);
-        if (isEmpty(transferAccNameTf))
-            errorToLabel(transferAccNameTf, transferErrorLabel, "Account Name required");
-        else if (!isLetter(transferAccNameTf))
-            errorToLabel(transferAccNameTf, transferErrorLabel, "Invalid Account Name");
+        resetTextFieldColor(transferAccFirstNameTf, transferAccLastNameTf,transferAccNoTf, transferAmountTf);
+        if (isEmpty(transferAccFirstNameTf))
+            errorToLabel(transferAccFirstNameTf, transferErrorLabel, "First name required");
+        else if (!isLetter(transferAccFirstNameTf))
+            errorToLabel(transferAccFirstNameTf, transferErrorLabel, "Invalid first name");
+        else if (isEmpty(transferAccLastNameTf))
+            errorToLabel(transferAccLastNameTf, transferErrorLabel, "Last name required");
+        else if (!isLetter(transferAccLastNameTf))
+            errorToLabel(transferAccLastNameTf, transferErrorLabel, "Invalid last name");
 
         else if (isEmpty(transferAccNoTf))
             errorToLabel(transferAccNoTf, transferErrorLabel, "Account Number required");
         else if (!isDigit(transferAccNoTf)) errorToLabel(transferAccNoTf, transferErrorLabel, "Invalid Account No");
         else if (!validateAccountNo(transferAccNoTf))
-            errorToLabel(transferAccNoTf, transferErrorLabel, "8 digits required");
+            errorToLabel(transferAccNoTf, transferErrorLabel, "Account No has 8 digits");
 
         else if (isEmpty(transferAmountTf))
             errorToLabel(transferAmountTf, transferErrorLabel, "Transfer Amount required");
         else if (!isDigit(transferAmountTf)) errorToLabel(transferAmountTf, transferErrorLabel, "Enter an amount");
-        else if (Float.parseFloat(transferAmountTf.getText()) < 0)
-            errorToLabel(transferAmountTf, transferErrorLabel, "Negative amount");
-
+        else if (Float.parseFloat(transferAmountTf.getText()) <= 0)
+            errorToLabel(transferAmountTf, transferErrorLabel, "Invalid amount");
+        else if (!existsCustomer(transferAccFirstNameTf.getText(),transferAccLastNameTf.getText(),transferAccNoTf.getText())) {
+            errorToLabel(transferAccFirstNameTf, transferErrorLabel, "Invalid account details");
+            transferAccLastNameTf.setStyle("-fx-border-color: red;");
+            transferAccNoTf.setStyle("-fx-border-color: red;");
+        }
         else {
             try {
-                if (withdraw(transferAmountTf.getText())) {
-                    addToTransactionHistory("Money Transfer", transferAmountTf);
+                if (transfer(transferAccFirstNameTf.getText(),transferAccLastNameTf.getText(),transferAccNoTf.getText(),transferAmountTf.getText())) {
+                    addToTransactionHistory("Transfer:" + SPACE + transferAccFirstNameTf.getText() + SPACE + transferAccLastNameTf.getText(), transferAmountTf);
                     updateScreenInformation();
                     transferDialog.setVisible(false);
                     resetLabelsAndTextFields();
@@ -591,8 +604,8 @@ public class Controller implements Initializable {
         resetTextFieldColor(depositTf);
         if (isEmpty(depositTf)) errorToLabel(depositTf, depositErrorLabel, "Deposit amount required");
         else if (!isDigit(depositTf)) errorToLabel(depositTf, depositErrorLabel, "Invalid number");
-        else if ((Float.parseFloat(depositTf.getText()) < 0))
-            errorToLabel(depositTf, depositErrorLabel, "Negative amount");
+        else if ((Float.parseFloat(depositTf.getText()) <= 0))
+            errorToLabel(depositTf, depositErrorLabel, "Invalid amount");
         else {
             try {
                 if (deposit(depositTf.getText())) {
@@ -616,7 +629,8 @@ public class Controller implements Initializable {
 
     // clears Labels and TextFields, used when pressing NO/YES on dialog to be ready for use when they open again
     public void resetLabelsAndTextFields() {
-        transferAccNameTf.clear();
+        transferAccFirstNameTf.clear();
+        transferAccLastNameTf.clear();
         transferAccNoTf.clear();
         transferAmountTf.clear();
         depositTf.clear();
@@ -624,7 +638,7 @@ public class Controller implements Initializable {
         loanAmountTf.clear();
         loanYearsTf.clear();
         // need to add newly implemented textfields
-        resetTextFieldColor(transferAccNameTf, transferAccNoTf, transferAmountTf, depositTf, withdrawTf, loanAmountTf, loanAmountTf);
+        resetTextFieldColor(transferAccFirstNameTf,transferAccLastNameTf, transferAccNoTf, transferAmountTf, depositTf, withdrawTf, loanAmountTf, loanAmountTf);
         clearAllDialogLabels();
     }
 
