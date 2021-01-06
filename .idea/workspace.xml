@@ -23,28 +23,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76f6dc9c-09d8-4577-8976-110c5b38687f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/model/SwitchButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/model/SwitchButton.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/media/fix_vm_options.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/BankAPP-1.0-SNAPSHOT.tar" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/BankAPP-1.0-SNAPSHOT.tar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/BankAPP-1.0-SNAPSHOT.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/BankAPP-1.0-SNAPSHOT.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/BankAPP-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/BankAPP-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/view/mainmenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/view/mainmenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/model/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/model/Utility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/mainmenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/mainmenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,15 +137,7 @@
                 <item name="BankAPP" type="f1a62948:ProjectNode" />
                 <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
                 <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="org.openjfx:javafx-controls:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="BankAPP" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="org.openjfx:javafx-controls:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-                <item name="org.openjfx:javafx-graphics:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.openjfx:javafx-fxml:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -164,6 +145,7 @@
                 <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
                 <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
                 <item name="org.openjfx:javafx-fxml:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.openjfx:javafx-controls:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -183,15 +165,7 @@
                 <item name="BankAPP" type="f1a62948:ProjectNode" />
                 <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
                 <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="org.openjfx:javafx-controls:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="BankAPP" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="org.openjfx:javafx-controls:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-                <item name="org.openjfx:javafx-graphics:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.openjfx:javafx-fxml:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -199,6 +173,7 @@
                 <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
                 <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
                 <item name="org.openjfx:javafx-fxml:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.openjfx:javafx-controls:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -225,15 +200,7 @@
                 <item name="BankAPP" type="f1a62948:ProjectNode" />
                 <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
                 <item name="testCompileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="org.openjfx:javafx-controls:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="BankAPP" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="testCompileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="org.openjfx:javafx-controls:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-                <item name="org.openjfx:javafx-graphics:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.openjfx:javafx-fxml:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -241,6 +208,7 @@
                 <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
                 <item name="testCompileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
                 <item name="org.openjfx:javafx-fxml:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.openjfx:javafx-controls:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -267,15 +235,7 @@
                 <item name="BankAPP" type="f1a62948:ProjectNode" />
                 <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
                 <item name="testRuntimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="org.openjfx:javafx-controls:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="BankAPP" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="testRuntimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="org.openjfx:javafx-controls:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-                <item name="org.openjfx:javafx-graphics:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.openjfx:javafx-fxml:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -283,6 +243,7 @@
                 <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
                 <item name="testRuntimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
                 <item name="org.openjfx:javafx-fxml:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.openjfx:javafx-controls:11.0.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -326,7 +287,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/media" />
     <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -334,21 +295,22 @@
     <property name="settings.editor.selected.configurable" value="inlay.hints.JAVA" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources\media" />
       <recent name="C:\Users\JEITI\IdeaProjects\BankAPP" />
-      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources\css" />
-      <recent name="C:\Users\JEITI\BankAPP" />
+      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources\view" />
+      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\java\org\uwl\cs" />
+      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\java" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.uwl.cs" />
       <recent name="org.uwl.cs.model" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources\media" />
       <recent name="C:\Users\JEITI\IdeaProjects\BankAPP" />
-      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\java\org\uwl\cs" />
-      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources\view" />
-      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\java" />
-      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main" />
+      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources\css" />
+      <recent name="C:\Users\JEITI\BankAPP" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -357,6 +319,19 @@
     </option>
   </component>
   <component name="RunManager" selected="Gradle.BankAPP [jar]">
+    <configuration name="Database" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.uwl.cs.model.Database" />
+      <module name="BankAPP.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.uwl.cs.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.uwl.cs.Main" />
       <module name="BankAPP.main" />
@@ -409,25 +384,6 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="BankAPP [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="BankAPP [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -468,11 +424,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Database" />
         <item itemvalue="Gradle.BankAPP [jar]" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.BankAPP [buildDependents]" />
         <item itemvalue="Gradle.BankAPP [assemble]" />
-        <item itemvalue="Gradle.BankAPP [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -532,42 +488,42 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="707" y="354" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1609402318994" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1609751236579">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1609831902662">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609751236579" />
-    <state width="1877" height="418" key="GridCell.Tab.0.bottom" timestamp="1609821549501">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609831902662" />
+    <state width="1877" height="234" key="GridCell.Tab.0.bottom" timestamp="1609902654429">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="418" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609821549501" />
-    <state width="1877" height="418" key="GridCell.Tab.0.center" timestamp="1609821549501">
+    <state width="1877" height="234" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609902654429" />
+    <state width="1877" height="234" key="GridCell.Tab.0.center" timestamp="1609902654429">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="418" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609821549501" />
-    <state width="1877" height="418" key="GridCell.Tab.0.left" timestamp="1609821549501">
+    <state width="1877" height="234" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609902654429" />
+    <state width="1877" height="234" key="GridCell.Tab.0.left" timestamp="1609902654429">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="418" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609821549501" />
-    <state width="1877" height="418" key="GridCell.Tab.0.right" timestamp="1609821549501">
+    <state width="1877" height="234" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609902654429" />
+    <state width="1877" height="234" key="GridCell.Tab.0.right" timestamp="1609902654429">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="418" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609821549501" />
-    <state width="1213" height="532" key="GridCell.Tab.1.bottom" timestamp="1609821262187">
+    <state width="1877" height="234" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609902654429" />
+    <state width="1212" height="65" key="GridCell.Tab.1.bottom" timestamp="1609902654400">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1213" height="532" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609821262187" />
-    <state width="1213" height="532" key="GridCell.Tab.1.center" timestamp="1609821262187">
+    <state width="1212" height="65" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609902654400" />
+    <state width="1212" height="65" key="GridCell.Tab.1.center" timestamp="1609902654400">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1213" height="532" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609821262187" />
-    <state width="1213" height="532" key="GridCell.Tab.1.left" timestamp="1609821262187">
+    <state width="1212" height="65" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609902654400" />
+    <state width="1212" height="65" key="GridCell.Tab.1.left" timestamp="1609902654400">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1213" height="532" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609821262187" />
-    <state width="1213" height="532" key="GridCell.Tab.1.right" timestamp="1609821262187">
+    <state width="1212" height="65" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609902654400" />
+    <state width="1212" height="65" key="GridCell.Tab.1.right" timestamp="1609902654400">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1213" height="532" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609821262187" />
+    <state width="1212" height="65" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609902654400" />
     <state x="184" y="86" key="MergeDialog" timestamp="1609448576663">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -592,10 +548,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1609100330799" />
-    <state x="551" y="130" key="new project wizard" timestamp="1609014261587">
+    <state x="551" y="130" key="new project wizard" timestamp="1609821843119">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="551" y="130" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1609014261587" />
+    <state x="551" y="130" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1609821843119" />
     <state x="660" y="277" key="refactoring.ChangeSignatureDialog" timestamp="1609391527879">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -604,10 +560,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="136" y="242" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1609644355939" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1609821516715">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1609822154769">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1609821516715" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1609822154769" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BankAPP$Main.ic" NAME="Main Coverage Results" MODIFIED="1609395237568" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
