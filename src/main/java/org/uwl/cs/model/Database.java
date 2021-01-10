@@ -158,7 +158,12 @@ public class Database {
     }
 
 
-
+    /**
+     * Updates the balance of the customer given correct id.
+     * @param id account number
+     * @param balance desired balance
+     * @return true on successful update
+     */
     public static boolean updateBalance(String id, float balance) {
         boolean status = false;
         try {
@@ -189,6 +194,15 @@ public class Database {
         }
     }
 
+    /**
+     * Updates the balance of a different customer. Used on the [Money Transfer] feature of the application that the user
+     * has to input the correct credentials to transfer money to another customer.
+     * @param firstName Target customer (can be self)
+     * @param lastName  Target customer (can be self)
+     * @param accountNumber Target customer
+     * @param balance Amount to transfer
+     * @return true on successful transfer
+     */
     public static boolean updateOtherCustomerBalance(String firstName, String lastName, String accountNumber, float balance) {
         try {
             Connection con = connect();
@@ -209,7 +223,15 @@ public class Database {
         return false;
     }
 
-
+    /**
+     * Confirms customer exists or creates a new one.
+     * @param fName
+     * @param lName
+     * @param email
+     * @param pwd
+     * @param phone
+     * @return true on successful creation/false if user exists
+     */
     public static boolean getOrCreateUser(String fName, String lName, String email, String pwd, String phone) {
         try {
             Connection con = connect();
@@ -231,6 +253,11 @@ public class Database {
         }
     }
 
+    /**
+     * Encrypts the user's password
+     * @param password
+     * @return
+     */
     public static String encryptPassword(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -247,6 +274,11 @@ public class Database {
         }
     }
 
+    /**
+     * Validates if email has the correct format.
+     * @param email
+     * @return true on correct email format
+     */
     public static boolean validateEmail(String email) {
         String rePattern = "^\\w+@(\\w+.[a-zA-Z]+|\\w+.[a-zA-Z]+.[a-zA-Z]+)$";
         Pattern pattern = Pattern.compile(rePattern, Pattern.CASE_INSENSITIVE);
@@ -254,6 +286,11 @@ public class Database {
         return matcher.find();
     }
 
+    /**
+     * Valids if phone number has the correct format(non-UK).
+     * @param phoneNumber
+     * @return true on correct number format
+     */
     public static boolean validatePhoneNumber(String phoneNumber) {
         String rePattern = "^\\+(?:[0-9] ?){6,14}[0-9]$";
         Pattern pattern = Pattern.compile(rePattern, Pattern.CASE_INSENSITIVE);
@@ -261,7 +298,11 @@ public class Database {
         return matcher.find();
     }
 
-    // Minimum eight characters, at least one letter and one number
+    /**
+     * Password validation of [Minimum eight characters, at least one letter and one number] format
+     * @param password
+     * @return true on correct password format
+     */
     public static boolean validatePassword(String password) {
         String rePattern = "^(?=.*[a-z])(?=.*[A-Z]).{8,}$";
         Pattern pattern = Pattern.compile(rePattern);
@@ -269,6 +310,13 @@ public class Database {
         return matcher.find();
     }
 
+    /**
+     * Checks if the credentials provided match the database's.
+     * @param email
+     * @param password
+     * @return true when correct credentials
+     * @throws SQLException
+     */
     public static Boolean checkPassword(String email, String password) throws SQLException {
         try {
             Connection con = connect();
@@ -294,6 +342,9 @@ public class Database {
         return false;
     }
 
+    /**
+     * Deletes all customers in the database. Useful for testing.
+     */
     public static void deleteAll() {
         try {
             Connection con = connect();
@@ -308,7 +359,9 @@ public class Database {
         }
     }
 
-
+/**
+ * Create a new table in the database.
+ */
     public static void init() {
         try {
             Connection con = connect();
@@ -332,6 +385,9 @@ public class Database {
         }
     }
 
+    /**
+     * Delete the table in the database.
+     */
     public static void dropTable() {
         try {
             Connection con = connect();
@@ -346,6 +402,10 @@ public class Database {
         }
     }
 
+    /**
+     * Deletes a customer given the right id.
+     * @param id account number
+     */
     public static void deleteUser(int id) {
         try {
             Connection con = connect();
@@ -360,6 +420,10 @@ public class Database {
         }
     }
 
+    /**
+     * Deletes a customer given the right email.
+     * @param email
+     */
     public static void deleteUser(String email) {
         try {
             Connection con = connect();
@@ -374,21 +438,12 @@ public class Database {
         }
     }
 
-    public static void makeQuery(String query) {
-        try {
-            Connection con = connect();
-            Statement statement = con.createStatement();
-            statement.executeUpdate(query);
-            con.commit();
-            con.close();
-            statement.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-
-        }
-    }
-
+    /**
+     * Checks for correct credentials and allows user to login to the database.
+     * @param email
+     * @param pwd
+     * @return true on correct credentials
+     */
     public static boolean login(String email, String pwd) {
         try {
             if (checkPassword(email, pwd)) {
@@ -402,7 +457,12 @@ public class Database {
         return false;
     }
 
-
+    /**
+     * Checks if customer exists.
+     * @param email
+     * @param pwd
+     * @return true on target customer existing
+     */
     public static int existsID(String email, String pwd) {
         try {
             Connection con = connect();
@@ -424,7 +484,11 @@ public class Database {
         return -1;
     }
 
-
+    /**
+     * Checks if email exists
+     * @param email
+     * @return true on target email existing
+     */
     public static Boolean existsEmail(String email) {
         try {
             Connection con = connect();
@@ -443,6 +507,13 @@ public class Database {
         return false;
     }
 
+    /**
+     * Checks if customer exists given the right credentials. Used in [Money Transfer] functionality of the application.
+     * @param firstName target customer first name
+     * @param lastName target customer last name
+     * @param accountNumber target customer account number
+     * @return true if target customer exists
+     */
     public static Boolean existsCustomer(String firstName, String lastName, String accountNumber) {
         try {
             Connection con = connect();
@@ -486,6 +557,20 @@ public class Database {
            }
            return null;
        }
+       public static void makeQuery(String query) {
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            statement.executeUpdate(query);
+            con.commit();
+            con.close();
+            statement.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+    }
         */
     public static void main(String[] args) {
         //getOrCreateUser("Sea", "Chan", "test@test.com", "testing", "07717091689");
