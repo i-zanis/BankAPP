@@ -11,11 +11,16 @@ import java.util.regex.Pattern;
 
 
 /**
- * Database class with methods to manipulate the information. There are some methods as deleteUser()/dropTable() for
+ * Database class with methods to manipulate the information. There are some methods such as deleteUser()/dropTable() for
  * testing and future implementations.
  */
 public class Database {
 
+    /**
+     * Connects to the database. First method to check when there is a connection problem in the database.
+     * @return Connection object
+     * @throws Exception
+     */
     public static Connection connect() throws Exception {
         String url = "jdbc:mysql://byfcpp9vrgzbrtqotooc-mysql.services.clever-cloud.com:3306/byfcpp9vrgzbrtqotooc";
         String user = "uupoc6dwtojsvpfm";
@@ -25,6 +30,12 @@ public class Database {
         con.setAutoCommit(false);
         return con;
     }
+
+    /**
+     * Creates a customer object by the id(account number) of the user.
+     * @param id
+     * @return Customer object
+     */
     public static Customer getCustomerById(String id) {
         try {
             Connection con = connect();
@@ -47,6 +58,14 @@ public class Database {
             return null;
         }
     }
+
+    /**
+     * Updates account information by the id(account number) and updates to the new balance.
+     * @param accountId (account number)
+     * @param newBalance
+     * @return boolean
+     * @throws Exception
+     */
     public static boolean updateAccount(int accountId, Double newBalance) throws Exception {
         try {
             Connection con = connect();
@@ -55,7 +74,6 @@ public class Database {
             statement.executeUpdate(query);
             con.commit();
             return true;
-            //statement.executeQuery("SELECT * FROM account");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -63,12 +81,9 @@ public class Database {
     }
 
     /**
-     * Updates Relevant information to the Application
-     *
-     * @return
+     * Displays the existing customers in the database. Currently used for testing by running the Database Main method.
+     * @return existing customers in a LinkedList
      */
-
-
     public static LinkedList<String[]> all() {
         LinkedList<String[]> result = new LinkedList<>();
         try {
@@ -91,11 +106,16 @@ public class Database {
         return result;
     }
 
+    /**
+     * Gets the customers details by email
+     * @param email
+     * @return Customer Object
+     */
     public static Customer getCustomerByEmail(String email) {
         try {
             Connection con = connect();
             Statement statement = con.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM account WHERE email='" +email + "';");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM account WHERE email='" + email + "';");
             resultSet.next();
             Customer customer = new Customer(
                     resultSet.getInt("id") + "",
@@ -114,7 +134,11 @@ public class Database {
         }
     }
 
-
+    /**
+     * Adds a specified bonus for new accounts.
+     * @param email Customers email
+     * @param balance Desired bonus balance
+     */
     public static void addRegistrationBonus(String email, float balance) {
         try {
             Connection con = connect();
@@ -134,33 +158,6 @@ public class Database {
     }
 
 
-
-
-    /*
-    public static String[] get(int id) {
-        try {
-            Connection con = connect();
-            Statement statement = con.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM account WHERE id=" + id + ";");
-            int columns = resultSet.getMetaData().getColumnCount();
-            String[] obj = new String[columns];
-            resultSet.next();
-            obj[0] = Integer.toString(resultSet.getInt("id"));
-            obj[1] = resultSet.getString("first_name");
-            obj[2] = resultSet.getString("last_name");
-            obj[3] = resultSet.getString("email");
-            obj[4] = resultSet.getString("password");
-            obj[5] = Float.toString(resultSet.getFloat("balance"));
-            obj[6] = resultSet.getString("phone");
-            con.close();
-            statement.close();
-            return obj;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-     */
 
     public static boolean updateBalance(String id, float balance) {
         boolean status = false;
@@ -192,27 +189,25 @@ public class Database {
         }
     }
 
-    public static boolean updateOtherCustomerBalance(String firstName, String lastName, String accountNumber, float balance){
+    public static boolean updateOtherCustomerBalance(String firstName, String lastName, String accountNumber, float balance) {
         try {
             Connection con = connect();
             Statement statement = con.createStatement();
-            ResultSet resultSet = statement.executeQuery(    "SELECT balance FROM account WHERE first_name='" + firstName + "' AND last_name='" + lastName  +  "' AND id='" + accountNumber + "';");
+            ResultSet resultSet = statement.executeQuery("SELECT balance FROM account WHERE first_name='" + firstName + "' AND last_name='" + lastName + "' AND id='" + accountNumber + "';");
             resultSet.next();
             float oldBalance = resultSet.getFloat(1);
-                float newBalance = oldBalance + balance;
-                statement.executeUpdate("UPDATE account SET balance='" + newBalance + "' WHERE first_name='" + firstName + "' AND last_name='" + lastName  +  "' AND id='" + accountNumber + "';");
-                con.commit();
-                con.close();
-                statement.close();
-                return true;
+            float newBalance = oldBalance + balance;
+            statement.executeUpdate("UPDATE account SET balance='" + newBalance + "' WHERE first_name='" + firstName + "' AND last_name='" + lastName + "' AND id='" + accountNumber + "';");
+            con.commit();
+            con.close();
+            statement.close();
+            return true;
 
         } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
     }
-
-
 
 
     public static boolean getOrCreateUser(String fName, String lName, String email, String pwd, String phone) {
@@ -452,7 +447,7 @@ public class Database {
         try {
             Connection con = connect();
             Statement statement = con.createStatement();
-            String query = "SELECT * FROM account WHERE first_name='" + firstName + "' AND  last_name='" + lastName + "' AND id='" +                    accountNumber + "';";
+            String query = "SELECT * FROM account WHERE first_name='" + firstName + "' AND  last_name='" + lastName + "' AND id='" + accountNumber + "';";
             ResultSet resultSet = statement.executeQuery(query);
             if (resultSet.next()) {
                 resultSet.getString("first_name");
@@ -467,11 +462,36 @@ public class Database {
         System.err.println("The customer doesn't exist.");
         return false;
     }
-
+    /*
+       public static String[] get(int id) {
+           try {
+               Connection con = connect();
+               Statement statement = con.createStatement();
+               ResultSet resultSet = statement.executeQuery("SELECT * FROM account WHERE id=" + id + ";");
+               int columns = resultSet.getMetaData().getColumnCount();
+               String[] obj = new String[columns];
+               resultSet.next();
+               obj[0] = Integer.toString(resultSet.getInt("id"));
+               obj[1] = resultSet.getString("first_name");
+               obj[2] = resultSet.getString("last_name");
+               obj[3] = resultSet.getString("email");
+               obj[4] = resultSet.getString("password");
+               obj[5] = Float.toString(resultSet.getFloat("balance"));
+               obj[6] = resultSet.getString("phone");
+               con.close();
+               statement.close();
+               return obj;
+           } catch (Exception e) {
+               e.printStackTrace();
+           }
+           return null;
+       }
+        */
     public static void main(String[] args) {
-        //getOrCreateUser("sea", "chan", "test@test.com", "testing", "123456789");
+        //getOrCreateUser("Sea", "Chan", "test@test.com", "testing", "07717091689");
         //updateOtherCustomerBalance("sea", "chan", "12365495", 50);
         //existsCustomer("sea", "chan",  "12365495");
+        //deleteAll();
         for (String[] a : all()) {
             System.out.println(Arrays.toString(a));
         }

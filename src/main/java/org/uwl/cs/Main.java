@@ -11,8 +11,6 @@ import org.uwl.cs.model.Database;
 
 import static org.uwl.cs.model.Constant.*;
 
-
-// 20-27-49 93316386 Yassine Bebba
 public class Main extends Application {
 
     public static Stage primaryStage;
@@ -44,16 +42,8 @@ public class Main extends Application {
         // makes the window not resizable
         primaryStage.setResizable(false);
 
+        // connects to the Database
         Database.connect();
-
-        // make the account start with 200 pounds
-
-        //removes the window title bar from at the top
-        //primaryStage.initStyle(StageStyle.UNDECORATED);
-// need to make customer balance update
-        // add UWL color in settings that also brings the logo in the middle "UWL theme"
-        // you can do this by adding a different css method
-// withdraw and transfer color will be red with plus and minus
 
     }
 }

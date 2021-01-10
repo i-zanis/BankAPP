@@ -1,5 +1,8 @@
 package org.uwl.cs.model;
 
+/**
+ * A class to keep all the constants for avoiding errors while going the source code.
+ */
 public class Constant {
     public static String MAINMENU = "/view/mainmenu.fxml";
     public static String LOGIN = "/view/login.fxml";

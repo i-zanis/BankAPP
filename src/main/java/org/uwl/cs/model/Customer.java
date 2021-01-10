@@ -1,5 +1,8 @@
 package org.uwl.cs.model;
 
+/**
+ * A customer class to save the details of the user that logged in for reducing unneeded calls to the database.
+ */
 public class Customer {
     String accountNumber;
     String firstName;
@@ -10,7 +13,7 @@ public class Customer {
     String phone;
 
 
-    // Constructor method to save the data to reduce the calls to the database
+    // Customer Constructor method
     public Customer(String accountNumber, String firstName, String lastName, String email, String password, float balance, String phone) {
         this.accountNumber = accountNumber;
         this.firstName = firstName;
