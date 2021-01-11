@@ -15,7 +15,6 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -28,8 +27,11 @@ import static org.uwl.cs.model.Transaction.*;
 import static org.uwl.cs.model.Utility.*;
 
 public class Controller implements Initializable {
+    // List for labels in the transactionsDialog
     public static ArrayList<Label[]> labelList = new ArrayList<>();
+    // Storage list for previous transactions
     public static ArrayList<String[]> transactionHistoryList = new ArrayList<>();
+    // This is where the account number gets saved to be shown with hyphens
     public String modifiedAccNum = "";
 
     public BorderPane appWindow;
@@ -342,17 +344,30 @@ public class Controller implements Initializable {
 
 
     // ****** TextField & Label Methods ******
+
+    /**
+     * Adds items to transaction history
+     *
+     * @param transactionType Transaction type Transfer/Deposit/Withdrawal
+     * @param textfield       The TextField that holds the amount
+     */
     public static void addToTransactionHistory(String transactionType, TextField textfield) {
         transactionHistoryList.add(new String[]{getDate(), getTime(), transactionType, textfield.getText()});
         for (int i = 0; i < transactionHistoryList.size(); i++) {
         }
     }
 
+    /**
+     * Displays the transaction history saved in transactionHistoryList in reverse in the designated labels.
+     * Applies colors to the text based on the transaction.
+     */
     public static void displayTransactionHistory() {
+        // gets the last index because the list will be displayed in reverse last == most recent -> displayed first
         int transactionIndex = transactionHistoryList.size() - 1;
         for (int i = 0; i < labelList.size() && transactionIndex >= 0; i++) {
             for (int j = 0; j < 4; j++) {
                 labelList.get(i)[j].setText(transactionHistoryList.get(transactionIndex)[j]);
+                // this block checks the type of transaction to change the color of the amount
                 if (j == 3) {
                     if (transactionHistoryList.get(transactionIndex)[2].equals("Withdrawal") ||
                             transactionHistoryList.get(transactionIndex)[2].contains("Transfer:")) {
@@ -364,14 +379,18 @@ public class Controller implements Initializable {
                         labelList.get(i)[j].setText(SIGN_PLUS + labelList.get(i)[j].getText());
                     }
                 }
-
-
             }
             transactionIndex--;
         }
     }
 
-
+    /**
+     * Displays desired error message and turns the color of TextField's border to red.
+     *
+     * @param textfield any type of TextField
+     * @param label     an Error Label
+     * @param string    desired error message on the Label
+     */
     public static void errorToLabel(TextField textfield, Label label, String string) {
         textfield.setStyle("-fx-border-color: red;");
         textfield.requestFocus();
@@ -379,25 +398,53 @@ public class Controller implements Initializable {
         label.setText(string);
     }
 
+    /**
+     * Checks if TextField contains only letters & spaces.
+     *
+     * @param textField any TextField
+     * @return true if only Letters or spaces
+     */
     public static Boolean isLetter(TextField textField) {
         return textField.getText().matches("^[a-zA-Z\\s]+");
     }
 
+    /**
+     * Checks if TextField is only digits.
+     *
+     * @param textField any TextField
+     * @return true if only digits & [+-]
+     */
     public static Boolean isDigit(TextField textField) {
         return textField.getText().matches("^[-+]?[0-9]*\\.?[0-9]+$");
     }
 
+    /**
+     * Checks if TextField has 8 digits.
+     *
+     * @param textField any TextField
+     * @return true if >= 8 digits
+     */
     public static Boolean validateAccountNo(TextField textField) {
         return textField.getText().length() >= 8;
     }
 
-    // clears the label
+    /**
+     * Clears any number of Labels. Used every time [OK][ACCEPT] buttons are pressed to clear previous error messages.
+     *
+     * @param labels error Labels
+     */
     public static void clearLabel(Label... labels) {
-        for (Label label: labels) {
+        for (Label label : labels) {
             label.setText(EMPTY_STRING);
         }
     }
 
+    /**
+     * Resets the color of any number of TextFields.
+     * It sets them back to default #2b5c50 ("greennish") after they have been turned red by an error.
+     *
+     * @param textFields TextFields
+     */
     public static void resetTextFieldColor(TextField... textFields) {
         for (TextField textField : textFields) {
             textField.setStyle("-fx-border-color: #2b5c50;");
@@ -405,13 +452,21 @@ public class Controller implements Initializable {
         }
     }
 
+    /**
+     * Checks if TextField is empty.
+     *
+     * @param textField any TextField
+     * @return true if empty
+     */
     public static Boolean isEmpty(TextField textField) {
         return textField.getText().equals(EMPTY_STRING);
     }
+
+    /**
+     * Shows the settingsDialog.
+     */
     // ***** Settings Dialog methods *****
-
-
-    public void getSettingsDialog(ActionEvent actionEvent) throws IOException {
+    public void getSettingsDialog() {
         settingsDialog.setVisible(true);
         // There is some strange behaviour in the scene of the dialog, you can see the hard edges which set to be round
         // however when you close the dialog and reopen it they appear. Officially this is a limitation of JavaFX unless
@@ -421,12 +476,21 @@ public class Controller implements Initializable {
         displayTransactionHistory();
         updateScreenInformation();
     }
-    public void closeSettingsDialog(ActionEvent actionEvent) throws IOException {
+
+    /**
+     * Closes the settingsDialog.
+     */
+    public void closeSettingsDialog() {
         settingsDialog.setVisible(false);
         resetLabelsAndTextFields();
     }
+
     // ***** Transaction Dialog methods *****
-    public void getTransactionDialog(ActionEvent actionEvent) throws IOException {
+
+    /**
+     * Shows the transactionDialog.
+     */
+    public void getTransactionDialog() {
         transactionDialog.setVisible(true);
         // There is some strange behaviour in the scene of the dialog, you can see the hard edges which set to be round
         // however when you close the dialog and reopen it they appear. Officially this is a limitation of JavaFX unless
@@ -437,14 +501,21 @@ public class Controller implements Initializable {
         updateScreenInformation();
     }
 
-    public void closeTransactionDialog(ActionEvent actionEvent) throws IOException {
+    /**
+     * Closes the transactionDialog
+     */
+    public void closeTransactionDialog() {
         transactionDialog.setVisible(false);
         resetLabelsAndTextFields();
     }
 
 
     // ***** Loan Dialog methods *****
-    public void getLoanDialog(ActionEvent actionEvent) throws IOException {
+
+    /**
+     * Shows the loanDialog.
+     */
+    public void getLoanDialog() {
         loanDialog.setVisible(true);
         // There is some strange behaviour in the scene of the dialog, you can see the hard edges which set to be round
         // however when you close the dialog and reopen it they appear. Officially this is a limitation of JavaFX unless
@@ -453,7 +524,10 @@ public class Controller implements Initializable {
         loanDialog.getScene().setFill(Color.DARKSALMON);
     }
 
-    public void loanAccept(ActionEvent actionEvent) throws IOException {
+    /**
+     * Method on the Accept button of loan dialog. It gets valid input from TextFields & displays monthly paymenets.
+     */
+    public void loanAccept() {
         loanDialog.getScene().setFill(Color.TRANSPARENT);
         clearLabel(loanErrorLabel);
         resetTextFieldColor(loanAmountTf, loanYearsTf);
@@ -475,7 +549,10 @@ public class Controller implements Initializable {
         }
     }
 
-    public void loanDecline(ActionEvent actionEvent) throws IOException {
+    /**
+     * Closes loanDialog.
+     */
+    public void loanDecline() {
         //loanDialog.getScene().setFill(Color.TRANSPARENT);
         loanDialog.setVisible(false);
         monthlyPaymentLabel.setVisible(false);
@@ -486,7 +563,11 @@ public class Controller implements Initializable {
     }
 
     // ***** Withdraw Dialog methods *****
-    public void getWithdrawDialog(ActionEvent actionEvent) throws IOException {
+
+    /**
+     * Shows withdrawDialog.
+     */
+    public void getWithdrawDialog() {
         withdrawDialog.setVisible(true);
         // There is some strange behaviour in the scene of the dialog, you can see the hard edges which set to be round
         // however when you close the dialog and reopen it they appear. Officially this is a limitation of JavaFX unless
@@ -496,7 +577,10 @@ public class Controller implements Initializable {
 
     }
 
-    public void withdrawAccept(ActionEvent actionEvent) throws IOException {
+    /**
+     * Method Accept button of withdrawDialog. Checks for empty TextFields and Valid inputs.
+     */
+    public void withdrawAccept() {
         withdrawDialog.getScene().setFill(Color.TRANSPARENT);
         clearLabel(withdrawErrorLabel);
         resetTextFieldColor(withdrawTf);
@@ -520,13 +604,20 @@ public class Controller implements Initializable {
         }
     }
 
-    public void withdrawDecline(ActionEvent actionEvent) throws IOException {
+    /**
+     * Closes withdrawDialog.
+     */
+    public void withdrawDecline() {
         withdrawDialog.setVisible(false);
         resetLabelsAndTextFields();
     }
 
     // ***** Interest Dialog methods *****
-    public void getInterestDialog(ActionEvent actionEvent) throws IOException {
+
+    /**
+     * Shows interestDialog and immediately displays the interests based on current balance.
+     */
+    public void getInterestDialog() {
         interestDialog.setVisible(true);
         // There is some strange behaviour in the scene of the dialog, you can see the hard edges which set to be round
         // however when you close the dialog and reopen it they appear. Officially this is a limitation of JavaFX unless
@@ -538,13 +629,20 @@ public class Controller implements Initializable {
         updateScreenInformation();
     }
 
-    public void closeInterestDialog(ActionEvent actionEvent) throws IOException {
+    /**
+     * Closes the interestDialog.
+     */
+    public void closeInterestDialog() {
         interestDialog.setVisible(false);
         resetLabelsAndTextFields();
     }
 
     // ***** Transfer Dialog methods *****
-    public void getTransferDialog(ActionEvent actionEvent) throws IOException {
+
+    /**
+     * Shows the transferDialog.
+     */
+    public void getTransferDialog() {
         transferDialog.setVisible(true);
         // There is some strange behaviour in the scene of the dialog, you can see the hard edges which set to be round
         // however when you close the dialog and reopen it they appear. Officially this is a limitation of JavaFX unless
@@ -553,10 +651,15 @@ public class Controller implements Initializable {
         transferDialog.getScene().setFill(Color.DARKSALMON);
     }
 
-    public void transferAccept(ActionEvent actionEvent) throws IOException {
+    /**
+     * Method on the Accept button of transferDialog. It checks for empty TextFields and validates input.
+     */
+    public void transferAccept() {
         transferDialog.getScene().setFill(Color.TRANSPARENT);
         clearLabel(transferErrorLabel);
-        resetTextFieldColor(transferAccFirstNameTf, transferAccLastNameTf,transferAccNoTf, transferAmountTf);
+        resetTextFieldColor(transferAccFirstNameTf, transferAccLastNameTf, transferAccNoTf, transferAmountTf);
+
+        // name
         if (isEmpty(transferAccFirstNameTf))
             errorToLabel(transferAccFirstNameTf, transferErrorLabel, "First name required");
         else if (!isLetter(transferAccFirstNameTf))
@@ -566,25 +669,30 @@ public class Controller implements Initializable {
         else if (!isLetter(transferAccLastNameTf))
             errorToLabel(transferAccLastNameTf, transferErrorLabel, "Invalid last name");
 
+            // account number
         else if (isEmpty(transferAccNoTf))
             errorToLabel(transferAccNoTf, transferErrorLabel, "Account Number required");
         else if (!isDigit(transferAccNoTf)) errorToLabel(transferAccNoTf, transferErrorLabel, "Invalid Account No");
         else if (!validateAccountNo(transferAccNoTf))
             errorToLabel(transferAccNoTf, transferErrorLabel, "Account No has 8 digits");
 
+
+            // amount
         else if (isEmpty(transferAmountTf))
             errorToLabel(transferAmountTf, transferErrorLabel, "Transfer Amount required");
         else if (!isDigit(transferAmountTf)) errorToLabel(transferAmountTf, transferErrorLabel, "Enter an amount");
         else if (Float.parseFloat(transferAmountTf.getText()) <= 0)
             errorToLabel(transferAmountTf, transferErrorLabel, "Invalid amount");
-        else if (!existsCustomer(transferAccFirstNameTf.getText(),transferAccLastNameTf.getText(),transferAccNoTf.getText())) {
+
+            // checks if customer exists
+        else if (!existsCustomer(transferAccFirstNameTf.getText(), transferAccLastNameTf.getText(), transferAccNoTf.getText())) {
             errorToLabel(transferAccFirstNameTf, transferErrorLabel, "Invalid account details");
             transferAccLastNameTf.setStyle("-fx-border-color: red;");
             transferAccNoTf.setStyle("-fx-border-color: red;");
-        }
-        else {
+        } else {
+            // attempts to get valid input from TextFields and completes a money transfer
             try {
-                if (transfer(transferAccFirstNameTf.getText(),transferAccLastNameTf.getText(),transferAccNoTf.getText(),transferAmountTf.getText())) {
+                if (transfer(transferAccFirstNameTf.getText(), transferAccLastNameTf.getText(), transferAccNoTf.getText(), transferAmountTf.getText())) {
                     addToTransactionHistory("Transfer:" + SPACE + transferAccFirstNameTf.getText() + SPACE + transferAccLastNameTf.getText(), transferAmountTf);
                     updateScreenInformation();
                     transferDialog.setVisible(false);
@@ -599,13 +707,20 @@ public class Controller implements Initializable {
         }
     }
 
-    public void transferDecline(ActionEvent actionEvent) throws IOException {
+    /**
+     * Closes the transferDialog
+     */
+    public void transferDecline() {
         transferDialog.setVisible(false);
         resetLabelsAndTextFields();
     }
 
     // ***** Deposit Dialog Methods  *****
-    public void getDepositDialog(ActionEvent actionEvent) throws IOException {
+
+    /**
+     * Shows the depositDialog
+     */
+    public void getDepositDialog() {
         depositDialogue.setVisible(true);
         // There is some strange behaviour in the scene of the dialog, you can see the hard edges which set to be round
         // however when you close the dialog and reopen it they appear. Officially this is a limitation of JavaFX unless
@@ -615,15 +730,20 @@ public class Controller implements Initializable {
 
     }
 
-    public void depositAccept(ActionEvent actionEvent) throws IOException {
+    /**
+     * Method on the Accept button of the depositDialog. It gets valid input and completes a money deposit.
+     */
+    public void depositAccept() {
         depositDialogue.getScene().setFill(Color.TRANSPARENT);
         clearLabel(depositErrorLabel);
         resetTextFieldColor(depositTf);
+
         if (isEmpty(depositTf)) errorToLabel(depositTf, depositErrorLabel, "Deposit amount required");
         else if (!isDigit(depositTf)) errorToLabel(depositTf, depositErrorLabel, "Invalid number");
         else if ((Float.parseFloat(depositTf.getText()) <= 0))
             errorToLabel(depositTf, depositErrorLabel, "Invalid amount");
         else {
+            // Attempts to get a valid input from the TextField and completes a money transfer
             try {
                 if (deposit(depositTf.getText())) {
                     updateScreenInformation();
@@ -638,13 +758,18 @@ public class Controller implements Initializable {
         }
     }
 
-    public void depositDecline(ActionEvent actionEvent) throws IOException {
+    /**
+     * Closes the depositDialog.
+     */
+    public void depositDecline() {
         depositDialogue.setVisible(false);
         resetLabelsAndTextFields();
 
     }
 
-    // clears Labels and TextFields, used when pressing NO/YES on dialog to be ready for use when they open again
+    /**
+     * Clears Labels and TextFields, used when pressing NO/YES on dialog to be ready for use when they open again.
+     */
     public void resetLabelsAndTextFields() {
         transferAccFirstNameTf.clear();
         transferAccLastNameTf.clear();
@@ -655,10 +780,13 @@ public class Controller implements Initializable {
         loanAmountTf.clear();
         loanYearsTf.clear();
         // need to add newly implemented textfields
-        resetTextFieldColor(transferAccFirstNameTf,transferAccLastNameTf, transferAccNoTf, transferAmountTf, depositTf, withdrawTf, loanAmountTf, loanAmountTf);
+        resetTextFieldColor(transferAccFirstNameTf, transferAccLastNameTf, transferAccNoTf, transferAmountTf, depositTf, withdrawTf, loanAmountTf, loanAmountTf);
         clearAllDialogLabels();
     }
 
+    /**
+     * Clears all Labels in every dialog.
+     */
     public void clearAllDialogLabels() {
         transferErrorLabel.setText(EMPTY_STRING);
         withdrawErrorLabel.setText(EMPTY_STRING);
@@ -667,6 +795,10 @@ public class Controller implements Initializable {
 
     }
 
+    /**
+     * Updates information to the screen First/Last name, account number, balance, current time & the color of the circle
+     * in the middle depending on balance.
+     */
     public void updateScreenInformation() {
         nameLabel.setText(currentCustomer.getFirstName() + SPACE + currentCustomer.getLastName());
         accountLabel.setText(adjustAccountNumber()); // converts to string
@@ -675,6 +807,9 @@ public class Controller implements Initializable {
         updateMidCircleColor();
     }
 
+    /**
+     *Adds hyphens to the account number displayed on the screen.
+     */
     public String adjustAccountNumber() {
         if (modifiedAccNum.isEmpty())
             // EMPTY_STRING to avoid addition of the first digits
@@ -686,6 +821,9 @@ public class Controller implements Initializable {
         return modifiedAccNum;
     }
 
+    /**
+     * Updates the middle circle color behind the balance based on current balance.
+     */
     public void updateMidCircleColor() {
         if (currentCustomer.getBalance() > 1000.0) {
             midCircleGreen.setVisible(true);
@@ -699,6 +837,9 @@ public class Controller implements Initializable {
         }
     }
 
+    /**
+     * Exists application and closes the connection.
+     */
     public void exitApplication(ActionEvent event) throws Exception {
         connect().close();
         System.out.println("You have been disconnected from the database.");
@@ -715,7 +856,9 @@ public class Controller implements Initializable {
         }
     }
 
-
+    /**
+     * Changes the profile at the top left corner.
+     */
     public void changeProfilePic() {
         profileButton1.setVisible(false);
         profileButton2.setVisible(true);
@@ -732,12 +875,16 @@ public class Controller implements Initializable {
 
     }
 
+    /**
+     * Initialize values to the view.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         updateScreenInformation();
         for (int i = 0; i < 11; i++) {
             labelList.add(new Label[4]);
         }
+        // Places selected nodes into the labelList. Iterated later on the transactionDialog
         labelList.get(0)[0] = (transactionDate);
         labelList.get(0)[1] = (transactionTime);
         labelList.get(0)[2] = (transactionType);

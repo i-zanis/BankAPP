@@ -150,9 +150,9 @@ public class LoginController implements Initializable {
                     registrationPasswordTf1.getText(),
                     registrationMobileTf.getText())) {
                 getLogin();
-                addRegistrationBonus(registrationEmailTf1.getText(), 100);
-
+                addRegistrationBonus(registrationEmailTf1.getText(), 120);
             }
+            // might get thrown if there are 0 users in the database after deletion
             else registrationErrorLabel.setText("Unexpected error");
         } catch (Exception e) {
             System.err.println("Error occurred on registration.");

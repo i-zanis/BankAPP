@@ -17,6 +17,8 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
+<!-- ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="33.0" text="ToggleButton" -->
+
 <BorderPane fx:id="appWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uwl.cs.controller.LoginController">
     <top>
         <Rectangle arcHeight="5.0" arcWidth="5.0" height="34.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="346.0" BorderPane.alignment="CENTER">
@@ -92,11 +94,11 @@
                         </ImageView>
                         <VBox alignment="CENTER" layoutX="37.0" layoutY="120.0" prefHeight="397.0" prefWidth="200.0" spacing="9.0">
                             <children>
-                                <TextField fx:id="registrationNameTf" prefHeight="25.0" prefWidth="253.0" promptText="Name" text="Test" />
-                                <TextField fx:id="registrationLastNameTf" prefHeight="25.0" prefWidth="253.0" promptText="Last Name" text="Testila" />
-                                <TextField fx:id="registrationEmailTf1" prefHeight="25.0" prefWidth="253.0" promptText="E-mail Address" text="yoyassine@HOTMAIL.COM" />
-                                <TextField fx:id="registrationEmailTf2" prefHeight="25.0" prefWidth="253.0" promptText="Confirm Email Address" text="yoyassine@HOTMAIL.COM" />
-                                <TextField fx:id="registrationMobileTf" prefHeight="25.0" prefWidth="253.0" promptText="Mobile Number" text="+4417091689" />
+                                <TextField fx:id="registrationNameTf" prefHeight="25.0" prefWidth="253.0" promptText="Name" />
+                                <TextField fx:id="registrationLastNameTf" prefHeight="25.0" prefWidth="253.0" promptText="Last Name" />
+                                <TextField fx:id="registrationEmailTf1" prefHeight="25.0" prefWidth="253.0" promptText="E-mail Address" />
+                                <TextField fx:id="registrationEmailTf2" prefHeight="25.0" prefWidth="253.0" promptText="Confirm Email Address" />
+                                <TextField fx:id="registrationMobileTf" prefHeight="25.0" prefWidth="253.0" promptText="Mobile Number" />
                                 <PasswordField fx:id="registrationPasswordTf1" prefHeight="25.0" prefWidth="253.0" promptText="Password" />
                                 <PasswordField fx:id="registrationPasswordTf2" prefHeight="25.0" prefWidth="321.0" promptText="Confirm Password" />
                                 <Label fx:id="registrationErrorLabel" alignment="CENTER" prefHeight="20.0" prefWidth="162.0" textFill="RED">
@@ -142,5 +144,3 @@
         </Rectangle>
     </bottom>
 </BorderPane>
-
-<!-- ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="33.0" text="ToggleButton" -->

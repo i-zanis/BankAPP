@@ -3,7 +3,10 @@ package org.uwl.cs.model;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.regex.Matcher;
@@ -18,6 +21,7 @@ public class Database {
 
     /**
      * Connects to the database. First method to check when there is a connection problem in the database.
+     *
      * @return Connection object
      * @throws Exception
      */
@@ -33,6 +37,7 @@ public class Database {
 
     /**
      * Creates a customer object by the id(account number) of the user.
+     *
      * @param id
      * @return Customer object
      */
@@ -61,12 +66,12 @@ public class Database {
 
     /**
      * Updates account information by the id(account number) and updates to the new balance.
-     * @param accountId (account number)
+     *
+     * @param accountId  account number
      * @param newBalance
      * @return boolean
-     * @throws Exception
      */
-    public static boolean updateAccount(int accountId, Double newBalance) throws Exception {
+    public static boolean updateAccount(int accountId, Double newBalance) {
         try {
             Connection con = connect();
             Statement statement = con.createStatement();
@@ -82,6 +87,7 @@ public class Database {
 
     /**
      * Displays the existing customers in the database. Currently used for testing by running the Database Main method.
+     *
      * @return existing customers in a LinkedList
      */
     public static LinkedList<String[]> all() {
@@ -108,6 +114,7 @@ public class Database {
 
     /**
      * Gets the customers details by email
+     *
      * @param email
      * @return Customer Object
      */
@@ -136,7 +143,8 @@ public class Database {
 
     /**
      * Adds a specified bonus for new accounts.
-     * @param email Customers email
+     *
+     * @param email   Customers email
      * @param balance Desired bonus balance
      */
     public static void addRegistrationBonus(String email, float balance) {
@@ -160,7 +168,8 @@ public class Database {
 
     /**
      * Updates the balance of the customer given correct id.
-     * @param id account number
+     *
+     * @param id      account number
      * @param balance desired balance
      * @return true on successful update
      */
@@ -197,10 +206,11 @@ public class Database {
     /**
      * Updates the balance of a different customer. Used on the [Money Transfer] feature of the application that the user
      * has to input the correct credentials to transfer money to another customer.
-     * @param firstName Target customer (can be self)
-     * @param lastName  Target customer (can be self)
+     *
+     * @param firstName     Target customer (can be self)
+     * @param lastName      Target customer (can be self)
      * @param accountNumber Target customer
-     * @param balance Amount to transfer
+     * @param balance       Amount to transfer
      * @return true on successful transfer
      */
     public static boolean updateOtherCustomerBalance(String firstName, String lastName, String accountNumber, float balance) {
@@ -225,6 +235,7 @@ public class Database {
 
     /**
      * Confirms customer exists or creates a new one.
+     *
      * @param fName
      * @param lName
      * @param email
@@ -249,12 +260,14 @@ public class Database {
             return true;
 
         } catch (Exception e) {
-            return false;
+            e.printStackTrace();
         }
+        return false;
     }
 
     /**
      * Encrypts the user's password
+     *
      * @param password
      * @return
      */
@@ -276,6 +289,7 @@ public class Database {
 
     /**
      * Validates if email has the correct format.
+     *
      * @param email
      * @return true on correct email format
      */
@@ -287,12 +301,13 @@ public class Database {
     }
 
     /**
-     * Valids if phone number has the correct format(non-UK).
+     * Valids if phone number has the correct format.
+     *
      * @param phoneNumber
      * @return true on correct number format
      */
     public static boolean validatePhoneNumber(String phoneNumber) {
-        String rePattern = "^\\+(?:[0-9] ?){6,14}[0-9]$";
+        String rePattern = "^(?:\\+\\d{1,3}|0{0,2})\\d{8,12}$";
         Pattern pattern = Pattern.compile(rePattern, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(phoneNumber.strip());
         return matcher.find();
@@ -300,6 +315,7 @@ public class Database {
 
     /**
      * Password validation of [Minimum eight characters, at least one letter and one number] format
+     *
      * @param password
      * @return true on correct password format
      */
@@ -312,12 +328,12 @@ public class Database {
 
     /**
      * Checks if the credentials provided match the database's.
+     *
      * @param email
      * @param password
      * @return true when correct credentials
-     * @throws SQLException
      */
-    public static Boolean checkPassword(String email, String password) throws SQLException {
+    public static Boolean checkPassword(String email, String password) {
         try {
             Connection con = connect();
             Statement statement = con.createStatement();
@@ -337,7 +353,6 @@ public class Database {
             return false;
         } catch (Exception e) {
             e.printStackTrace();
-
         }
         return false;
     }
@@ -359,9 +374,9 @@ public class Database {
         }
     }
 
-/**
- * Create a new table in the database.
- */
+    /**
+     * Create a new table in the database.
+     */
     public static void init() {
         try {
             Connection con = connect();
@@ -373,7 +388,7 @@ public class Database {
                     "email VARCHAR(250) NOT NULL UNIQUE, " +
                     "password TEXT NOT NULL, " +
                     "balance FLOAT DEFAULT 0.0, " +
-                    "phone VARCHAR(11)," +
+                    "phone VARCHAR(15)," +
                     "PRIMARY KEY (id));";
             statement.executeUpdate(query);
             con.commit();
@@ -404,6 +419,7 @@ public class Database {
 
     /**
      * Deletes a customer given the right id.
+     *
      * @param id account number
      */
     public static void deleteUser(int id) {
@@ -422,6 +438,7 @@ public class Database {
 
     /**
      * Deletes a customer given the right email.
+     *
      * @param email
      */
     public static void deleteUser(String email) {
@@ -440,6 +457,7 @@ public class Database {
 
     /**
      * Checks for correct credentials and allows user to login to the database.
+     *
      * @param email
      * @param pwd
      * @return true on correct credentials
@@ -459,6 +477,7 @@ public class Database {
 
     /**
      * Checks if customer exists.
+     *
      * @param email
      * @param pwd
      * @return true on target customer existing
@@ -486,6 +505,7 @@ public class Database {
 
     /**
      * Checks if email exists
+     *
      * @param email
      * @return true on target email existing
      */
@@ -509,8 +529,9 @@ public class Database {
 
     /**
      * Checks if customer exists given the right credentials. Used in [Money Transfer] functionality of the application.
-     * @param firstName target customer first name
-     * @param lastName target customer last name
+     *
+     * @param firstName     target customer first name
+     * @param lastName      target customer last name
      * @param accountNumber target customer account number
      * @return true if target customer exists
      */
@@ -533,6 +554,7 @@ public class Database {
         System.err.println("The customer doesn't exist.");
         return false;
     }
+
     /*
        public static String[] get(int id) {
            try {
@@ -557,7 +579,7 @@ public class Database {
            }
            return null;
        }
-       public static void makeQuery(String query) {
+           public static void makeQuery(String query) {
         try {
             Connection con = connect();
             Statement statement = con.createStatement();
@@ -570,13 +592,16 @@ public class Database {
             e.printStackTrace();
 
         }
-    }
-        */
+     */
+
+
     public static void main(String[] args) {
-        //getOrCreateUser("Sea", "Chan", "test@test.com", "testing", "07717091689");
-        //updateOtherCustomerBalance("sea", "chan", "12365495", 50);
-        //existsCustomer("sea", "chan",  "12365495");
+        //getOrCreateUser("Markiur", "Namher", "test@test.com", "testing", "07717091689");
+        //updateOtherCustomerBalance("Sea", "Chan", "12365495", 50);
+        //existsCustomer("Sea", "Chan",  "12365495");
         //deleteAll();
+        //System.out.println(getOrCreateUser("Markiur", "Namher", "test@test.com", "testing", "07717091689"));
+        //makeQuery("ALTER TABLE account AUTO_INCREMENT=12354898");
         for (String[] a : all()) {
             System.out.println(Arrays.toString(a));
         }
