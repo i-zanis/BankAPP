@@ -18,36 +18,11 @@ public class SwitchButton extends StackPane {
     private final Rectangle back = new Rectangle(30, 10, Color.RED);
     private final Button button = new Button();
 
-    private String buttonStyleOff = "-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 0.2, 0.0, 0.0, 2); -fx-background-color: WHITE;";
+    private final String buttonStyleOff = "-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 0.2, 0.0, 0.0, 2); -fx-background-color: WHITE;";
 
-    private String buttonStyleOn = "-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 0.2, 0.0, 0.0, 2); -fx-background-color: #00893d;";
+    private final String buttonStyleOn = "-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 0.2, 0.0, 0.0, 2); -fx-background-color: #00893d;";
 
     private boolean state;
-
-    private void init() {
-
-        getChildren().addAll(back, button);
-
-        setMinSize(30, 15);
-
-        back.maxWidth(30);
-        back.minWidth(30);
-
-        back.maxHeight(10);
-        back.minHeight(10);
-
-        back.setArcHeight(back.getHeight());
-        back.setArcWidth(back.getHeight());
-        back.setFill(Color.valueOf("#ced5da"));
-
-        Double r = 2.0;
-        button.setShape(new Circle(r));
-
-        setAlignment(button, Pos.CENTER_LEFT);
-        button.setMaxSize(15, 15);
-        button.setMinSize(15, 15);
-        button.setStyle(buttonStyleOff);
-    }
 
     public SwitchButton() {
         init();
@@ -74,5 +49,30 @@ public class SwitchButton extends StackPane {
         setOnMouseClicked(click);
         button.setOnMouseClicked(click);
 
+    }
+
+    private void init() {
+
+        getChildren().addAll(back, button);
+
+        setMinSize(30, 15);
+
+        back.maxWidth(30);
+        back.minWidth(30);
+
+        back.maxHeight(10);
+        back.minHeight(10);
+
+        back.setArcHeight(back.getHeight());
+        back.setArcWidth(back.getHeight());
+        back.setFill(Color.valueOf("#ced5da"));
+
+        Double r = 2.0;
+        button.setShape(new Circle(r));
+
+        setAlignment(button, Pos.CENTER_LEFT);
+        button.setMaxSize(15, 15);
+        button.setMinSize(15, 15);
+        button.setStyle(buttonStyleOff);
     }
 }

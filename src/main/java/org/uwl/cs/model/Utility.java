@@ -33,6 +33,7 @@ public class Utility {
 
     /**
      * Gets the current time in the specified format.
+     *
      * @return current time
      */
     public static String getTime() {
@@ -42,6 +43,7 @@ public class Utility {
 
     /**
      * Gets the current date in the specified format.
+     *
      * @return current date
      */
     public static String getDate() {
@@ -51,6 +53,7 @@ public class Utility {
 
     /**
      * Fade in animation for children of StackPane.
+     *
      * @param node type object
      */
     public static void fadeIn(Node node) {

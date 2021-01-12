@@ -47,32 +47,39 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 
-
+    /**
+     * Shows the loginPane. Used when registrationPane is active to get back to the login screen.
+     */
     public void getLogin() {
         registrationPane.setVisible(false);
         registrationPane.setDisable(true);
         loginPane.setDisable(false);
     }
 
+    /**
+     * Shows the registrationPane.
+     */
     public void getRegistration() {
         registrationPane.setVisible(true);
         registrationPane.setDisable(false);
         loginPane.setDisable(true);
     }
 
-    public void resetLoginLabelsAndFields(ActionEvent event) {
-        emailTf.clear();
-        passwordTf.clear();
-    }
-
+    /**
+     * Very important method.
+     * Logs in to the main application main when provided the correct credentials.
+     */
     public void loginToApp(ActionEvent event) throws Exception {
         clearLabel(loginErrorLabel);
         resetTextFieldColor(emailTf, passwordTf);
+
+        // email TextField check
         if (isEmpty(emailTf)) errorToLabel(emailTf, loginErrorLabel, "Email is required");
+            // password TextField check
         else if (isEmpty(passwordTf)) errorToLabel(passwordTf, loginErrorLabel, "Password is required");
+            // if credentials correct attempts to make a current customer object and proceeds to the application
         else if (login(emailTf.getText(), passwordTf.getText())) {
             try {
                 currentCustomer = getCustomerByEmail(emailTf.getText());
@@ -93,7 +100,11 @@ public class LoginController implements Initializable {
         }
     }
 
-    public void register(ActionEvent event) throws Exception {
+    /**
+     * Very important method.
+     * Registers new user provided correct information to the TextFields.
+     */
+    public void register() {
         clearLabel(registrationErrorLabel);
         resetTextFieldColor(registrationNameTf, registrationLastNameTf, registrationEmailTf1,
                 registrationEmailTf2,
@@ -108,23 +119,25 @@ public class LoginController implements Initializable {
                 errorToLabel(registrationLastNameTf, registrationErrorLabel, "Last name required");
             else if (!isLetter(registrationLastNameTf))
                 errorToLabel(registrationLastNameTf, registrationErrorLabel, "Invalid last name");
+
                 // email check
             else if (isEmpty(registrationEmailTf1))
                 errorToLabel(registrationEmailTf1, registrationErrorLabel, "Email required");
             else if (!validateEmail(registrationEmailTf1.getText())) {
                 errorToLabel(registrationEmailTf1, registrationErrorLabel, "Invalid email");
                 registrationEmailTf2.setText(EMPTY_STRING);
-            }
-            else if (isEmpty(registrationEmailTf2))
+            } else if (isEmpty(registrationEmailTf2))
                 errorToLabel(registrationEmailTf2, registrationErrorLabel, "Confirm email");
             else if (!registrationEmailTf1.getText().equals(registrationEmailTf2.getText())) {
                 errorToLabel(registrationEmailTf2, registrationErrorLabel, "Email does not match");
             }
-            // mobile check
+
+            // phone check
             else if (isEmpty(registrationMobileTf))
                 errorToLabel(registrationMobileTf, registrationErrorLabel, "Mobile number required");
             else if (!validatePhoneNumber(registrationMobileTf.getText()))
                 errorToLabel(registrationMobileTf, registrationErrorLabel, "Invalid mobile number");
+
                 // password check
             else if (isEmpty(registrationPasswordTf1))
                 errorToLabel(registrationPasswordTf1, registrationErrorLabel, "Password required");
@@ -133,11 +146,13 @@ public class LoginController implements Initializable {
             else if (!validatePassword(registrationPasswordTf1.getText())) {
                 errorToLabel(registrationPasswordTf1, registrationErrorLabel, "Invalid password");
                 registrationPasswordTf2.clear();
-
-            } else if (isEmpty(registrationPasswordTf2))
+            }
+            // password TextField 2
+            else if (isEmpty(registrationPasswordTf2))
                 errorToLabel(registrationPasswordTf2, registrationErrorLabel, "Confirm password");
             else if (!registrationPasswordTf1.getText().equals(registrationPasswordTf2.getText()))
                 errorToLabel(registrationPasswordTf2, registrationErrorLabel, "Password does not match");
+
                 // account exists
             else if (existsEmail(registrationEmailTf1.getText())) {
                 errorToLabel(registrationEmailTf1, registrationErrorLabel, "Email already registered");
@@ -152,7 +167,7 @@ public class LoginController implements Initializable {
                 getLogin();
                 addRegistrationBonus(registrationEmailTf1.getText(), 120);
             }
-            // might get thrown if there are 0 users in the database after deletion
+            // For any other type of errors
             else registrationErrorLabel.setText("Unexpected error");
         } catch (Exception e) {
             System.err.println("Error occurred on registration.");
@@ -160,8 +175,9 @@ public class LoginController implements Initializable {
         }
     }
 
-
-    public void getBrowser(ActionEvent actionEvent) throws IOException, URISyntaxException {
+    // opens default browser when press the "Forget password"
+    // It will be replaced by WebView in a future JavaFX stable release
+    public void getBrowser() {
         if (Desktop.isDesktopSupported()) {
             try {
                 Desktop.getDesktop().browse(new URI("https://www.uwl.ac.uk/current-students/new-students/changing-your-password"));

@@ -464,10 +464,7 @@ public class Database {
      */
     public static boolean login(String email, String pwd) {
         try {
-            if (checkPassword(email, pwd)) {
-                return true;
-            }
-            return false;
+            return checkPassword(email, pwd);
         } catch (Exception e) {
             e.printStackTrace();
 

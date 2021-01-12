@@ -31,7 +31,7 @@ public class Controller implements Initializable {
     public static ArrayList<Label[]> labelList = new ArrayList<>();
     // Storage list for previous transactions
     public static ArrayList<String[]> transactionHistoryList = new ArrayList<>();
-    // This is where the account number gets saved to be shown with hyphens
+    // This is where the account number gets stored to be shown with hyphens
     public String modifiedAccNum = "";
 
     public BorderPane appWindow;
@@ -676,7 +676,6 @@ public class Controller implements Initializable {
         else if (!validateAccountNo(transferAccNoTf))
             errorToLabel(transferAccNoTf, transferErrorLabel, "Account No has 8 digits");
 
-
             // amount
         else if (isEmpty(transferAmountTf))
             errorToLabel(transferAmountTf, transferErrorLabel, "Transfer Amount required");
@@ -808,7 +807,7 @@ public class Controller implements Initializable {
     }
 
     /**
-     *Adds hyphens to the account number displayed on the screen.
+     * Adds hyphens to the account number displayed on the screen.
      */
     public String adjustAccountNumber() {
         if (modifiedAccNum.isEmpty())

@@ -23,28 +23,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76f6dc9c-09d8-4577-8976-110c5b38687f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/BankAPP.plantuml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/uml_diagram.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/controller/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/controller/LoginController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/model/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/model/Database.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/model/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/model/Transaction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/model/SwitchButton$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/model/SwitchButton$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/model/SwitchButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/model/SwitchButton.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/model/Utility.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/uwl/cs/model/Utility.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/view/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/view/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/PracticalActivity5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/Account.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/model/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/model/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/model/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/model/SwitchButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/model/SwitchButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uwl/cs/model/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uwl/cs/model/Utility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,6 +242,7 @@
         <option value="JavaFXApplication" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="UML Sequence" />
       </list>
     </option>
   </component>
@@ -265,17 +266,29 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultPlantUmlFileTemplate" value="UML Sequence" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Documents and Settings" />
     <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="inlay.hints.JAVA" />
+    <property name="settings.editor.selected.configurable" value="org.plantuml.idea.lang.settings.PlantUmlSettingsPage" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\java\org\uwl\cs" />
+      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources\media" />
+      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP" />
+      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources\view" />
+      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\java" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.uwl.cs" />
+      <recent name="org.uwl.cs.model" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources\media" />
@@ -283,30 +296,19 @@
       <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources\css" />
       <recent name="C:\Users\JEITI\BankAPP" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="org.uwl.cs" />
-      <recent name="org.uwl.cs.model" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources\media" />
-      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP" />
-      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\resources\view" />
-      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\java\org\uwl\cs" />
-      <recent name="C:\Users\JEITI\IdeaProjects\BankAPP\src\main\java" />
-    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="gradle --warning-mode all" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Database" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.uwl.cs.model.Database" />
+  <component name="RunManager" selected="Application.Database">
+    <configuration name="Account" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.uwl.cs.Account" />
       <module name="BankAPP.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.uwl.cs.model.*" />
+          <option name="PATTERN" value="org.uwl.cs.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -314,13 +316,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.uwl.cs.Main" />
+    <configuration name="Database" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.uwl.cs.model.Database" />
       <module name="BankAPP.main" />
-      <option name="VM_PARAMETERS" value="--module-path C:\Users\JEITI\IdeaProjects\ElectionAPP\dependencies\javafx-sdk-11.0.2\lib --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.uwl.cs.*" />
+          <option name="PATTERN" value="org.uwl.cs.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -401,10 +402,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Tests" />
+        <item itemvalue="Gradle.BankAPP [jar]" />
         <item itemvalue="Application.MainScene" />
         <item itemvalue="Application.Database" />
-        <item itemvalue="Gradle.BankAPP [jar]" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Account" />
       </list>
     </recent_temporary>
   </component>
@@ -432,6 +433,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="161" key="#Plugins" timestamp="1610341862782">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="161" key="#Plugins/0.0.1920.1040@0.0.1920.1040" timestamp="1610341862782" />
     <state x="440" y="94" key="#Project_Structure" timestamp="1609017517081">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -468,26 +473,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="707" y="354" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1609402318994" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1610224655771">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1610343779020">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1610224655771" />
-    <state width="1877" height="2" key="GridCell.Tab.0.bottom" timestamp="1610336575651">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1610343779020" />
+    <state width="1877" height="306" key="GridCell.Tab.0.bottom" timestamp="1610346029637">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="2" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1610336575651" />
-    <state width="1877" height="2" key="GridCell.Tab.0.center" timestamp="1610336575651">
+    <state width="1877" height="306" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1610346029637" />
+    <state width="1877" height="306" key="GridCell.Tab.0.center" timestamp="1610346029637">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="2" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1610336575651" />
-    <state width="1877" height="2" key="GridCell.Tab.0.left" timestamp="1610336575651">
+    <state width="1877" height="306" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1610346029637" />
+    <state width="1877" height="306" key="GridCell.Tab.0.left" timestamp="1610346029637">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="2" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1610336575651" />
-    <state width="1877" height="2" key="GridCell.Tab.0.right" timestamp="1610336575651">
+    <state width="1877" height="306" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1610346029637" />
+    <state width="1877" height="306" key="GridCell.Tab.0.right" timestamp="1610346029637">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="2" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1610336575651" />
+    <state width="1877" height="306" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1610346029637" />
     <state width="1877" height="429" key="GridCell.Tab.1.bottom" timestamp="1610323220980">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -508,10 +513,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="184" y="86" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609448576663" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1609301577313">
+    <state x="461" y="165" key="SettingsEditor" timestamp="1610341632022">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1609301577313" />
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1610341632022" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1609709374736">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -528,10 +533,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1609100330799" />
-    <state x="551" y="130" key="new project wizard" timestamp="1610224677333">
+    <state x="551" y="130" key="new project wizard" timestamp="1610343925712">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="551" y="130" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1610224677333" />
+    <state x="551" y="130" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1610343925712" />
     <state x="660" y="277" key="refactoring.ChangeSignatureDialog" timestamp="1609391527879">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -540,10 +545,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="136" y="242" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1609644355939" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1610336669613">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1610341934723">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1610336669613" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1610341934723" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BankAPP$Main.ic" NAME="Main Coverage Results" MODIFIED="1609395237568" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
