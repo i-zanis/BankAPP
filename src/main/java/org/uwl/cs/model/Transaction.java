@@ -82,7 +82,7 @@ public class Transaction {
      */
     public static String getMonthlyInterest() {
         decimalFormat.applyPattern(NUMBER_FORMAT);
-        return POUND_SYMBOL + decimalFormat.format((currentCustomer.getBalance() * interestRate / 100 / 12));
+        return POUND_SYMBOL + decimalFormat.format((currentCustomer.getBalance() * in|terestRate / 100 / 12));
     }
 
     /**

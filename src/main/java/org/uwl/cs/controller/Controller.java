@@ -685,7 +685,8 @@ public class Controller implements Initializable {
 
             // checks if customer exists
         else if (!existsCustomer(transferAccFirstNameTf.getText(), transferAccLastNameTf.getText(), transferAccNoTf.getText())) {
-            errorToLabel(transferAccFirstNameTf, transferErrorLabel, "Invalid account details");
+            transferErrorLabel.setText("Invalid account details");
+            transferAccFirstNameTf.setStyle("-fx-border-color: red;");
             transferAccLastNameTf.setStyle("-fx-border-color: red;");
             transferAccNoTf.setStyle("-fx-border-color: red;");
         } else {
