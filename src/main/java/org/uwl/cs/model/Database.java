@@ -260,9 +260,8 @@ public class Database {
             return true;
 
         } catch (Exception e) {
-            e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     /**
@@ -575,8 +574,8 @@ public class Database {
                e.printStackTrace();
            }
            return null;
-       }
-           public static void makeQuery(String query) {
+       }*/
+    public static void makeQuery(String query) {
         try {
             Connection con = connect();
             Statement statement = con.createStatement();
@@ -589,7 +588,7 @@ public class Database {
             e.printStackTrace();
 
         }
-     */
+    }
 
 
     public static void main(String[] args) {
@@ -599,6 +598,7 @@ public class Database {
         //deleteAll();
         //System.out.println(getOrCreateUser("Markiur", "Namher", "test@test.com", "testing", "07717091689"));
         //makeQuery("ALTER TABLE account AUTO_INCREMENT=12354898");
+        //makeQuery("DELETE FROM account WHERE email='testing1@gmail.com';");
         for (String[] a : all()) {
             System.out.println(Arrays.toString(a));
         }

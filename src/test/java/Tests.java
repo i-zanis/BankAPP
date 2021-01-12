@@ -25,20 +25,20 @@ public class Tests {
     }
 
     @Test
-    public void testGetCreateUser() {
+    public void testGeOrtCreateUser() {
         HashMap<Boolean, Boolean> cases = new HashMap<>();
         cases.put(getOrCreateUser(
-                "test", "test", "testing@gmail.com", "testing123", "123123123"
+                "test", "test", "testing1@gmail.com", "testing123", "123123123"
                 ),
                 true);
         cases.put(getOrCreateUser(
-                "test", "test", "testing@gmail.com", "testing123", "123123123"
+                "test", "test", "testing1@gmail.com", "testing123", "123123123"
                 ),
                 false);
         for (boolean key : cases.keySet()) {
             Assert.assertEquals(cases.get(key), cases.get(key));
         }
-        int id = existsID("testing@gmail.com", "testing123");
+        int id = existsID("testing1@gmail.com", "testing123");
         deleteUser(id);
     }
 }
