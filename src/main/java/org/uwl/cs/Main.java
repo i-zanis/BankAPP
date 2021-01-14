@@ -11,6 +11,24 @@ import org.uwl.cs.model.Database;
 
 import static org.uwl.cs.model.Constant.*;
 
+
+/**
+ * Basic Bank Application Demo with Graphical User Interface.
+ * It supports basic transaction functionalities transfer from account to account, withdraw, deposit, yearly/monthly
+ * interest, loan calculator and transaction summary.
+ * The circle in the middle changes color based on the current balance.
+ * <p>
+ * Made in Java 14.0.2.
+ * For running the application; type run or press run on the Gradle menu.
+ * <p>
+ * If the Program does not work please download "javafx-sdk-11.0" and add all the jar-files in
+ * Javafx-sdk-11.0.2\lib\ to the global library.
+ * <p>
+ * VM options --module-path %java path% --add-modules javafx.controls,javafx.fxml
+ * If there is an error with the root file FXML please place the above VM options as well.
+ * Screenshot provided in the media Folder.
+ */
+
 public class Main extends Application {
 
     public static Stage primaryStage;
