@@ -9,7 +9,7 @@ If the Program does not work please download "javafx-sdk-11.0" and add all the j
 Javafx-sdk-11.0.2\lib\ to the global library.
 VM options: --module-path %java path% --add-modules javafx.controls,javafx.fxml
 
-Alternatively you use run in gradle without any modifications.
+Alternatively you can use run in gradle without any modifications.
 ![Screenshot](src/main/resources/media/fix_vm_options.png)
 
 
