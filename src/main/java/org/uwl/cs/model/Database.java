@@ -26,7 +26,7 @@ public class Database {
      * @throws Exception
      */
     public static Connection connect() throws Exception {
-        String url = "jdbc:mysql://byfcpp9vrgzbrtqotooc-mysql.services.clever-cloud.com:3306/byfcpp9vrgzbrtqotooc";
+        String url = "jdbc:mysql://uupoc6dwtojsvpfm:ZglEpADBDMfdw7g28KLu@bqiiqaztf5mewydmxmjz-mysql.services.clever-cloud.com:3306/bqiiqaztf5mewydmxmjz";
         String user = "uupoc6dwtojsvpfm";
         String pwd = "ZglEpADBDMfdw7g28KLu";
         Connection con = null;
